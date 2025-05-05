@@ -1,16 +1,6 @@
-rpc_url = "http://nl.deez.top:80/"
-grpc_url = "http://nl.grpc.deez.top:10001/"
-grpc_token = ""
+rpc_url = "http://nl.deez.top:80/" # Set your RPC url here for smb-config to retrieve data
+grpc_url = "http://nl.grpc.deez.top:10001/" # Set your GRPC url here for smb-config to stream transactions
 helius_key = "" # Must enter your Helius key for getting optimal priority fee
-dexes = [
-  "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8", # raydium amm v4
-  "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C", # raydium cpmm
-  "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA", # pumpfun amm
-  "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo", # meteora dlmm
-  "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc", # orca whirlpools
-  "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK", # raydium clmm
-  "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB", # meteora dynamic
-]
 filter_programs = false # true = only use transactions from arb_programs, false = use all transactions
 arb_programs = [
   "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz", #solana mev bot on-chain
@@ -30,23 +20,23 @@ output = "smb-config.toml" # Name of the ouput config file
 period = 300000 # Time interval to generate a config in milliseconds
 min_roi = 4 # Minimum ROI filter for mint over the defined period
 min_txns = 20 # Minimum transaction count for mint over the defined period
-min_net_volume = 1000000000 # Minimum net volume in lamports
+min_net_volume = 10000000000 # Minimum net volume in lamports
 mints_num = 2 # Number of mints to include in config
 min_process_delay = 400 # Minimum process delay - scales with number of transaction for mint over defined period
 max_process_delay = 1200 # Maximum process delay - scales with number of transaction for mint over defined period
 min_cu_percentile = 25 # Minimum Helius percentile priority fee
 max_cu_percentile = 75 # Maximum Helius percentile priority fee
-min_cu_price = 1000
-max_cu_price = 100000
+min_cu_price = 10000
+max_cu_price = 1000000
 cu_strategy = "Linear" # Random/Linear/Exponential
 min_tx_count = 1 # Minmum number of transactions to spam - scales with number of transaction for mint over defined period
 max_tx_count = 4 # Maximum number of transaction to spam - scales with number of transaction for mint over defined period
-max_cu_limit = 500000
+max_cu_limit = 600000
 top_pool_num = 2 # Number of top pools to include
-config_rpc_url = "http://utah.deez.top:80" # RPC to use for SMB config
+config_rpc_url = "http://utah.deez.top:80" # RPC to use for smb-onchain config
 sending_rpc_urls = [
-  "http://main.deez.top:80",
+  "http://main.deez.top:80", # RPC urls for sending transaction by smb-onchain
 ]
-kamino = true
-merge_mints = true
-spam = true
+kamino = true # For using Kamino lending
+merge_mints = true # For using merge mints
+spam = true #  For using spam
