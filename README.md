@@ -44,3 +44,18 @@ called `Result::unwrap()` on an `Err` value: Os { code: 24, kind: Uncategorized,
 Then run this command to increase the limit:
 
 ulimit -n 65536
+
+# How it works
+smb-copy will parse transactions and rank the mints according to arbitrage profit:
+![image](https://github.com/user-attachments/assets/379ac9f1-1029-4539-84c5-08bb77387009)
+In your config.toml you can set minimum threshold on "Txns", "Net Vol/min", and "ROI"
+Only the mints passing your filters will be used for generating a config for smb-onchain.
+If no mints pass your filters, smb-copy will generate a dummy config that will cause smb-onchain to stop running.
+
+smb-copy will also find the most commonly used ALUTs and use them in your config.
+Pools will be selected based on how much arbitrage profit has come from those pools.
+![image](https://github.com/user-attachments/assets/861602cb-6367-463f-bbb1-577cb2d0de74)
+
+Dynamic priority fees will also be estimated using the Helius API
+![image](https://github.com/user-attachments/assets/ff57af74-9a79-4bdb-8b5d-51df8f28945c)
+
