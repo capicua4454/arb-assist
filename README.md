@@ -30,7 +30,7 @@ or run this command:
 
 npm install pm2 -g
 
-#You should run smb-copy continuously using pm2, tmux, or some other method of choice.
+You should run smb-copy continuously using pm2, tmux, or some other method of choice.
 To run smb-onchain, you should use pm2 and run this command:
 
 pm2 start smb-onchain --watch -- run smb-config.toml
