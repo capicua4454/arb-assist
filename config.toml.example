@@ -1,0 +1,52 @@
+rpc_url = "http://nl.deez.top:80/"
+grpc_url = "http://nl.grpc.deez.top:10001/"
+grpc_token = ""
+helius_key = "" # Must enter your Helius key for getting optimal priority fee
+dexes = [
+  "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8", # raydium amm v4
+  "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C", # raydium cpmm
+  "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA", # pumpfun amm
+  "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo", # meteora dlmm
+  "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc", # orca whirlpools
+  "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK", # raydium clmm
+  "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB", # meteora dynamic
+]
+filter_programs = false # true = only use transactions from arb_programs, false = use all transactions
+arb_programs = [
+  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz", #solana mev bot on-chain
+  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi", #solana mev bot jupiter
+  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd", #NotArb
+  "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu", #rm4cojNDeUfFQZBMVUSTuxFn15dpAmygaaqyaaWqbUC
+  "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T", #7dGrdJRYtsNR8UYxZ3TnifXGjGc9eRYLq9sELwYpuuUu
+  "A6PDFLzh3VbkFn6aJmHe2LSd5kaYe8bmsQc6yPjinpC2", #CKWXpDkudKoVDhhDJC7uRd5Ccb8eaBv2TWfTpLB539DC
+  "E6kDzoUtNHuk7kyNzK9XUzqi5H3NfvhcXhKv4ToDDW1L", #CG8nLp19VfoJdzJTcZRu181deCmckmtgBYxWGcH3wbRT
+  "6MWVTis8rmmk6Vt9zmAJJbmb3VuLpzoQ1aHH4N6wQEGh", #CzYQ2kFnBxsNEt9Zy34vQ3n5fSDhvA4o4XaTnq1rLvyr
+  "MEDALksSEYQQUBsyjSjmhE1ib6Cn7bRV48MYGQ5oQGY", #E8bTgCfQLMSrJ6wPaq3GsRaGopzNzGL7RPCUYqRUHSFM
+  "Crf6uiMVHpuqkQzE2FkWWces3xiYaTbTsFYPDSeNWksM", #EVybKZ6kp8CccQSkcAdfsstG5aX8mbQQC6jrKTcuFhVp
+  "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3", #HxkTYMtx4FsMCBRtJ4LTwZnGAMZE4vMbh6sPUBgRCeY7
+  "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg", #3pjWyeFUPa9Sppf15BAJYim4K2kVZThbLbYzThhLUBbG
+]
+output = "smb-config.toml" # Name of the ouput config file
+period = 300000 # Time interval to generate a config in milliseconds
+min_roi = 4 # Minimum ROI filter for mint over the defined period
+min_txns = 20 # Minimum transaction count for mint over the defined period
+min_net_volume = 1000000000 # Minimum net volume in lamports
+mints_num = 2 # Number of mints to include in config
+min_process_delay = 400 # Minimum process delay - scales with number of transaction for mint over defined period
+max_process_delay = 1200 # Maximum process delay - scales with number of transaction for mint over defined period
+min_cu_percentile = 25 # Minimum Helius percentile priority fee
+max_cu_percentile = 75 # Maximum Helius percentile priority fee
+min_cu_price = 1000
+max_cu_price = 100000
+cu_strategy = "Linear" # Random/Linear/Exponential
+min_tx_count = 1 # Minmum number of transactions to spam - scales with number of transaction for mint over defined period
+max_tx_count = 4 # Maximum number of transaction to spam - scales with number of transaction for mint over defined period
+max_cu_limit = 500000
+top_pool_num = 2 # Number of top pools to include
+config_rpc_url = "http://utah.deez.top:80" # RPC to use for SMB config
+sending_rpc_urls = [
+  "http://main.deez.top:80",
+]
+kamino = true
+merge_mints = true
+spam = true
