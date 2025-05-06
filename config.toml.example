@@ -1,42 +1,51 @@
-rpc_url = "http://nl.deez.top:80/" # Set your RPC url here for smb-config to retrieve data
-grpc_url = "http://nl.grpc.deez.top:10001/" # Set your GRPC url here for smb-config to stream transactions
-helius_key = "" # Must enter your Helius key for getting optimal priority fee
-filter_programs = false # true = only use transactions from arb_programs, false = use all transactions
+rpc_url = "http://nl.deez.top:80/"                 # RPC endpoint for retrieving data
+grpc_url = "http://nl.grpc.deez.top:10001/"        # GRPC endpoint for streaming transactions
+grpc_token = ""                                    # GRPC or Thorstreamer X-Token
+grpc_engine = "yellowstone"                        # GRPC engine: "yellowstone" or "thor"
+helius_key = ""                                    # Helius API key for dynamic priority fee estimation
+
+filter_programs = false                            # If true, only include transactions from arb_programs
 arb_programs = [
-  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz", #solana mev bot on-chain
-  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi", #solana mev bot jupiter
-  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd", #NotArb
-  "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu", #rm4cojNDeUfFQZBMVUSTuxFn15dpAmygaaqyaaWqbUC
-  "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T", #7dGrdJRYtsNR8UYxZ3TnifXGjGc9eRYLq9sELwYpuuUu
-  "A6PDFLzh3VbkFn6aJmHe2LSd5kaYe8bmsQc6yPjinpC2", #CKWXpDkudKoVDhhDJC7uRd5Ccb8eaBv2TWfTpLB539DC
-  "E6kDzoUtNHuk7kyNzK9XUzqi5H3NfvhcXhKv4ToDDW1L", #CG8nLp19VfoJdzJTcZRu181deCmckmtgBYxWGcH3wbRT
-  "6MWVTis8rmmk6Vt9zmAJJbmb3VuLpzoQ1aHH4N6wQEGh", #CzYQ2kFnBxsNEt9Zy34vQ3n5fSDhvA4o4XaTnq1rLvyr
-  "MEDALksSEYQQUBsyjSjmhE1ib6Cn7bRV48MYGQ5oQGY", #E8bTgCfQLMSrJ6wPaq3GsRaGopzNzGL7RPCUYqRUHSFM
-  "Crf6uiMVHpuqkQzE2FkWWces3xiYaTbTsFYPDSeNWksM", #EVybKZ6kp8CccQSkcAdfsstG5aX8mbQQC6jrKTcuFhVp
-  "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3", #HxkTYMtx4FsMCBRtJ4LTwZnGAMZE4vMbh6sPUBgRCeY7
-  "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg", #3pjWyeFUPa9Sppf15BAJYim4K2kVZThbLbYzThhLUBbG
+  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",    # Solana MEV Bot (on-chain)
+  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",    # Solana MEV Bot (Jupiter)
+  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd",    # NotArb
+  "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu",    # RM4 (Example)
+  "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T",     # 7dGr (Example)
+  "A6PDFLzh3VbkFn6aJmHe2LSd5kaYe8bmsQc6yPjinpC2",    # CKWX (Example)
+  "E6kDzoUtNHuk7kyNzK9XUzqi5H3NfvhcXhKv4ToDDW1L",    # CG8n (Example)
+  "6MWVTis8rmmk6Vt9zmAJJbmb3VuLpzoQ1aHH4N6wQEGh",    # CzYQ (Example)
+  "MEDALksSEYQQUBsyjSjmhE1ib6Cn7bRV48MYGQ5oQGY",     # E8bT (Example)
+  "Crf6uiMVHpuqkQzE2FkWWces3xiYaTbTsFYPDSeNWksM",    # EVyb (Example)
+  "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3",    # HxkT (Example)
+  "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg",    # 3pjW (Example)
 ]
-output = "smb-config.toml" # Name of the ouput config file
-period = 300000 # Time interval to generate a config in milliseconds
-min_roi = 4 # Minimum ROI filter for mint over the defined period
-min_txns = 20 # Minimum transaction count for mint over the defined period
-min_net_volume = 10000000000 # Minimum net volume in lamports
-mints_num = 2 # Number of mints to include in config
-min_process_delay = 400 # Minimum process delay - scales with number of transaction for mint over defined period
-max_process_delay = 1200 # Maximum process delay - scales with number of transaction for mint over defined period
-min_cu_percentile = 25 # Minimum Helius percentile priority fee
-max_cu_percentile = 75 # Maximum Helius percentile priority fee
-min_cu_price = 10000
-max_cu_price = 1000000
-cu_strategy = "Linear" # Random/Linear/Exponential
-min_tx_count = 1 # Minmum number of transactions to spam - scales with number of transaction for mint over defined period
-max_tx_count = 4 # Maximum number of transaction to spam - scales with number of transaction for mint over defined period
-max_cu_limit = 600000
-top_pool_num = 2 # Number of top pools to include
-config_rpc_url = "http://utah.deez.top:80" # RPC to use for smb-onchain config
+
+output = "smb-config.toml"                         # Output config filename
+period = 300000                                    # Interval to regenerate config (ms)
+min_roi = 4                                        # Minimum ROI required (over defined period)
+min_txns = 20                                      # Minimum number of transactions for a mint
+min_net_volume = 10000000000                       # Minimum net volume (in lamports)
+mints_num = 2                                      # Number of top mints to include
+min_process_delay = 400                            # Minimum spam delay per mint (ms)
+max_process_delay = 1200                           # Maximum spam delay per mint (ms)
+
+min_cu_percentile = 25                             # Min Helius percentile for CU pricing
+max_cu_percentile = 75                             # Max Helius percentile for CU pricing
+min_cu_price = 10000                               # Minimum compute unit price
+max_cu_price = 1000000                             # Maximum compute unit price
+cu_strategy = "Linear"                             # CU price strategy: Random / Linear / Exponential
+
+min_tx_count = 1                                   # Minimum spam TX count per mint
+max_tx_count = 4                                   # Maximum spam TX count per mint
+max_cu_limit = 600000                              # Maximum compute unit limit
+
+top_pool_num = 2                                   # Number of top pools to include
+
+config_rpc_url = "http://utah.deez.top:80"         # RPC for smb-onchain to use with generated config
 sending_rpc_urls = [
-  "http://main.deez.top:80", # RPC urls for sending transaction by smb-onchain
+  "http://main.deez.top:80",                       # RPCs used for sending transactions
 ]
-kamino = true # For using Kamino lending
-merge_mints = true # For using merge mints
-spam = true #  For using spam
+
+kamino = true                                      # Enable Kamino lending support
+merge_mints = true                                 # Enable merged mint spam
+spam = true                                        # Enable spam behavior
