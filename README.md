@@ -23,6 +23,7 @@ If no mints meet your criteria, a dummy config is generated to stop `smb-onchain
 
 - Your license file must be in the same folder as `smb-copy` and `smb-onchain`
 - Your license is locked to the server IP and must be run from a whitelisted server
+- You must have either Yellowstone GRPC or ThorStreamer to stream transaction data
 
 ### 2. Install Node.js
 
