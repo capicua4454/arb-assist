@@ -1,52 +1,71 @@
-rpc_url = "http://nl.deez.top:80/"                 # RPC endpoint for retrieving data
-grpc_url = "http://nl.grpc.deez.top:10001/"        # GRPC endpoint for streaming transactions
-grpc_token = ""                                    # GRPC or ThorStreamer X-Token
-grpc_engine = "yellowstone"                        # GRPC engine: "yellowstone" or "thor"
-helius_key = ""                                    # Helius API key for dynamic priority fee estimation
+rpc_url = "http://nl.deez.top:80"                 # RPC endpoint for retrieving data
+grpc_url = "http://nl.grpc.deez.top:10001"        # GRPC endpoint for streaming transactions
+grpc_token = ""                                   # GRPC or ThorStreamer X-Token
+grpc_engine = "yellowstone"                       # GRPC engine: "yellowstone" or "thor"
+helius_key = ""                                   # Helius API key for dynamic priority fee estimation
 
-filter_programs = false                            # If true, only include transactions from arb_programs
+filter_programs = false                           # If true, only include transactions from arb_programs
 arb_programs = [
-  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",    # Solana MEV Bot (on-chain)
-  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",    # Solana MEV Bot (Jupiter)
-  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd",    # NotArb
-  "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu",    # RM4 (Example)
-  "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T",     # 7dGr (Example)
-  "A6PDFLzh3VbkFn6aJmHe2LSd5kaYe8bmsQc6yPjinpC2",    # CKWX (Example)
-  "E6kDzoUtNHuk7kyNzK9XUzqi5H3NfvhcXhKv4ToDDW1L",    # CG8n (Example)
-  "6MWVTis8rmmk6Vt9zmAJJbmb3VuLpzoQ1aHH4N6wQEGh",    # CzYQ (Example)
-  "MEDALksSEYQQUBsyjSjmhE1ib6Cn7bRV48MYGQ5oQGY",     # E8bT (Example)
-  "Crf6uiMVHpuqkQzE2FkWWces3xiYaTbTsFYPDSeNWksM",    # EVyb (Example)
-  "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3",    # HxkT (Example)
-  "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg",    # 3pjW (Example)
+  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",   # Solana MEV Bot (on-chain)
+  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",   # Solana MEV Bot (Jupiter)
+  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd",   # NotArb
+  "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu",   # RM4 (Example)
+  "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T",    # 7dGr (Example)
+  "A6PDFLzh3VbkFn6aJmHe2LSd5kaYe8bmsQc6yPjinpC2",   # CKWX (Example)
+  "E6kDzoUtNHuk7kyNzK9XUzqi5H3NfvhcXhKv4ToDDW1L",   # CG8n (Example)
+  "6MWVTis8rmmk6Vt9zmAJJbmb3VuLpzoQ1aHH4N6wQEGh",   # CzYQ (Example)
+  "MEDALksSEYQQUBsyjSjmhE1ib6Cn7bRV48MYGQ5oQGY",    # E8bT (Example)
+  "Crf6uiMVHpuqkQzE2FkWWces3xiYaTbTsFYPDSeNWksM",   # EVyb (Example)
+  "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3",   # HxkT (Example)
+  "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg",   # 3pjW (Example)
 ]
 
-output = "smb-config.toml"                         # Output config filename
-period = 60000                                     # Interval to regenerate config (ms)
-halflife = 300000                                  # Interval to decay accumulated statistics by half
-min_roi = 4                                        # Minimum ROI required (over defined period) *Does not work for ThorStreamer*
-min_txns = 20                                      # Minimum number of transactions for a mint
-min_net_volume = 10000000000                       # Minimum net volume (in lamports)
-mints_num = 2                                      # Number of top mints to include
-min_process_delay = 400                            # Minimum spam delay per mint (ms)
-max_process_delay = 1200                           # Maximum spam delay per mint (ms)
+output = "smb-config.toml"                        # Output config filename
+period = 60000                                    # Interval to regenerate config (ms)
+halflife = 300000                                 # Interval to decay accumulated statistics by half
+min_roi = 4                                       # Minimum ROI required (over defined period)
+min_txns = 20                                     # Minimum number of transactions for a mint
+min_net_volume = 10000000000                      # Minimum net volume (in lamports)
+mints_num = 2                                     # Number of top mints to include
+min_process_delay = 400                           # Minimum spam delay per mint (ms)
+max_process_delay = 1200                          # Maximum spam delay per mint (ms)
 
-min_cu_percentile = 25                             # Min Helius percentile for CU pricing
-max_cu_percentile = 75                             # Max Helius percentile for CU pricing
-min_cu_price = 10000                               # Minimum compute unit price
-max_cu_price = 1000000                             # Maximum compute unit price
-cu_strategy = "Linear"                             # CU price strategy: Random / Linear / Exponential
+min_cu_percentile = 25                            # Min Helius percentile for CU pricing
+max_cu_percentile = 75                            # Max Helius percentile for CU pricing
+min_cu_price = 10000                              # Minimum compute unit price
+max_cu_price = 1000000                            # Maximum compute unit price
+cu_strategy = "Linear"                            # CU price strategy: Random / Linear / Exponential
 
-min_tx_count = 1                                   # Minimum spam TX count per mint
-max_tx_count = 4                                   # Maximum spam TX count per mint
-max_cu_limit = 600000                              # Maximum compute unit limit
+min_tx_count = 1                                  # Minimum spam TX count per mint
+max_tx_count = 4                                  # Maximum spam TX count per mint
+max_cu_limit = 600000                             # Maximum compute unit limit
 
-top_pool_num = 2                                   # Number of top pools to include
+top_pool_num = 2                                  # Number of top pools to include
 
-config_rpc_url = "http://utah.deez.top:80"         # RPC for smb-onchain to use with generated config
+config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
 sending_rpc_urls = [
-  "http://main.deez.top:80",                       # RPCs used for sending transactions
+  "http://main.deez.top:80",                      # RPCs used for sending transactions
 ]
 
-kamino = true                                      # Enable Kamino lending support
-merge_mints = true                                 # Enable merged mint spam
-spam = true                                        # Enable spam behavior
+kamino = true                                     # Enable Kamino lending support
+merge_mints = true                                # Enable merged mint spam
+spam = true                                       # Enable spam behavior
+
+# ALUTs Configuration
+aluts = [
+  "4sKLJ1Qoudh8PJyqBeuKocYdsZvxTcRShUt9aKqwhgvC"  # Additional ALUTs to include
+]
+
+# Jito Configuration
+jito = true                                       # Enable Jito strategy support
+jito_strategy = "Random"                          # Jito strategy: Random / Linear / Exponential
+jito_min_tip = 10000                              # Minimum tip for Jito transactions
+jito_max_tip = 100000                             # Maximum tip for Jito transactions
+jito_count = 1                                    # Number of Jito transactions to send per cycle
+jito_uuid = ""                                    # UUID for Jito instance identification
+jito_ips = [
+  "192.168.1.0/24"                               # IP ranges for Jito nodes
+]
+jito_min_profit = 10000                           # Minimum profit threshold for Jito transactions
+jito_use_min_profit = true                       # Use minimum profit check for Jito
+jito_use_separate_tip_account = true            # Use a separate tip account for Jito transactions
