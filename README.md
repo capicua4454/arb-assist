@@ -94,3 +94,7 @@ Pools chosen based on historical arb activity:
 Estimated priority fees using Helius:
 
 ![Priority Fees](https://github.com/user-attachments/assets/ff57af74-9a79-4bdb-8b5d-51df8f28945c)
+
+## 🧠 Optimizing your Filters
+
+To start, I recommend you filter arb programs to only copy Solana MEV bot on-chain transactions. Run smb-copy and take note of the statistics for the top 10 mints. Pay attention to the Txns, net vol/min, and ROI. You should check these numbers during times when the market is hot and when the market is cold. For your filter settings, choose numbers that will shut down the bot when the market is cold and turn on the bot when the market is hot.
