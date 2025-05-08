@@ -24,6 +24,7 @@ output = "smb-config.toml"                        # Output config filename
 period = 60000                                    # Interval to regenerate config (ms)
 halflife = 300000                                 # Interval to decay accumulated statistics by half
 min_roi = 4                                       # Minimum ROI required (over defined period)
+# min_roi does not work with ThorStreamer because it doesn't stream failed transactions used to calculate total priority fees
 min_txns = 20                                     # Minimum number of transactions for a mint
 min_net_volume = 10000000000                      # Minimum net volume (in lamports)
 mints_num = 2                                     # Number of top mints to include
