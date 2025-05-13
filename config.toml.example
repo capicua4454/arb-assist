@@ -19,7 +19,10 @@ arb_programs = [
   "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3",   # HxkT (Example)
   "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg",   # 3pjW (Example)
 ]
-
+exclude_mints = [                                 # Intermedium mints to exclude
+  "So11111111111111111111111111111111111111112",
+  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+]
 output = "smb-config.toml"                        # Output config filename
 period = 60000                                    # Interval to regenerate config (ms)
 halflife = 300000                                 # Interval to decay accumulated statistics by half
@@ -51,6 +54,10 @@ sending_rpc_urls = [
 kamino = true                                     # Enable Kamino lending support
 merge_mints = true                                # Enable merged mint spam
 spam = true                                       # Enable spam behavior
+
+# WSOl: So11111111111111111111111111111111111111112 or USDC: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+base_mint = ""                                    # Set the base_mint. Default is So11111111111111111111111111111111111111112
+memo = ""                                         # Set the memo
 
 # ALUTs Configuration
 aluts = [
