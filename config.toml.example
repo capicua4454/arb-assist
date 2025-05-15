@@ -56,8 +56,8 @@ merge_mints = true                                # Enable merged mint spam
 spam = true                                       # Enable spam behavior
 
 # WSOl: So11111111111111111111111111111111111111112 or USDC: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
-base_mint = ""                                    # Set the base_mint. Default is So11111111111111111111111111111111111111112
-memo = ""                                         # Set the memo
+base_mint = "So11111111111111111111111111111111111111112"
+memo = "smb-copy by capicua"                                         # Set the memo
 
 # ALUTs Configuration
 aluts = [
@@ -65,7 +65,7 @@ aluts = [
 ]
 
 # Jito Configuration
-jito = true                                       # Enable Jito strategy support
+jito = false                                       # Enable Jito strategy support
 jito_strategy = "Random"                          # Jito strategy: Random / Linear / Exponential
 jito_min_tip = 10000                              # Minimum tip for Jito transactions
 jito_max_tip = 100000                             # Maximum tip for Jito transactions
