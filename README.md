@@ -70,6 +70,7 @@ This watches `smb-config.toml` for changes. When `smb-copy` updates the config, 
 Keep `smb-copy` running using `pm2`, `tmux`, or similar tools.
 
 For more info on [tmux](https://hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
+
 For more info on [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/)
 
 ---
