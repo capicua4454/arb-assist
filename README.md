@@ -1,6 +1,8 @@
 # smb-copy-public
 
-`smb-copy` is an automated config generator for [SolanaMevBot On-Chain](https://docs.solanamevbot.com/home/releases). It analyzes recent on-chain activity to identify profitable mints for arbitrage and generates a config file accordingly.
+`smb-copy` is an automated config generator for [SolanaMevBot On-Chain](https://docs.solanamevbot.com/home/releases). 
+
+It analyzes recent on-chain activity to identify profitable mints for arbitrage and generates a config file accordingly.
 
 ## 🚀 Features
 
