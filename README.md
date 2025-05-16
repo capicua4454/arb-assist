@@ -53,6 +53,12 @@ npm install -g pm2
 
 ## 📦 Running
 
+Make sure to give all files the proper permissions to run:
+
+```bash
+chmod +x *
+```
+
 Start `smb-onchain` with:
 
 ```bash
@@ -62,6 +68,9 @@ pm2 start smb-onchain --watch -- run smb-config.toml
 This watches `smb-config.toml` for changes. When `smb-copy` updates the config, `smb-onchain` restarts automatically.
 
 Keep `smb-copy` running using `pm2`, `tmux`, or similar tools.
+
+For more info on [tmux](https://hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)
+For more info on [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/)
 
 ---
 
