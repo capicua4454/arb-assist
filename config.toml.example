@@ -80,7 +80,7 @@ jito_ips = [
 jito_min_profit = 10000                           # Minimum profit threshold for Jito transactions
 jito_use_min_profit = true                        # Use minimum profit check for Jito
 jito_use_separate_tip_account = true              # Use a separate tip account for Jito transactions
-
+block_engine_strategy = "OneByOne"                # "OneByOne" or "AllAtOnce"
 jito_urls = [                                     # URLs for Jito Block Engines to use
   "https://ny.mainnet.block-engine.jito.wtf/api/v1",
   "https://tokyo.mainnet.block-engine.jito.wtf/api/v1",
