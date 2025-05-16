@@ -23,14 +23,17 @@ exclude_mints = [                                 # Intermedium mints to exclude
   "So11111111111111111111111111111111111111112",
   "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
 ]
-output = "smb-config.toml"                        # Output config filename
+output = "smb-config"                             # Output config filename. Will automatically append ".toml" to file name
 period = 60000                                    # Interval to regenerate config (ms)
 halflife = 300000                                 # Interval to decay accumulated statistics by half
 min_roi = 4                                       # Minimum ROI required (over defined period)
 # min_roi does not work with ThorStreamer because it doesn't stream failed transactions used to calculate total priority fees
 min_txns = 20                                     # Minimum number of transactions for a mint
 min_net_volume = 10000000000                      # Minimum net volume (in lamports)
-mints_num = 2                                     # Number of top mints to include
+mints_num = 2                                     # Number of top mints to include in your config
+# Set to true to generate separate configs for each mint. Only works if merge_mints = false.
+# Will append "_1", "_2", "_3", etc. to the filename e.g. "smb-config_1.toml", "smb-config_2.toml"
+separate_configs = false
 min_process_delay = 400                           # Minimum spam delay per mint (ms)
 max_process_delay = 1200                          # Maximum spam delay per mint (ms)
 
