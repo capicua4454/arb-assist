@@ -1,0 +1,65 @@
+rpc_url = "http://nl.deez.top:80"                 # RPC endpoint for retrieving data
+grpc_url = "http://nl.grpc.deez.top:10001"        # GRPC endpoint for streaming transactions
+grpc_engine = "yellowstone"                       # GRPC engine: "yellowstone" or "thor"
+
+filter_programs = true                           # If true, only include transactions from arb_programs
+arb_programs = [
+  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",   # Solana MEV Bot (on-chain)
+]
+exclude_mints = [                                 # Intermedium mints to exclude
+  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+]
+output = "smb-config"                             # Output config filename. Will automatically append ".toml" to file name
+period = 60000                                    # Interval to regenerate config (ms)
+halflife = 300000                                 # Interval to decay accumulated statistics by half
+min_roi = 4                                       # Minimum ROI required (over defined period)
+min_txns = 20                                     # Minimum number of transactions for a mint
+min_net_volume = 1000000000                      # Minimum net volume (in lamports)
+mints_num = 2                                     # Number of top mints to include in your config
+min_process_delay = 200                           # Minimum spam delay per mint (ms)
+max_process_delay = 800                          # Maximum spam delay per mint (ms)
+min_cu_percentile = 75                            # Min Helius percentile for CU pricing
+max_cu_percentile = 95                            # Max Helius percentile for CU pricing
+min_cu_price = 100000                              # Minimum compute unit price
+max_cu_price = 1000000                            # Maximum compute unit price
+cu_strategy = "Linear"                            # CU price strategy: Random / Linear / Exponential
+min_tx_count = 1                                  # Minimum spam TX count per mint
+max_tx_count = 1                                  # Maximum spam TX count per mint
+max_cu_limit = 600000                             # Maximum compute unit limit
+
+top_pool_num = 2                                  # Number of top pools to include
+
+config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
+sending_rpc_urls = [
+  "http://main.deez.top:80",                      # RPCs used for sending transactions
+]
+
+kamino = true                                     # Enable Kamino lending support
+merge_mints = true                                # Enable merged mint spam
+spam = false                                       # Enable spam behavior
+memo = "jito-no-fail-capicua"                                         # Set the memo
+
+# Jito Configuration
+jito = true                                       # Enable Jito strategy support
+jito_strategy = "Random"                          # Jito strategy: Random / Linear / Exponential
+jito_min_tip = 10000                              # Minimum tip for Jito transactions
+jito_max_tip = 100000                             # Maximum tip for Jito transactions
+jito_count = 1                                    # Number of Jito transactions to send per cycle
+jito_uuid = ""                                    # UUID for Jito instance identification
+jito_ips = [
+  "192.168.1.0/24"                                # IP ranges for Jito nodes
+]
+jito_min_profit = 10000                           # Minimum profit threshold for Jito transactions
+jito_use_min_profit = false                        # Use minimum profit check for Jito
+jito_use_separate_tip_account = true              # Use a separate tip account for Jito transactions
+block_engine_strategy = "OneByOne"                # "OneByOne" or "AllAtOnce"
+# Enable no_failure_mode for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
+no_failure_mode = true
+jito_urls = [                                     # URLs for Jito Block Engines to use
+  "https://ny.mainnet.block-engine.jito.wtf/api/v1",
+  "https://tokyo.mainnet.block-engine.jito.wtf/api/v1",
+  "https://slc.mainnet.block-engine.jito.wtf/api/v1",
+  "https://amsterdam.mainnet.block-engine.jito.wtf/api/v1",
+  "https://frankfurt.mainnet.block-engine.jito.wtf/api/v1",
+  "https://london.mainnet.block-engine.jito.wtf/api/v1",
+]
