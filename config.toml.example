@@ -26,6 +26,9 @@ exclude_mints = [                                 # Intermedium mints to exclude
 output = "smb-config"                             # Output config filename. Will automatically append ".toml" to file name
 period = 60000                                    # Interval to regenerate config (ms)
 halflife = 300000                                 # Interval to decay accumulated statistics by half
+# If you use Jito with no_failure_mode = false, you can set ignore_filters = true to use any mints found even if they don't pass your filters
+# This will keep your bot running even as long as there are arbable mints with at least 2 pools, even if they dont pass filters
+ignore_filters = false
 min_roi = 4                                       # Minimum ROI required (over defined period)
 # min_roi does not work with ThorStreamer because it doesn't stream failed transactions used to calculate total priority fees
 min_txns = 20                                     # Minimum number of transactions for a mint
@@ -81,6 +84,8 @@ jito_min_profit = 10000                           # Minimum profit threshold for
 jito_use_min_profit = true                        # Use minimum profit check for Jito
 jito_use_separate_tip_account = true              # Use a separate tip account for Jito transactions
 block_engine_strategy = "OneByOne"                # "OneByOne" or "AllAtOnce"
+# Enable no_failure_mode for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
+no_failure_mode = false
 jito_urls = [                                     # URLs for Jito Block Engines to use
   "https://ny.mainnet.block-engine.jito.wtf/api/v1",
   "https://tokyo.mainnet.block-engine.jito.wtf/api/v1",
