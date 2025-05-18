@@ -50,7 +50,7 @@ min_tx_count = 1                                  # Minimum spam TX count per mi
 max_tx_count = 4                                  # Maximum spam TX count per mint
 max_cu_limit = 600000                             # Maximum compute unit limit
 
-top_pool_num = 2                                  # Number of top pools to include
+top_pool_num = 2                                  # Number of top pools to include *Must be 2 or more
 
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
 sending_rpc_urls = [
