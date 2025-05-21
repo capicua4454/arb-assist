@@ -4,16 +4,16 @@
 
 It analyzes recent on-chain activity to identify profitable mints for arbitrage and generates a config file accordingly.
 
-## 🚀 Features
-
-- Automatically identifies and filters mints based on:
-  - Transaction count
-  - Net volume per minute
-  - ROI (return on investment)
-- Dynamically generates config files for `smb-onchain`
-- Selects most profitable pools based on historical data
-- Auto-detects most used ALUTs (Address Lookup Tables)
-- Estimates dynamic priority fees via Helius API
+## 🕹️ Features:
+📈 Auto Bot Control: Turn your bot on when markets pump, off when they cool down.,
+💰 Maximize Profits: Keep more of your wins, waste less on gas.,
+📝 Dynamic Config Generation: Create smb-onchain configs using smb-copy.,
+🛠️ Market Intelligence: Copy mints and pools from any arb program or wallet.,
+📊 Smart Filtering: Filter mints by successful arb transactions, ROI, and net swap volume.,
+⚙️ Adaptive Fee Scaling: Set priority fees dynamically via Helius or copied wallets using percentiles.,
+🍆 Dynamic Jito Tips: Set Jito tips dynamically using the Jito Bundle Floor Tracker,
+⚡ Supports WSOL and USDC: Use spam or jito, exclude unwanted intermedium mints.,
+ 🔍 ALUTs: Automatically retrieves most commonly used ALUTs from arb transactions.
 
 If no mints meet your criteria, a dummy config is generated to stop `smb-onchain`.
 
