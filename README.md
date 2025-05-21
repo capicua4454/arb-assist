@@ -60,6 +60,8 @@ Make sure to give all files the proper permissions to run:
 ```bash
 chmod +x *
 ```
+Your directory should look something like this:
+![image](https://github.com/user-attachments/assets/9716935c-5b33-432e-a088-d0ea38d96f33)
 
 Start `smb-onchain` with:
 
