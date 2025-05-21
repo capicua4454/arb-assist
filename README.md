@@ -61,14 +61,20 @@ Make sure to give all files the proper permissions to run:
 chmod +x *
 ```
 Your directory should look something like this:
+
 ![image](https://github.com/user-attachments/assets/9716935c-5b33-432e-a088-d0ea38d96f33)
+
+- *.license is your license file. It should have your IP address instead of 0.0.0.0
+- config.toml is the config file used by smb-copy, the config file used by smb-onchain will be generated after running smb-copy
+- smb-copy is this script
+- smb-onchain is the SolanaMevBot On-Chain bot
 
 Start `smb-onchain` with:
 
 ```bash
 pm2 start smb-onchain --watch -- run smb-config.toml
 ```
-
+Make sure to modify this command if you rename smb-config.toml to something else. You cannot name it "config.toml" because that is the config file used by smb-copy.
 This watches `smb-config.toml` for changes. When `smb-copy` updates the config, `smb-onchain` restarts automatically.
 
 Keep `smb-copy` running using `pm2`, `tmux`, or similar tools.
