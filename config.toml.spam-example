@@ -33,7 +33,7 @@ top_pool_num = 2                                  # Number of top pools to inclu
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
 sending_rpc_urls = ["http://main.deez.top:80"]    # RPCs used for sending transactions
 
-kamino = true                                     # Enable Kamino lending support
+cetiloan = true                                   # Enable flashloan
 merge_mints = true                                # Enable merged mint spam
 spam = true                                       # Enable spam behavior
 memo = "capicua-spam"                             # Set the memo
