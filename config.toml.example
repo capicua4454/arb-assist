@@ -57,7 +57,7 @@ sending_rpc_urls = [
   "http://main.deez.top:80",                      # RPCs used for sending transactions
 ]
 
-kamino = true                                     # Enable Kamino lending support
+cetiloan = true                                   # Enable flashloan
 merge_mints = true                                # Enable merged mint spam
 spam = true                                       # Enable spam behavior
 
