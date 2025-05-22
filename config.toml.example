@@ -66,6 +66,7 @@ base_mint = "So11111111111111111111111111111111111111112"
 memo = "smb-copy by capicua"                                         # Set the memo
 
 # ALUTs Configuration
+aluts_per_mint = 10
 aluts = [
   "4sKLJ1Qoudh8PJyqBeuKocYdsZvxTcRShUt9aKqwhgvC"  # Additional ALUTs to include
 ]
