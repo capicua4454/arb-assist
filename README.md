@@ -51,7 +51,38 @@ nvm current # Should print "v22.15.0"
 npm install -g pm2
 ```
 
+### 4. Install TMUX
+```bash
+sudo apt-get install tmux
+```
+
+### 5. Install TMUX
+```bash
+sudo apt-get install tmux
+```
+
+### 6. Download Solana Mev Bot Onchain
+```bash
+sudo apt install wget
+sudo apt install unzip
+mkdir smb
+cd smb
+wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.8.1.zip
+unzip smb-onchain-0.8.1.zip
+```
+
+### 7. Download smb-copy
+```bash
+wget https://github.com/capicua4454/smb-copy-public/raw/refs/heads/main/smb-copy
+wget https://github.com/capicua4454/smb-copy-public/raw/refs/heads/main/config.toml.example
+```
+
+After you are done, your directory should look like this:
+![image](https://github.com/user-attachments/assets/f7b602c1-e099-4a6a-93a3-c7366b47e0a5)
+
+
 ---
+
 
 ## 📦 Running
 
