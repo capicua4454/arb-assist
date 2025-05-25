@@ -2,6 +2,8 @@ rpc_url = "http://nl.deez.top:80"                 # RPC endpoint for retrieving 
 grpc_url = "http://nl.grpc.deez.top:10001"        # GRPC endpoint for streaming transactions
 grpc_token = ""                                   # GRPC or ThorStreamer X-Token
 grpc_engine = "yellowstone"                       # GRPC engine: "yellowstone" or "thor"
+# "smb" to generate *.toml file for SolanaMevBot smb-onchain or "na" to generate *.json file for NotArb onchain-bot or "both"
+mode = "smb"
 helius_key = ""                                   # Helius API key for dynamic priority fee estimation
 
 filter_programs = false                           # If true, only include transactions from arb_programs
