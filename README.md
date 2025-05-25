@@ -2,6 +2,8 @@
 
 `smb-copy` is an automated config generator for [SolanaMevBot On-Chain](https://docs.solanamevbot.com/home/releases). 
 
+It can also generate the markets.json file for use with [NotArb onchain-bot](https://github.com/NotArb/Release/tree/main).
+
 It analyzes recent on-chain activity to identify profitable mints for arbitrage and generates a config file accordingly.
 
 ## 🕹️ Features:
