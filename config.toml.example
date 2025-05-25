@@ -45,7 +45,8 @@ min_roi = 4                                       # Minimum ROI required (over d
 # min_roi does not work with ThorStreamer because it doesn't stream failed transactions used to calculate total priority fees
 min_txns = 20                                     # Minimum number of transactions for a mint
 min_net_volume = 10000000000                      # Minimum net volume (in lamports) *Normalized to volume per minute
-mints_num = 2                                     # Number of top mints to include in your config
+mints_to_arb = 2                                  # Number of mints from rank list to choose for arb (cannot be more than mints_to_rank)
+mints_to_rank = 10                                # Number of mints to include in the rank list (cannot be less than mints_to_arb)
 # Set to true to generate separate configs for each mint. Only works if merge_mints = false.
 # Will append "_1", "_2", "_3", etc. to the filename e.g. "smb-config_1.toml", "smb-config_2.toml"
 separate_configs = false
