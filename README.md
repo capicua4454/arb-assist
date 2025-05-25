@@ -220,6 +220,22 @@ ulimit -n 65536
 ```
 
 ---
+## NotArb onchain-bot support
+
+To use with NotArb onchain-bot, in the smb-copy config.toml make sure you set:
+
+mode = "na"
+
+This will generate a *.json file formatted as a 2D array of market addresses
+
+![image](https://github.com/user-attachments/assets/1360f0f8-ecfb-4768-8ec1-9ce80c5879c8)
+
+To use with NotArb, you need to provide the path to this file in your NotArb configuration toml:
+
+![image](https://github.com/user-attachments/assets/7ef525c6-2f0e-429f-962f-900c0d2389f8)
+
+Make sure that you specify a json file here, not a toml.
+
 
 ## 📊 Example Output
 
