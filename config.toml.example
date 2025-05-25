@@ -1,15 +1,25 @@
-rpc_url = "http://nl.deez.top:80"                 # RPC endpoint for retrieving data
-grpc_url = "http://nl.grpc.deez.top:10001"        # GRPC endpoint for streaming transactions
-grpc_token = ""                                   # GRPC or ThorStreamer X-Token
-grpc_engine = "yellowstone"                       # GRPC engine: "yellowstone" or "thor"
+rpc_url = "http://nl.deez.top:80"                   # RPC endpoint for retrieving data
+grpc_url = "http://nl.grpc.deez.top:10001"          # GRPC endpoint for streaming transactions
+grpc_token = ""                                     # GRPC or ThorStreamer X-Token
+grpc_engine = "yellowstone"                         # GRPC engine: "yellowstone" or "thor"
 # "smb" to generate *.toml file for SolanaMevBot smb-onchain or "na" to generate *.json file for NotArb onchain-bot or "both"
 mode = "smb"
-helius_key = ""                                   # Helius API key for dynamic priority fee estimation
-
-filter_programs = false                           # If true, only include transactions from arb_programs
+helius_key = ""                                     # Helius API key for dynamic priority fee estimation
+# Include or exclude dexes you want to use
+dexes = [
+  "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",   # raydium amm v4
+  "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",   # raydium cpmm
+  "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",    # pumpfun amm
+  "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo",    # meteora dlmm
+  "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",    # orca whirlpools
+  "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",   # raydium clmm
+  "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",   # meteora dynamic
+  "SoLFiHG9TfgtdUXUjWAxi3LtvYuFyDLVhBWxdMZxyCe",    # solfi
+]
+filter_programs = false                             # If true, only include transactions from arb_programs
 arb_programs = [
-  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",   # Solana MEV Bot (on-chain)
-  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",   # Solana MEV Bot (Jupiter)
+  "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",    # Solana MEV Bot (on-chain)
+  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",    # Solana MEV Bot (Jupiter)
   "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd",   # NotArb
   "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu",   # RM4 (Example)
   "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T",    # 7dGr (Example)
@@ -74,7 +84,7 @@ aluts = [
 ]
 
 # Jito Configuration
-jito = false                                       # Enable Jito strategy support
+jito = false                                      # Enable Jito strategy support
 jito_strategy = "Random"                          # Jito strategy: Random / Linear / Exponential
 jito_min_tip = 10000                              # Minimum tip for Jito transactions
 jito_max_tip = 100000                             # Maximum tip for Jito transactions
