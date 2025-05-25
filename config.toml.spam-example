@@ -14,8 +14,9 @@ period = 60000                                    # Interval to regenerate confi
 halflife = 300000                                 # Interval to decay accumulated statistics by half
 min_roi = 4                                       # Minimum ROI required (over defined period)
 min_txns = 20                                     # Minimum number of transactions for a mint
-min_net_volume = 1000000000                       # Minimum net volume (in lamports)
-mints_num = 2                                     # Number of top mints to include in your config
+min_net_volume = 1                                # Minimum net volume per minute (in lamports)
+mints_to_arb = 2                                  # Number of mints from rank list to choose for arb (cannot be more than mints_to_rank)
+mints_to_rank = 10                                # Number of mints to include in the rank list (cannot be less than mints_to_arb)
 min_process_delay = 200                           # Minimum spam delay per mint (ms)
 max_process_delay = 800                           # Maximum spam delay per mint (ms)
 
