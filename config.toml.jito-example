@@ -20,8 +20,9 @@ ignore_filters = true
 min_roi = 0                                       # Minimum ROI required (over defined period)
 # min_roi does not work with ThorStreamer because it doesn't stream failed transactions used to calculate total priority fees
 min_txns = 10                                     # Minimum number of transactions for a mint
-min_net_volume = 1                      # Minimum net volume (in lamports)
-mints_num = 2                                     # Number of top mints to include in your config
+min_net_volume = 1                                # Minimum net volume per minute (in lamports)
+mints_to_arb = 2                                  # Number of mints from rank list to choose for arb (cannot be more than mints_to_rank)
+mints_to_rank = 10                                # Number of mints to include in the rank list (cannot be less than mints_to_arb)
 min_process_delay = 200                           # Minimum spam delay per mint (ms)
 max_process_delay = 400                           # Maximum spam delay per mint (ms)
 
