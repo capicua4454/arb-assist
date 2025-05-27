@@ -194,6 +194,15 @@ pm2 start smb-onchain --watch -- run smb-config.toml
 Make sure to modify this command if you rename smb-config.toml to something else. You cannot name it "config.toml" because that is the config file used by smb-copy.
 This watches `smb-config.toml` for changes. When `smb-copy` updates the config, `smb-onchain` restarts automatically.
 
+If you are generating several configs for smb and want to run separate bots for each config, you can use pm2 like this:
+
+```bash
+pm2 start smb-onchain --name smb1 --watch -- run smb-config_1.toml
+pm2 start smb-onchain --name smb2 --watch -- run smb-config_2.toml
+pm2 start smb-onchain --name smb3 --watch -- run smb-config_3.toml
+pm2 start smb-onchain --name smb4 --watch -- run smb-config_4.toml
+```
+
 To monitor program started with pm2, type:
 
 ```bash
