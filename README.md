@@ -197,10 +197,10 @@ This watches `smb-config.toml` for changes. When `smb-copy` updates the config, 
 If you are generating several configs for smb and want to run separate bots for each config, you can use pm2 like this:
 
 ```bash
-pm2 start smb-onchain --name smb1 --watch -- run smb-config_1.toml
-pm2 start smb-onchain --name smb2 --watch -- run smb-config_2.toml
-pm2 start smb-onchain --name smb3 --watch -- run smb-config_3.toml
-pm2 start smb-onchain --name smb4 --watch -- run smb-config_4.toml
+pm2 start "smb-onchain run smb-config_1.toml" --name smb1 --watch
+pm2 start "smb-onchain run smb-config_2.toml" --name smb2 --watch
+pm2 start "smb-onchain run smb-config_3.toml" --name smb3 --watch
+pm2 start "smb-onchain run smb-config_4.toml" --name smb4 --watch
 ```
 
 To monitor program started with pm2, type:
