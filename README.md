@@ -1,4 +1,4 @@
-# arb-assist
+# arb-assist (formerly known as smb-copy)
 
 `arb-assist` is an automated config generator for [SolanaMevBot On-Chain](https://docs.solanamevbot.com/home/releases). 
 
