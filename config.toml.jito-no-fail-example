@@ -12,6 +12,7 @@ exclude_mints = [                                 # Intermedium mints to exclude
 output = "smb-config"                             # Output config filename. Will automatically append ".toml" to file name
 period = 60000                                    # Interval to regenerate config (ms)
 halflife = 300000                                 # Interval to decay accumulated statistics by half
+min_profit = 10000000000                          # Minimum total arb profit
 min_roi = 4                                       # Minimum ROI required (over defined period)
 min_txns = 20                                     # Minimum number of transactions for a mint
 min_net_volume = 1                                # Minimum net volume per minute (in lamports)
