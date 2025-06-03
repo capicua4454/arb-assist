@@ -6,6 +6,8 @@ It can also generate the markets.json file for use with [NotArb onchain-bot](htt
 
 It analyzes recent on-chain activity to identify profitable mints for arbitrage and generates a config file accordingly.
 
+For support, join us on [Discord](https://discord.gg/ADtnjdy5m5)
+
 ## 🕹️ Features:
 - 📈 Auto Bot Control: Turn your bot on when markets pump, off when they cool down.,
 - 💰 Maximize Profits: Keep more of your wins, waste less on gas.,
@@ -25,9 +27,10 @@ If no mints meet your criteria, a dummy config is generated to stop `smb-onchain
 
 ### 1. Prerequisites
 
-- Your license file must be in the same folder as `arb-assist` and `smb-onchain`
+- Your license file must be in the same folder as `arb-assist` and `smb-onchain` or `NotArb`
 - Your license is locked to the server IP and must be run from a whitelisted server
 - You must have either Yellowstone GRPC or ThorStreamer to stream transaction data
+- You should run it on a 8 core Ryzen VPS or better because arb-assist uses a very heavy GRPC stream
 
 ### 2. Install Node.js
 
@@ -94,7 +97,7 @@ Make sure to give all files the proper permissions to run:
 chmod +x *
 ```
 
-- You should encrypt your private key using smb-onchain locally, then transfer only the encrypted private key to your server.
+- You should encrypt your private key using smb-onchain or NotArb locally, then transfer only the encrypted private key to your server.
 - Also, you need to transfer your license file for arb-assist that is tied to your server IP address.
 - You should rename config.toml.example to config.toml - this is the config file used by arb-assist
 - Then, you should open config.toml using nano or another text editor to configure your settings for arb-assist.
@@ -108,6 +111,7 @@ Your directory should look something like this:
 - config.toml is the config file used by arb-assist, the config file used by smb-onchain will be generated after running arb-assist
 - arb-assist is this script
 - smb-onchain is the SolanaMevBot On-Chain bot
+- If you are using NotArb, you will have the NotArb files and executables instead
 
 First, increase the ulimit
 
@@ -244,6 +248,8 @@ To use with NotArb, you need to provide the path to this file in your NotArb con
 ![image](https://github.com/user-attachments/assets/7ef525c6-2f0e-429f-962f-900c0d2389f8)
 
 Make sure that you specify a json file here, not a toml.
+
+Since NotArb has built-in refresher for markets.json, you do not need to run it using pm2. Just run it normally.
 
 
 ## 📊 Example Output
