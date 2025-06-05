@@ -61,12 +61,7 @@ npm install -g pm2
 sudo apt-get install tmux
 ```
 
-### 5. Install TMUX
-```bash
-sudo apt-get install tmux
-```
-
-### 6. Download Solana Mev Bot Onchain
+### 5. Download Solana Mev Bot Onchain
 ```bash
 sudo apt install wget
 sudo apt install unzip
@@ -76,7 +71,7 @@ wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.8.
 unzip smb-onchain-0.8.1.zip
 ```
 
-### 7. Download arb-assist
+### 6. Download arb-assist
 ```bash
 wget https://github.com/capicua4454/arb-assist/raw/refs/heads/main/arb-assist
 wget https://github.com/capicua4454/arb-assist/raw/refs/heads/main/config.toml.example
