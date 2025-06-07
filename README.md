@@ -240,6 +240,9 @@ This will generate a markets.json file formatted as a 2D array of market address
 
 It will also generate a lookup-tables.json file formatted as a 1D array of lookup table addresses
 
+![image](https://github.com/user-attachments/assets/09196321-d9f0-45bb-b9e5-8c00eb5d6f86)
+
+
 Now, arb-assist will update your notarb-config.toml with dynamic priority fees and jito tips.
 
 
