@@ -65,7 +65,7 @@ process_delay_levels = [
   {process_delay = 200},
 ]
 
-# Set different spam seetings to use for each filter threshold. The number of spam seetings must be the same as filter thresholds
+# Set different spam settings to use for each filter threshold. The number of spam settings must be the same as filter thresholds
 spam_levels = [
   {min_cu_percentile = 50, max_cu_percentile = 60, min_cu_price = 10000, max_cu_price = 100000, tx_count = 1},
   {min_cu_percentile = 60, max_cu_percentile = 75, min_cu_price = 100000, max_cu_price = 400000, tx_count = 2},
@@ -101,7 +101,7 @@ jito = true                                       # Enable Jito strategy support
 jito_bundle_groups = [1, 2, 3, 4, 5]              # Define which bundle groups you want to enable jito on
 jito_strategy = "Random"                          # Jito strategy: Random / Linear / Exponential
 
-# Set different jito seetings to use for each filter threshold. The number of jito seetings must be the same as filter thresholds
+# Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds
 jito_levels = [
   {jito_min_tip = 10_000, jito_max_tip = 50_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 60, jito_count = 1},
   {jito_min_tip = 50_000, jito_max_tip = 100_000, jito_min_tip_percentile = 60, jito_max_tip_percentile = 75, jito_count = 1},
