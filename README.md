@@ -2,7 +2,7 @@
 
 `arb-assist` is an automated config generator for [SolanaMevBot On-Chain](https://docs.solanamevbot.com/home/releases). 
 
-It can also generate the markets.json file for use with [NotArb onchain-bot](https://github.com/NotArb/Release/tree/main).
+It can also generate the config, markets.json, and lookup-tables.json files for use with [NotArb onchain-bot](https://github.com/NotArb/Release/tree/main).
 
 It analyzes recent on-chain activity to identify profitable mints for arbitrage and generates a config file accordingly.
 
@@ -193,14 +193,6 @@ pm2 start smb-onchain --watch -- run smb-config.toml
 Make sure to modify this command if you rename smb-config.toml to something else. You cannot name it "config.toml" because that is the config file used by arb-assist.
 This watches `smb-config.toml` for changes. When `arb-assist` updates the config, `smb-onchain` restarts automatically.
 
-If you are generating several configs for smb and want to run separate bots for each config, you can use pm2 like this:
-
-```bash
-pm2 start "smb-onchain run smb-config_1.toml" --name smb1 --watch
-pm2 start "smb-onchain run smb-config_2.toml" --name smb2 --watch
-pm2 start "smb-onchain run smb-config_3.toml" --name smb3 --watch
-pm2 start "smb-onchain run smb-config_4.toml" --name smb4 --watch
-```
 
 To monitor program started with pm2, type:
 
@@ -230,21 +222,25 @@ ulimit -n 65536
 ---
 ## NotArb onchain-bot support
 
-To use with NotArb onchain-bot, in the arb-assist config.toml make sure you set:
+To use with NotArb onchain-bot, you should copy arb-assist, config.toml, and your license file to the onchain-bot/ folder
+
+In the arb-assist config.toml make sure you set:
 
 mode = "na"
 
-This will generate a *.json file formatted as a 2D array of market addresses
+You will also need to run NotArb onchain using pm2:
+
+```bash
+pm2 start ./notarb.sh --interpreter bash --name notarb-onchain --watch onchain-bot/notarb-config.toml -- onchain-bot/notarb-config.toml
+```
+
+This will generate a markets.json file formatted as a 2D array of market addresses
 
 ![image](https://github.com/user-attachments/assets/1360f0f8-ecfb-4768-8ec1-9ce80c5879c8)
 
-To use with NotArb, you need to provide the path to this file in your NotArb configuration toml:
+It will also generate a lookup-tables.json file formatted as a 1D array of lookup table addresses
 
-![image](https://github.com/user-attachments/assets/7ef525c6-2f0e-429f-962f-900c0d2389f8)
-
-Make sure that you specify a json file here, not a toml.
-
-Since NotArb has built-in refresher for markets.json, you do not need to run it using pm2. Just run it normally.
+Now, arb-assist will update your notarb-config.toml with dynamic priority fees and jito tips.
 
 
 ## 📊 Example Output
