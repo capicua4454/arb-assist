@@ -43,10 +43,7 @@ halflife = 300000                                 # Interval to decay accumulate
 # If you use Jito with no_failure_mode = false, you can set ignore_filters = true to use any mints found even if they don't pass your filters
 # This will keep your bot running even as long as there are arbable mints with at least 2 pools, even if they dont pass filters
 ignore_filters = false
-min_profit = 10000000000                          # Minimum total arb profit
-min_roi = 4                                       # Minimum ROI required (over defined period)
-min_txns = 20                                     # Minimum number of transactions for a mint
-min_net_volume = 10000000000                      # Minimum net volume (in lamports) *Normalized to volume per minute
+
 # Number of mints from rank list to choose for arb for each bundle group
 mints_to_arb = [2, 2, 2, 2, 2]
 mints_to_rank = 20                                # Number of mints to include in the rank list (cannot be less than mints_to_arb)
