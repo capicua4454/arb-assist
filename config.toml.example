@@ -49,6 +49,11 @@ mints_to_arb = [2, 2, 2, 2, 2]
 mints_to_rank = 20                                # Number of mints to include in the rank list (cannot be less than mints_to_arb)
 
 # Set different filter thresholds. There is no limit but you have to set at least 1. Must be in order from lowest to highest
+# min_profit is the minimum arbitrage profit on the mint in lamports
+# min_roi is the minimum ROI (ratio of arbitrage profit/gas fees)
+# min_txns is the minimum successful arbitrage transactions detected on a mint
+# min_net_volume is the minimum difference between buy and sell volume in lamports *Net volume = abs(buy_volume - sell_volume)
+# min_total_volume is the minimum total trade volume *Total volume = buy_volume + sell_volume
 filter_thresholds = [
   {min_profit = 1000000, min_roi = 1, min_txns = 1, min_net_volume = 1000000, min_total_volume = 1000000000},
   {min_profit = 1000000000, min_roi = 2, min_txns = 10, min_net_volume = 1000000000, min_total_volume = 10000000000},
