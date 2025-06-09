@@ -40,7 +40,7 @@ exclude_mints = [                                 # Intermedium mints to exclude
 output = "smb-config"                             # Output config filename. Will automatically append ".toml" to file name
 update_interval = 10000                           # Interval in milliseconds to update the data
 run_interval = 60000                              # Interval in milliseconds you want to run bot after mint meets filter threshold
-halflife = 300000                                 # Interval to decay accumulated statistics by half
+halflife = 120000                                 # Interval to decay accumulated statistics by half
 # If you use Jito with no_failure_mode = false, you can set ignore_filters = true to use any mints found even if they don't pass your filters
 # This will keep your bot running even as long as there are arbable mints with at least 2 pools, even if they dont pass filters
 ignore_filters = false
@@ -57,23 +57,23 @@ mints_to_rank = 20                                # Number of mints to include i
 # min_total_volume is the minimum total trade volume *Total volume = buy_volume + sell_volume (u64)
 # min_imbalance_ratio is the minimum ratio of net_volume/total_volume. Range from 0.0 to 1.0 ONLY (f64)
 filter_thresholds = [
-  {min_profit = 1000000, min_roi = 1, min_txns = 1, min_net_volume = 1000000, min_total_volume = 1000000000, min_imbalance_ratio = 0.75},
-  {min_profit = 1000000000, min_roi = 2, min_txns = 10, min_net_volume = 1000000000, min_total_volume = 10000000000, min_imbalance_ratio = 0.75},
-  {min_profit = 10000000000, min_roi = 10, min_txns = 100, min_net_volume = 100000000000, min_total_volume = 100000000000, min_imbalance_ratio = 0.75},
+  {min_profit = 10_000_000, min_roi = 2, min_txns = 5, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.75},
+  {min_profit = 100_000_000, min_roi = 3, min_txns = 10, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.8},
+  {min_profit = 1_000_000_000, min_roi = 4, min_txns = 20, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.9},
 ]
 
 # Set different process delay to use for each filter threshold. The number of process delay levels must be the same as filter thresholds (u64)
 process_delay_levels = [
   {process_delay = 800},
+  {process_delay = 600},
   {process_delay = 400},
-  {process_delay = 200},
 ]
 
 # Set different spam settings to use for each filter threshold. The number of spam settings must be the same as filter thresholds (u64)
 spam_levels = [
-  {min_cu_percentile = 50, max_cu_percentile = 60, min_cu_price = 10000, max_cu_price = 100000, tx_count = 1},
-  {min_cu_percentile = 60, max_cu_percentile = 75, min_cu_price = 100000, max_cu_price = 400000, tx_count = 2},
-  {min_cu_percentile = 75, max_cu_percentile = 90, min_cu_price = 400000, max_cu_price = 1000000, tx_count = 4}
+  {min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1},
+  {min_cu_percentile = 50, max_cu_percentile = 75, min_cu_price = 10_000, max_cu_price = 50_000, tx_count = 1},
+  {min_cu_percentile = 75, max_cu_percentile = 95, min_cu_price = 50_000, max_cu_price = 500_000, tx_count = 1},
 ]
 
 cu_strategy = "Linear"                            # CU price strategy: Random / Linear / Exponential
@@ -95,7 +95,7 @@ base_mint = "So11111111111111111111111111111111111111112"
 memo = "arb-assist by capicua"                                         # Set the memo
 
 # ALUTs Configuration
-aluts_per_mint = 10
+aluts_per_mint = 20
 aluts = [
 #  "4sKLJ1Qoudh8PJyqBeuKocYdsZvxTcRShUt9aKqwhgvC"  # If you create your own ALUTs, you can add them here
 ]
@@ -107,9 +107,9 @@ jito_strategy = "Random"                          # Jito strategy: Random / Line
 
 # Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds (u64)
 jito_levels = [
-  {jito_min_tip = 10_000, jito_max_tip = 50_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 60, jito_count = 1},
-  {jito_min_tip = 50_000, jito_max_tip = 100_000, jito_min_tip_percentile = 60, jito_max_tip_percentile = 75, jito_count = 1},
-  {jito_min_tip = 100_000, jito_max_tip = 500_000, jito_min_tip_percentile = 75, jito_max_tip_percentile = 90, jito_count = 2}
+  {jito_min_tip = 1_000, jito_max_tip = 2000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 50, jito_count = 1},
+  {jito_min_tip = 3_000, jito_max_tip = 12_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 75, jito_count = 1},
+  {jito_min_tip = 30_000, jito_max_tip = 120_000, jito_min_tip_percentile = 75, jito_max_tip_percentile = 90, jito_count = 1},
 ]
 
 use_dynamic_jito_tip = true                       # Set to true if you want to use dynamic jito tips
