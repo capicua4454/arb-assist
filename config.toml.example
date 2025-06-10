@@ -57,9 +57,9 @@ mints_to_rank = 20                                # Number of mints to include i
 # min_total_volume is the minimum total trade volume *Total volume = buy_volume + sell_volume (u64)
 # min_imbalance_ratio is the minimum ratio of net_volume/total_volume. Range from 0.0 to 1.0 ONLY (f64)
 filter_thresholds = [
-  {min_profit = 10_000_000, min_roi = 2, min_txns = 5, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.75},
-  {min_profit = 100_000_000, min_roi = 3, min_txns = 10, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.8},
-  {min_profit = 1_000_000_000, min_roi = 4, min_txns = 20, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.9},
+  {min_profit = 10_000_000, min_roi = 2, min_txns = 5, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8},
+  {min_profit = 100_000_000, min_roi = 3, min_txns = 10, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8},
+  {min_profit = 1_000_000_000, min_roi = 4, min_txns = 20, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8},
 ]
 
 # Set different process delay to use for each filter threshold. The number of process delay levels must be the same as filter thresholds (u64)
@@ -146,3 +146,4 @@ prefunded_keypairs_path=""                          # optional - only for proxy 
 jito_regions=["ny", "slc", "london", "frankfurt", "amsterdam", "tokyo"]
 mints_to_arb = 2                                    # Number of mints to use for NotArb
 max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
+include_token2022 = false                           # Include Token2022 for NotArb (Set this to false if you use SMB)
