@@ -38,12 +38,14 @@ exclude_mints = [                                 # Intermedium mints to exclude
   "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
 ]
 output = "smb-config"                             # Output config filename. Will automatically append ".toml" to file name
+
 update_interval = 10000                           # Interval in milliseconds to update the data
 run_interval = 60000                              # Interval in milliseconds you want to run bot after mint meets filter threshold
 halflife = 120000                                 # Interval to decay accumulated statistics by half
 # If you use Jito with no_failure_mode = false, you can set ignore_filters = true to use any mints found even if they don't pass your filters
 # This will keep your bot running even as long as there are arbable mints with at least 2 pools, even if they dont pass filters
 ignore_filters = false
+include_token2022 = false                           # Include Token2022
 
 # Number of mints from rank list to choose for arb for each bundle group
 mints_to_arb = [2, 2, 2, 2, 2]
@@ -146,4 +148,4 @@ prefunded_keypairs_path=""                          # optional - only for proxy 
 jito_regions=["ny", "slc", "london", "frankfurt", "amsterdam", "tokyo"]
 mints_to_arb = 2                                    # Number of mints to use for NotArb
 max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
-include_token2022 = false                           # Include Token2022 for NotArb (Set this to false if you use SMB)
+borrow_amount = 500_000_000                         # Amount of SOL lamports to borrow with flashloan
