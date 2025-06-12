@@ -149,3 +149,5 @@ jito_regions=["ny", "slc", "london", "frankfurt", "amsterdam", "tokyo"]
 mints_to_arb = 2                                    # Number of mints to use for NotArb
 max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
 borrow_amount = 500_000_000                         # Amount of SOL lamports to borrow with flashloan
+invalid_account_size=100                            # the default size to use for invalid accounts (accounts with no data, which can sometimes happen when accounts that don't exist yet)
+buffer_size=1000                                    # how many extra bytes would you like to append to the total size (just a fail-safe type value, can be 0)
