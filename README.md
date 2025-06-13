@@ -245,6 +245,40 @@ It will also generate a lookup-tables.json file formatted as a 1D array of looku
 
 Now, arb-assist will update your notarb-config.toml with dynamic priority fees and jito tips.
 
+## Half-life
+📉 How Half-Life Degradation Works
+
+When transactions happen, your activity score increases. If that score crosses a threshold, your bot activates (e.g. to start arbitraging).
+
+However, older transactions shouldn't count forever. To address this, we apply half-life decay, which gives more weight to recent activity and gradually reduces the influence of past transactions.
+🔧 What Is Half-Life?
+
+Half-life is the time it takes for the impact of a transaction to reduce by half. You can adjust this to control how quickly your score decays:
+
+    Short half-life (e.g. 1 min)
+    → Score drops quickly. Bot deactivates soon after activity ends.
+
+    Long half-life (e.g. 8 min)
+    → Score decays slowly. Bot stays active longer even with gaps in activity.
+
+📊 Visual Explanation
+
+The chart below shows the same random bursts of transaction activity applied across four different half-life settings:
+
+    Dashed line = transaction bursts
+
+    Solid lines = degraded scores with half-lives of 1, 2, 4, and 8 minutes
+
+Each line decays at a different rate depending on the configured half-life.
+
+You can tune the half-life depending on your strategy:
+
+    Use a short half-life for fast-reacting, short-lived arbs.
+
+    Use a long half-life if you want to track sustained interest in a token.
+    
+![e5744aa0-c96c-472d-b127-ac8c878ffc84](https://github.com/user-attachments/assets/52d9d589-183b-4b94-b9a6-933c2b71876f)
+
 
 ## 📊 Example Output
 
