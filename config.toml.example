@@ -65,22 +65,24 @@ filter_thresholds = [
 ]
 
 # Set different process delay to use for each filter threshold. The number of process delay levels must be the same as filter thresholds (u64)
-process_delay_levels = [
-  {process_delay = 800},
-  {process_delay = 600},
-  {process_delay = 400},
+# Maximum compute unit limit (u64)
+# Number of top pools to include *Must be 2 or more (u64)
+strategy_levels = [
+  {process_delay = 800, max_cu_limit = 600_000, top_pool_num = 3, memo = "arb-assist-lvl0"},
+  {process_delay = 400, max_cu_limit = 600_000, top_pool_num = 3, memo = "arb-assist-lvl1"},
+  {process_delay = 200, max_cu_limit = 600_000, top_pool_num = 3, memo = "arb-assist-lvl2"},
 ]
 
 # Set different spam settings to use for each filter threshold. The number of spam settings must be the same as filter thresholds (u64)
+# Enable spam behavior
+# Define which bundle groups you want to enable spam on
+# CU price strategy: Random / Linear / Exponential
 spam_levels = [
-  {min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1},
-  {min_cu_percentile = 50, max_cu_percentile = 75, min_cu_price = 10_000, max_cu_price = 50_000, tx_count = 1},
-  {min_cu_percentile = 75, max_cu_percentile = 95, min_cu_price = 50_000, max_cu_price = 500_000, tx_count = 1},
+  {spam = false, spam_bundle_groups = [1],min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1, cu_strategy = "Random"},
+  {spam = true, spam_bundle_groups = [1],min_cu_percentile = 50, max_cu_percentile = 75, min_cu_price = 10_000, max_cu_price = 50_000, tx_count = 1, cu_strategy = "Random"},
+  {spam = true, spam_bundle_groups = [1],min_cu_percentile = 75, max_cu_percentile = 95, min_cu_price = 50_000, max_cu_price = 500_000, tx_count = 1, cu_strategy = "Random"},
 ]
 
-cu_strategy = "Linear"                            # CU price strategy: Random / Linear / Exponential
-max_cu_limit = 600000                             # Maximum compute unit limit (u64)
-top_pool_num = 3                                  # Number of top pools to include *Must be 2 or more (u64)
 
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
 sending_rpc_urls = [
@@ -88,13 +90,10 @@ sending_rpc_urls = [
 ]
 
 cetiloan = true                                   # Enable flashloan
-merge_mints = true                                # Enable merged mint spam
-spam = true                                       # Enable spam behavior
-spam_bundle_groups = [1]                          # Define which bundle groups you want to enable spam on
+merge_mints = true                                # Enable merged mint spam              
 
 # WSOl: So11111111111111111111111111111111111111112 or USDC: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
 base_mint = "So11111111111111111111111111111111111111112"
-memo = "arb-assist by capicua"                                         # Set the memo
 
 # ALUTs Configuration
 aluts_per_mint = 20
@@ -103,15 +102,14 @@ aluts = [
 ]
 
 # Jito Configuration
-jito = true                                       # Enable Jito strategy support
-jito_bundle_groups = [1, 2, 3, 4, 5]              # Define which bundle groups you want to enable jito on
-jito_strategy = "Random"                          # Jito strategy: Random / Linear / Exponential
-
+# Enable Jito strategy support
+# Define which bundle groups you want to enable jito on
+# Jito strategy: Random / Linear / Exponential
 # Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds (u64)
 jito_levels = [
-  {jito_min_tip = 1_000, jito_max_tip = 2000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 50, jito_count = 1},
-  {jito_min_tip = 3_000, jito_max_tip = 12_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 75, jito_count = 1},
-  {jito_min_tip = 30_000, jito_max_tip = 120_000, jito_min_tip_percentile = 75, jito_max_tip_percentile = 90, jito_count = 1},
+  {jito = false, jito_bundle_groups = [1, 2, 3], jito_min_tip = 1_000, jito_max_tip = 2000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 50, jito_count = 1, jito_strategy = "Random"},
+  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 3_000, jito_max_tip = 12_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 75, jito_count = 1, jito_strategy = "Random"},
+  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 30_000, jito_max_tip = 120_000, jito_min_tip_percentile = 75, jito_max_tip_percentile = 90, jito_count = 1, jito_strategy = "Random"},
 ]
 
 use_dynamic_jito_tip = true                       # Set to true if you want to use dynamic jito tips
