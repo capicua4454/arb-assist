@@ -61,7 +61,7 @@ npm install -g pm2
 sudo apt-get install tmux
 ```
 
-### 5. Download Solana Mev Bot Onchain
+### 5A. Download Solana Mev Bot Onchain
 ```bash
 sudo apt install wget
 sudo apt install unzip
@@ -70,7 +70,14 @@ cd smb
 wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.8.1.zip
 unzip smb-onchain-0.8.1.zip
 ```
-
+### 5B. Download NotArb Onchain-Bot
+```bash
+sudo apt update && sudo apt install git -y
+mkdir notarb
+cd notarb
+git clone https://github.com/NotArb/Release.git
+cd Release
+```
 ### 6. Download arb-assist
 ```bash
 wget https://github.com/capicua4454/arb-assist/raw/refs/heads/main/arb-assist
@@ -78,8 +85,13 @@ wget https://github.com/capicua4454/arb-assist/raw/refs/heads/main/config.toml.e
 ```
 
 After you are done, your directory should look like this:
+
+SMB:
 ![image](https://github.com/user-attachments/assets/f7b602c1-e099-4a6a-93a3-c7366b47e0a5)
 
+NotArb:
+
+![image](https://github.com/user-attachments/assets/e90006dd-be42-4547-925e-76550516fc23)
 
 ---
 
