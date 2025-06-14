@@ -159,8 +159,6 @@ ulimit -n 65536
 ./arb-assist
 ```
 
-![image](https://github.com/user-attachments/assets/532c5b19-9518-4cec-a17c-0aecc1a1d622)
-
 To exit from the tmux instance and leave it running in the background, type:
 
 ```bash
