@@ -67,9 +67,10 @@ sudo apt install wget
 sudo apt install unzip
 mkdir smb
 cd smb
-wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.8.1.zip
-unzip smb-onchain-0.8.1.zip
+wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.8.9.zip
+unzip smb-onchain-0.8.9.zip
 ```
+
 ### 5B. Download NotArb Onchain-Bot
 ```bash
 sudo apt update && sudo apt install git -y
@@ -77,17 +78,18 @@ mkdir notarb
 cd notarb
 git clone https://github.com/NotArb/Release.git
 cd Release
+cd onchain-bot
 ```
 ### 6. Download arb-assist
 ```bash
 wget https://github.com/capicua4454/arb-assist/raw/refs/heads/main/arb-assist
 wget https://github.com/capicua4454/arb-assist/raw/refs/heads/main/config.toml.example
 ```
-
 After you are done, your directory should look like this:
 
 SMB:
-![image](https://github.com/user-attachments/assets/f7b602c1-e099-4a6a-93a3-c7366b47e0a5)
+
+![image](https://github.com/user-attachments/assets/a1be20de-2160-4739-9600-0486371f000b)
 
 NotArb:
 
@@ -96,7 +98,7 @@ NotArb:
 ---
 
 
-## 📦 Running
+## 📦 7. Running Arb-Assist
 
 Make sure to give all files the proper permissions to run:
 
@@ -138,17 +140,9 @@ On start-up, you will see a few log messages that confirm your license is valid 
 
 After a short time, you will see a lot of data printed on the screen:
 
-This shows the ranking of top 10 mints and important statistics:
+This shows the ranking of top mints and important statistics:
 
-![image](https://github.com/user-attachments/assets/405b67e3-ca40-4070-ba45-1f9e62d040ce)
-
-For any mints that pass your filters, more detailed information will be printed out, including the ALUT usage and the associated pools:
-
-![image](https://github.com/user-attachments/assets/eccf6c4c-7147-4f7f-867a-986b125d8dcf)
-
-You will also see data on priority fees and jito tips broken down by percentiles:
-
-![image](https://github.com/user-attachments/assets/1b43ddd7-e4d5-426c-b14f-b9f9e53e0519)
+![image](https://github.com/user-attachments/assets/7d010481-08fc-4799-99a9-20b0437b3169)
 
 After you have confirmed that arb-assist is working, you can run it in the background with either pm2 or tmux.
 
@@ -194,6 +188,57 @@ For more info on [tmux](https://hamvocke.com/blog/a-quick-and-easy-guide-to-tmux
 
 For more info on [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/)
 
+
+## 📦 8A. Running SMB-Onchain
+
+Follow the instructions for SolanaMevBot On-Chain here: https://docs.solanamevbot.com/home/onchain-bot/getting-started
+
+### Encrypt your private key
+
+Before running smb-onchain, you must encrypt your private key. You will first create a generic smb-config.toml file:
+
+```bash
+[bot]
+merge_mints = false
+compute_unit_limit = 600_000
+
+[[routing.mint_config_list]]
+mint = "GUM5Vd4qe5kgTBHNfmLRaZSKKmYdAWxLJ18DY1Uzpump"
+pump_pool_list = ["FYDmYvJ3gynXGGFnAbTwN8CRR3LrrNdhztbkuybvYtj2"]
+meteora_dlmm_pool_list = ["ToLi6ihgfv4HLPE8GujTxKAexRxopDyk31NVpNgyxuY",]
+lookup_table_accounts = []
+process_delay = 400
+
+[rpc]
+url = "xxx"
+
+[spam]
+sending_rpc_urls = [
+  "xxx",
+]
+enabled = true
+compute_unit_price = { strategy = "Random", from = 10000, to = 50000, count = 1 }
+max_retries = 10
+
+[flashloan]
+enabled = true
+
+[wallet]
+private_key = "xxx"
+```
+
+Put your private key into this file in the [wallet] section and run smb-onchain. You can do this either on your Linux VPS or locally on WSL.
+
+```bash
+./smb-onchain run smb-config.toml
+```
+
+Once you run this command, the bot will encrypt your private key. You should then delete the private key from smb-config.toml.
+
+This encrypted private key file must be placed in the same folder as your bot.
+
+Now, on your Linux VPS you can run smb-onchain for real.
+
 Start `smb-onchain` with:
 
 ```bash
@@ -214,25 +259,15 @@ pm2 monit
 
 ![image](https://github.com/user-attachments/assets/01cd6bf7-f22a-4504-bb17-f9c7cf903655)
 
-
 ---
+## 📦 8B. Running NotArb Onchain-Bot
 
-## 🛠 Troubleshooting
+First, encrypt your private key using NotArb. This encrypted private key file should be placed in your notarb directory.
 
-**Error:**
-
-```
-called `Result::unwrap()` on an `Err` value: Os { code: 24, kind: Uncategorized, message: "Too many open files" }
-```
-
-**Fix:**
-
+In the arb-assist config.toml, you will need to set the path to your protected keypair here:
 ```bash
-ulimit -n 65536
+keypair_path="${DEFAULT_KEYPAIR_PATH}"
 ```
-
----
-## NotArb onchain-bot support
 
 To use with NotArb onchain-bot, you should copy arb-assist, config.toml, and your license file to the onchain-bot/ folder
 
@@ -256,6 +291,23 @@ It will also generate a lookup-tables.json file formatted as a 1D array of looku
 
 
 Now, arb-assist will update your notarb-config.toml with dynamic priority fees and jito tips.
+
+---
+
+## 🛠 Troubleshooting
+
+**Error:**
+
+```
+called `Result::unwrap()` on an `Err` value: Os { code: 24, kind: Uncategorized, message: "Too many open files" }
+```
+
+**Fix:**
+
+```bash
+ulimit -n 65536
+```
+---
 
 ## Half-life
 📉 How Half-Life Degradation Works
