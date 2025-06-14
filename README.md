@@ -112,15 +112,12 @@ chmod +x *
 - Then, you should open config.toml using nano or another text editor to configure your settings for arb-assist.
 - You can use one of the examples on the arb-assist github as a starting template.
 
-Your directory should look something like this:
-
-![image](https://github.com/user-attachments/assets/9716935c-5b33-432e-a088-d0ea38d96f33)
 
 - *.license is your license file. It should have your IP address instead of 0.0.0.0
 - config.toml is the config file used by arb-assist, the config file used by smb-onchain will be generated after running arb-assist
 - arb-assist is this script
 - smb-onchain is the SolanaMevBot On-Chain bot
-- If you are using NotArb, you will have the NotArb files and executables instead
+- If you are using NotArb, make sure arb-assist is saved into the Release/onchain-bot/ directory
 
 First, increase the ulimit
 
