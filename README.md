@@ -89,7 +89,7 @@ wget https://github.com/capicua4454/arb-assist/raw/refs/heads/main/config.toml.e
 ```
 After you are done, your directory should look like this:
 
-SMB:
+SMB (You will transfer your arb-assist license key into this folder):
 
 ![image](https://github.com/user-attachments/assets/a1be20de-2160-4739-9600-0486371f000b)
 
@@ -99,7 +99,7 @@ Release directory:
 
 ![image](https://github.com/user-attachments/assets/86464c98-86ae-45a5-b6fc-3c1ab5e2630d)
 
-Onchain-bot directory:
+Onchain-bot directory (You will transfer your arb-assist license key into this folder):
 
 ![image](https://github.com/user-attachments/assets/50cc1587-06a0-4ce1-acbb-136f2c89566d)
 
