@@ -351,7 +351,7 @@ You can tune the half-life depending on your strategy:
 
 `mints` ranked by arbitrage profitability:
 
-![Arb Ranking](https://github.com/user-attachments/assets/379ac9f1-1029-4539-84c5-08bb77387009)
+![image](https://github.com/user-attachments/assets/61f64861-4900-415b-afc6-1a37af5bee71)
 
 Jito Tips retrieved from Jito Bundle tip floor API
 
