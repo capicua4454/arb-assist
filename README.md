@@ -27,8 +27,10 @@ If no mints meet your criteria, a dummy config is generated to stop `smb-onchain
 
 ### 1. Prerequisites
 
-- Your license file must be in the same folder as `arb-assist` and `smb-onchain` or `NotArb`
+- Your license file must be in the same folder as `arb-assist`
 - Your license is locked to the server IP and must be run from a whitelisted server
+- For smb-onchain, `arb-assist` must be placed in same directory as the `smb-onchain` executable
+- For NotArb onchain-bot, `arb-assist` must be placed in the `onchain-bot` subdirectory for NotArb
 - You must have either Yellowstone GRPC or ThorStreamer to stream transaction data
 - You should run it on a 8 core Ryzen VPS or better because arb-assist uses a very heavy GRPC stream
 
@@ -93,7 +95,13 @@ SMB:
 
 NotArb:
 
-![image](https://github.com/user-attachments/assets/e90006dd-be42-4547-925e-76550516fc23)
+Release directory:
+
+![image](https://github.com/user-attachments/assets/86464c98-86ae-45a5-b6fc-3c1ab5e2630d)
+
+Onchain-bot directory:
+
+![image](https://github.com/user-attachments/assets/50cc1587-06a0-4ce1-acbb-136f2c89566d)
 
 ---
 
