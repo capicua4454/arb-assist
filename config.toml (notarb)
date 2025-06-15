@@ -101,7 +101,7 @@ aluts = [
 # Jito strategy: Random / Linear / Exponential
 # Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds (u64)
 jito_levels = [
-  {jito = true, jito_bundle_groups = [1], jito_min_tip = 1_000, jito_max_tip = 50_000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 70, jito_count = 1, jito_strategy = "Random"},
+  {jito = true, jito_bundle_groups = [1], jito_min_tip = 1_000, jito_max_tip = 50_000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 75, jito_count = 1, jito_strategy = "Random"},
 ]
 
 use_dynamic_jito_tip = true                       # Set to true if you want to use dynamic jito tips
