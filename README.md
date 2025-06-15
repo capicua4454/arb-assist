@@ -353,9 +353,9 @@ You can tune the half-life depending on your strategy:
 
 ![Arb Ranking](https://github.com/user-attachments/assets/379ac9f1-1029-4539-84c5-08bb77387009)
 
-Pools chosen based on historical arb activity:
+Jito Tips retrieved from Jito Bundle tip floor API
 
-![Pool Selection](https://github.com/user-attachments/assets/861602cb-6367-463f-bbb1-577cb2d0de74)
+![image](https://github.com/user-attachments/assets/5464304f-ee55-44ef-8fb6-ca94733030b6)
 
 Estimated priority fees using Helius:
 
