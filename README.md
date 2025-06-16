@@ -295,6 +295,23 @@ It will also generate a lookup-tables.json file formatted as a 1D array of looku
 
 Now, arb-assist will update your notarb-config.toml with dynamic priority fees and jito tips.
 
+## 9. Updating Arb-Assist
+
+To update Arb-Assist easily, you can use wget to overwrite the existing file.
+First, make sure you exist arb-assist so that the old file can be overwritten:
+
+```bash
+ctrl+c
+```
+
+Next, use the wget command with the overwrite flag:
+
+```bash
+wget -O arb-assist https://github.com/capicua4454/arb-assist/raw/refs/heads/main/arb-assist
+```
+
+The old version of arb-assist will be replaced.
+
 ---
 
 ## 🛠 Troubleshooting
