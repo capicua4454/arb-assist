@@ -106,10 +106,11 @@ aluts = [
 # Define which bundle groups you want to enable jito on
 # Jito strategy: Random / Linear / Exponential
 # Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds (u64)
+# "OneByOne" or "AllAtOnce"
 jito_levels = [
-  {jito = false, jito_bundle_groups = [1, 2, 3], jito_min_tip = 1_000, jito_max_tip = 2000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 50, jito_count = 1, jito_strategy = "Random"},
-  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 3_000, jito_max_tip = 12_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 75, jito_count = 1, jito_strategy = "Random"},
-  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 30_000, jito_max_tip = 120_000, jito_min_tip_percentile = 75, jito_max_tip_percentile = 90, jito_count = 1, jito_strategy = "Random"},
+  {jito = false, jito_bundle_groups = [1, 2, 3], jito_min_tip = 1_000, jito_max_tip = 2000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 50, jito_count = 1, jito_strategy = "Random", block_engine_strategy = "AllAtOnce"},
+  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 3_000, jito_max_tip = 12_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 75, jito_count = 1, jito_strategy = "Random", block_engine_strategy = "AllAtOnce"},
+  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 30_000, jito_max_tip = 120_000, jito_min_tip_percentile = 75, jito_max_tip_percentile = 90, jito_count = 1, jito_strategy = "Random", block_engine_strategy = "OneByOne"},
 ]
 
 use_dynamic_jito_tip = true                       # Set to true if you want to use dynamic jito tips
@@ -120,7 +121,6 @@ jito_ips = [
 jito_min_profit = 10000                           # Minimum profit threshold for Jito transactions
 jito_use_min_profit = false                        # Use minimum profit check for Jito
 jito_use_separate_tip_account = false              # Use a separate tip account for Jito transactions
-block_engine_strategy = "OneByOne"                # "OneByOne" or "AllAtOnce"
 
 # Enable no_failure_mode (SMB) or prefer_success (NotArb) for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
 no_failure_mode = true
