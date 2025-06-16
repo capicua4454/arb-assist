@@ -47,7 +47,7 @@ halflife = 120000                                 # Interval to decay accumulate
 ignore_filters = false
 include_token2022 = false                           # Include Token2022
 
-# Number of mints from rank list to choose for arb for each bundle group
+# Number of mints from rank list to choose for arb for each transaction
 mints_to_arb = [2, 0, 0, 0, 0]
 mints_to_rank = 10                                # Number of mints to include in the rank list (cannot be less than mints_to_arb)
 
@@ -137,7 +137,6 @@ meteora_bin_limit=20                                # Max number of bins for Met
 ips_file_path=""                                    # required for proxy senders (.txt file with 1 ip/proxy per line)
 prefunded_keypairs_path=""                          # optional - only for proxy senders (.txt file with 1 keypair per line)
 jito_regions = ["ny", "slc", "london", "frankfurt", "amsterdam", "tokyo", "singapore"]
-mints_to_arb = 2                                    # Number of mints to use for NotArb
 max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
 borrow_amount = 500_000_000                         # Amount of SOL lamports to borrow with flashloan
 token_accounts_checker = { rpc_url = "", delay_seconds = 3 }
