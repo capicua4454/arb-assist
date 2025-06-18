@@ -16,6 +16,7 @@ dexes = [
 #  "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",   # meteora dynamic
 #  "SoLFiHG9TfgtdUXUjWAxi3LtvYuFyDLVhBWxdMZxyCe",    # solfi
   "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG",    # meteora damm v2
+#  "vrTGoBuy5rYSxAfV3jaRJWHH6nN9WK4NRExGxsk1bCJ",    # vertigo
 ]
 filter_programs = true                             # If true, only include transactions from arb_programs
 arb_programs = [
