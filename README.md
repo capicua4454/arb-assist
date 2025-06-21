@@ -236,7 +236,11 @@ Put your private key into this file in the [wallet] section and run smb-onchain.
 ./smb-onchain run smb-config.toml
 ```
 
-Once you run this command, the bot will encrypt your private key. You should then delete the private key from smb-config.toml.
+Once you run this command, the bot will encrypt your private key. You should then delete the private key from smb-config.toml or delete smb-config.toml.
+
+```bash
+rm smb-config.toml
+```
 
 This encrypted private key file must be placed in the same folder as your bot.
 
