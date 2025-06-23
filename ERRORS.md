@@ -11,3 +11,9 @@
 ### 3. When you run ./arb-assist you get a <!DOCTYPE html> error, this means you tried to download the github repo using wget. You must either use git clone to grab the github repo or use wget on the direct link to the arb-assist file. Instructions are in the README.
 
 ![image](https://github.com/user-attachments/assets/cafdc9dd-f354-4ebf-b18f-4f1b8cd93043)
+
+### 4. If you get an error for "Too many open files" you need to run this command before running arb-assist or smb-onchain:
+
+```bash
+ulimit -n 65536
+```
