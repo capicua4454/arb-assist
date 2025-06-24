@@ -54,11 +54,11 @@ mints_to_rank = 20                                # Number of mints to include i
 
 # pool_age is the time in milliseconds elapsed from when the newest pool for a mint was first detected
 # this does not refer to the actual age from when the pool was created
-# metric = profit, successful_arbs, fails, fee, roi, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover
+# metric = profit, successful_arbs, fails, fee, roi, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover, volatility
 # direction = ascending, descending
 intermint_sort_strategy = { metric = "profit", direction = "descending" }
 
-# metric = profit, successful_arbs, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover
+# metric = profit, successful_arbs, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover, volatility
 # direction = ascending, descending
 pool_sort_strategy = { metric = "profit", direction = "descending" }
 
@@ -72,9 +72,9 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # min_liquidity is the minimum total liquidity of all pools for that mint
 # min_turnover is the minimum ratio of total_volume/liquidity
 filter_thresholds = [
-  {min_profit = 10_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0 },
-  {min_profit = 100_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0 },
-  {min_profit = 1_000_000_000, min_roi = 4, min_txns = 20, min_fails = 1000, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0 },
+  {min_profit = 10_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
+  {min_profit = 100_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
+  {min_profit = 1_000_000_000, min_roi = 4, min_txns = 20, min_fails = 1000, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
 ]
 
 # Set different process delay to use for each filter threshold. The number of process delay levels must be the same as filter thresholds (u64)
