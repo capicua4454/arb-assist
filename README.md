@@ -317,9 +317,9 @@ wget -O arb-assist https://github.com/capicua4454/arb-assist/raw/refs/heads/main
 The old version of arb-assist will be replaced.
 
 ---
-## 10. Arb-Assist API server
+## 10. Arb-Assist file server
 
-To use the arb-assist API server, you should set the port number in your config.toml
+To use the arb-assist file server, you should set the port number in your config.toml
 
 ```bash
 port = 8080
