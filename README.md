@@ -319,7 +319,7 @@ The old version of arb-assist will be replaced.
 ---
 ## 10. Arb-Assist file server
 
-To use the arb-assist file server, you should set the port number in your config.toml
+To use the arb-assist file server, you should set the port number in your config.toml. It does not have to be 8080, you can set it to any available port.
 
 ```bash
 port = 8080
@@ -330,6 +330,8 @@ The configuration files will be served at this port number:
 ![image](https://github.com/user-attachments/assets/a0bd84a4-485f-4f05-ad3d-6c9e738aae8d)
 
 This will allow you to run arb-assist on one server and run your bot on any number of servers using the same configuration.
+
+It is highly recommended that you use 'ufw' to protect this port and only allow whitelisted servers to access it.
 
 ## 🛠 Troubleshooting
 
