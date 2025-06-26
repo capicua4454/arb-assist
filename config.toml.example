@@ -4,6 +4,7 @@ grpc_token = ""                                     # GRPC or ThorStreamer X-Tok
 grpc_engine = "yellowstone"                         # GRPC engine: "yellowstone" or "thor"
 # "smb" to generate *.toml file for SolanaMevBot smb-onchain or "na" to generate *.json file for NotArb onchain-bot or "both"
 mode = "smb"
+port = 8080 # Set the port number to serve the config files. Set to 0 to disable.
 helius_key = ""                                     # Helius API key for dynamic priority fee estimation
 # Include or exclude dexes you want to use
 dexes = [
