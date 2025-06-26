@@ -317,6 +317,19 @@ wget -O arb-assist https://github.com/capicua4454/arb-assist/raw/refs/heads/main
 The old version of arb-assist will be replaced.
 
 ---
+## 10. Arb-Assist API server
+
+To use the arb-assist API server, you should set the port number in your config.toml
+
+```bash
+port = 8080
+```
+
+The configuration files will be served at this port number:
+
+![image](https://github.com/user-attachments/assets/a0bd84a4-485f-4f05-ad3d-6c9e738aae8d)
+
+This will allow you to run arb-assist on one server and run your bot on any number of servers using the same configuration.
 
 ## 🛠 Troubleshooting
 
