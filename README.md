@@ -269,7 +269,31 @@ pm2 monit
 ---
 ## 📦 8B. Running NotArb Onchain-Bot
 
-First, encrypt your private key using NotArb. This encrypted private key file should be placed in your notarb directory.
+First, encrypt your private key using NotArb. 
+
+From the main NotArb folder open notarb-global.toml
+
+```bash
+nano notarb-global.toml
+```
+
+Put the path to your private key file in the appropriate area, then save and exit.
+
+Then, from the main NotArb folder, you will run:
+
+```bash
+bash notarb.sh protect-keypair
+```
+
+This will generate a protected keypair file. You can now delete the original private key file.
+
+Return to notarb-global.toml
+
+```bash
+nano notarb-global.toml
+```
+
+You should now update the keypair path to the new protected keypair path.
 
 In the arb-assist config.toml, you will need to set the path to your protected keypair here:
 ```bash
