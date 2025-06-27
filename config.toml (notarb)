@@ -114,7 +114,7 @@ jito_levels = [
   {jito = true, jito_bundle_groups = [1], jito_min_tip = 1_000, jito_max_tip = 50_000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 75, jito_count = 1, jito_strategy = "Random", block_engine_strategy = "AllAtOnce"},
 ]
 
-use_dynamic_jito_tip = true                       # Set to true if you want to use dynamic jito tips
+dynamic_jito_tip_mode = "parsed"                  # "tipstream" or "parsed" or "none"
 jito_uuid = ""                                    # UUID for Jito instance identification
 jito_ips = [
 #  "192.168.1.0/24"                                # IP ranges for Jito nodes
