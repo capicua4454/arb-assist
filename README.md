@@ -69,8 +69,10 @@ sudo apt install wget
 sudo apt install unzip
 mkdir smb
 cd smb
-wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.8.9.zip
-unzip smb-onchain-0.8.9.zip
+wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.9.8.zip
+unzip smb-onchain-0.9.8.zip
+chmod +x *
+./upgrade.sh
 ```
 
 ### 5B. Download NotArb Onchain-Bot
