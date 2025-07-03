@@ -100,7 +100,7 @@ merge_mints = true                                # Enable merged mint spam
 base_mint = "So11111111111111111111111111111111111111112"
 
 # ALUTs Configuration
-aluts_per_mint = 20
+aluts_per_pool = 5
 aluts = [
 #  "4sKLJ1Qoudh8PJyqBeuKocYdsZvxTcRShUt9aKqwhgvC"  # If you create your own ALUTs, you can add them here
 ]
@@ -143,10 +143,19 @@ jvm_args=["-server", "-Xmx8192m"]                   # JVM arguments for optimiza
 keypair_path="${DEFAULT_KEYPAIR_PATH}"              # Path to wallet keypair
 protect_keypair=true                                # Extra security for keypair
 threads=0                                           # 0 will use a dynamic cached thread pool, -1 will use a thread per task, anything > 0 will use a fixed thread pool
+max_lookup_tables=10
 meteora_bin_limit=20                                # Max number of bins for Meteora swaps (recommendation: 20)
 ips_file_path=""                                    # required for proxy senders (.txt file with 1 ip/proxy per line)
 prefunded_keypairs_path=""                          # optional - only for proxy senders (.txt file with 1 keypair per line)
-jito_regions = ["ny", "slc", "london", "frankfurt", "amsterdam", "tokyo", "singapore"]
+jito_targets = [
+  "https://ny.mainnet.block-engine.jito.wtf",
+  "https://tokyo.mainnet.block-engine.jito.wtf",
+  "https://slc.mainnet.block-engine.jito.wtf",
+  "https://amsterdam.mainnet.block-engine.jito.wtf",
+  "https://frankfurt.mainnet.block-engine.jito.wtf",
+  "https://london.mainnet.block-engine.jito.wtf",
+  "https://singapore.mainnet.block-engine.jito.wtf",
+  ]
 max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
 borrow_amount = 500_000_000                         # Amount of SOL lamports to borrow with flashloan
 token_accounts_checker = { rpc_url = "", delay_seconds = 3 }
