@@ -18,6 +18,7 @@ dexes = [
   "SoLFiHG9TfgtdUXUjWAxi3LtvYuFyDLVhBWxdMZxyCe",    # solfi
   "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG",    # meteora damm v2
   "vrTGoBuy5rYSxAfV3jaRJWHH6nN9WK4NRExGxsk1bCJ",    # vertigo
+  "GAMMA7meSFWaBXF25oSUgmGRwaW6sCMFLmBNiMSdbHVT",   # gamma
 ]
 filter_programs = true                             # If true, only include transactions from arb_programs
 arb_programs = [
@@ -55,11 +56,11 @@ mints_to_rank = 20                                # Number of mints to include i
 
 # pool_age is the time in milliseconds elapsed from when the newest pool for a mint was first detected
 # this does not refer to the actual age from when the pool was created
-# metric = profit, successful_arbs, fails, fee, roi, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover, volatility
+# metric = profit, successful_arbs, fails, fee, roi, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover, volatility, profit_per_arb
 # direction = ascending, descending
 intermint_sort_strategy = { metric = "profit", direction = "descending" }
 
-# metric = profit, successful_arbs, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover, volatility
+# metric = profit, successful_arbs, buy_count, sell_count, buy_volume, sell_volume, net_volume, total_volume, imbalance, liquidity, pool_age, turnover, volatility, profit_per_arb
 # direction = ascending, descending
 pool_sort_strategy = { metric = "profit", direction = "descending" }
 
@@ -73,9 +74,9 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # min_liquidity is the minimum total liquidity of all pools for that mint
 # min_turnover is the minimum ratio of total_volume/liquidity
 filter_thresholds = [
-  {min_profit = 10_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
-  {min_profit = 100_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
-  {min_profit = 1_000_000_000, min_roi = 4, min_txns = 20, min_fails = 1000, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
+  {min_profit = 10_000_000, min_profit_per_arb = 1_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
+  {min_profit = 100_000_000, min_profit_per_arb = 10_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
+  {min_profit = 1_000_000_000, min_profit_per_arb = 100_000_000, min_roi = 4, min_txns = 20, min_fails = 1000, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
 ]
 
 # Set different process delay to use for each filter threshold. The number of process delay levels must be the same as filter thresholds (u64)
@@ -110,7 +111,7 @@ merge_mints = true                                # Enable merged mint spam
 base_mint = "So11111111111111111111111111111111111111112"
 
 # ALUTs Configuration
-aluts_per_mint = 20
+aluts_per_pool = 5                                 # Number of ALUTs to include from each pool
 aluts = [
 #  "4sKLJ1Qoudh8PJyqBeuKocYdsZvxTcRShUt9aKqwhgvC"  # If you create your own ALUTs, you can add them here
 ]
@@ -155,10 +156,19 @@ jvm_args=["-server", "-Xmx8192m"]                   # JVM arguments for optimiza
 keypair_path="${DEFAULT_KEYPAIR_PATH}"              # Path to wallet keypair
 protect_keypair=true                                # Extra security for keypair
 threads=0                                           # 0 will use a dynamic cached thread pool, -1 will use a thread per task, anything > 0 will use a fixed thread pool
+max_lookup_tables=10                                # Max number of ALUTs to use for each transaction
 meteora_bin_limit=20                                # Max number of bins for Meteora swaps (recommendation: 20)
 ips_file_path=""                                    # required for proxy senders (.txt file with 1 ip/proxy per line)
 prefunded_keypairs_path=""                          # optional - only for proxy senders (.txt file with 1 keypair per line)
-jito_regions = ["ny", "slc", "london", "frankfurt", "amsterdam", "tokyo", "singapore"]
+jito_targets = [
+  "https://ny.mainnet.block-engine.jito.wtf",
+  "https://tokyo.mainnet.block-engine.jito.wtf",
+  "https://slc.mainnet.block-engine.jito.wtf",
+  "https://amsterdam.mainnet.block-engine.jito.wtf",
+  "https://frankfurt.mainnet.block-engine.jito.wtf",
+  "https://london.mainnet.block-engine.jito.wtf",
+  "https://singapore.mainnet.block-engine.jito.wtf",
+  ]
 max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
 borrow_amount = 500_000_000_000                         # Amount of SOL lamports to borrow with flashloan
 token_accounts_checker = { rpc_url = "", delay_seconds = 3 }
