@@ -158,7 +158,7 @@ jito_targets = [
   "https://london.mainnet.block-engine.jito.wtf",
   "https://singapore.mainnet.block-engine.jito.wtf",
   ]
-max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
+max_bundle_transactions = 1                         # Max transactions to bundle together per Jito sender.
 borrow_amount = 500_000_000_000                         # Amount of SOL lamports to borrow with flashloan
 token_accounts_checker = { rpc_url = "", delay_seconds = 3 }
 blockhash_updater = { rpc_url = "", delay_ms = 400 }
