@@ -251,7 +251,7 @@ Now, on your Linux VPS you can run smb-onchain for real.
 Start `smb-onchain` with:
 
 ```bash
-pm2 start smb-onchain --watch -- run smb-config.toml
+pm2 start smb-onchain --watch smb-config.toml -- run smb-config.toml
 ```
 
 ![image](https://github.com/user-attachments/assets/c20c0f02-9bdb-479c-818f-416fbdde311a)
