@@ -3,9 +3,9 @@ grpc_url = "http://nl.grpc.deez.top:10001"          # GRPC endpoint for streamin
 grpc_token = ""                                     # GRPC or ThorStreamer X-Token
 grpc_engine = "yellowstone"                         # GRPC engine: "yellowstone" or "thor"
 # "smb" to generate *.toml file for SolanaMevBot smb-onchain or "na" to generate *.json file for NotArb onchain-bot or "both"
-mode = "smb"
+mode = "both"
 port = 8080 # Set the port number to serve the config files. Set to 0 to disable.
-helius_key = ""                                     # Helius API key for dynamic priority fee estimation
+helius_key = ""                                     # Helius API key for dynamic priority fee estimation, leave empty to use estimation from parsed transactions
 # Include or exclude dexes you want to use
 dexes = [
   "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",   # raydium amm v4
@@ -18,9 +18,9 @@ dexes = [
   "SoLFiHG9TfgtdUXUjWAxi3LtvYuFyDLVhBWxdMZxyCe",    # solfi
   "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG",    # meteora damm v2
   "vrTGoBuy5rYSxAfV3jaRJWHH6nN9WK4NRExGxsk1bCJ",    # vertigo
-  "GAMMA7meSFWaBXF25oSUgmGRwaW6sCMFLmBNiMSdbHVT",   # gamma
 ]
 filter_programs = true                             # If true, only include transactions from arb_programs
+# Filter transactions for the pubkeys in arb_programs. These can be any pubkey, you don't have to use an arb program pubkey
 arb_programs = [
   "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",    # Solana MEV Bot (on-chain)
 #  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",    # Solana MEV Bot (Jupiter)
@@ -40,7 +40,6 @@ exclude_mints = [                                 # Intermedium mints to exclude
   "So11111111111111111111111111111111111111112",
   "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
 ]
-output = "smb-config"                             # Output config filename. Will automatically append ".toml" to file name
 
 update_interval = 10000                           # Interval in milliseconds to update the data
 run_interval = 60000                              # Interval in milliseconds you want to run bot after mint meets filter threshold
@@ -73,31 +72,55 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # min_imbalance_ratio is the minimum ratio of net_volume/total_volume. Range from 0.0 to 1.0 ONLY (f64)
 # min_liquidity is the minimum total liquidity of all pools for that mint
 # min_turnover is the minimum ratio of total_volume/liquidity
+# max_cu_limit: Maximum compute unit limit (u64)
+# top_pool_num: Number of top pools to include *Must be 2 or more (u64)
 filter_thresholds = [
-  {min_profit = 10_000_000, min_profit_per_arb = 1_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
-  {min_profit = 100_000_000, min_profit_per_arb = 10_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 10_000_000_000, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
-  {min_profit = 1_000_000_000, min_profit_per_arb = 100_000_000, min_roi = 4, min_txns = 20, min_fails = 1000, min_net_volume = 100_000_000_000, min_total_volume = 100_000_000_000, min_imbalance_ratio = 0.20, max_imbalance_ratio = 0.8, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.001 },
+  {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 10_000_000, min_profit_per_arb = 1_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
+  {max_cu_limit = 400_001, top_pool_num = 3, memo = "1", min_profit = 100_000_000, min_profit_per_arb = 10_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
+  {max_cu_limit = 400_002, top_pool_num = 3, memo = "2", min_profit = 1_000_000_000, min_profit_per_arb = 100_000_000, min_roi = 4, min_txns = 20, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
 ]
 
-# Set different process delay to use for each filter threshold. The number of process delay levels must be the same as filter thresholds (u64)
-# Maximum compute unit limit (u64)
-# Number of top pools to include *Must be 2 or more (u64)
-strategy_levels = [
-  {process_delay = 800, max_cu_limit = 600_000, top_pool_num = 3, memo = "arb-assist-lvl0"},
-  {process_delay = 400, max_cu_limit = 600_000, top_pool_num = 3, memo = "arb-assist-lvl1"},
-  {process_delay = 200, max_cu_limit = 600_000, top_pool_num = 3, memo = "arb-assist-lvl2"},
-]
+### You can set different number of levels for spam, jito, fast, nextblock, etc. "filter_level" is the index (starts at 0) of the filter_threshold at which a particular strategy is triggered
 
 # Set different spam settings to use for each filter threshold. The number of spam settings must be the same as filter thresholds (u64)
 # Enable spam behavior
 # Define which bundle groups you want to enable spam on
 # CU price strategy: Random / Linear / Exponential
 spam_levels = [
-  {spam = false, spam_bundle_groups = [1],min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1, cu_strategy = "Random"},
-  {spam = true, spam_bundle_groups = [1],min_cu_percentile = 50, max_cu_percentile = 75, min_cu_price = 10_000, max_cu_price = 50_000, tx_count = 1, cu_strategy = "Random"},
-  {spam = true, spam_bundle_groups = [1],min_cu_percentile = 75, max_cu_percentile = 95, min_cu_price = 50_000, max_cu_price = 500_000, tx_count = 1, cu_strategy = "Random"},
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
 ]
 
+# Jito Configuration
+# Enable Jito strategy support
+# Define which bundle groups you want to enable jito on
+# Jito strategy: Random / Linear / Exponential
+# Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds (u64)
+# "OneByOne" or "AllAtOnce"
+# Enable no_failure_mode (SMB) or prefer_success (NotArb) for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
+jito_levels = [
+  {filter_level = 0, bundle_groups = [1, 2, 3], process_delay = 400, min_tip = 1_000, max_tip = 2000, min_tip_percentile = 25, max_tip_percentile = 50, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
+  {filter_level = 1, bundle_groups = [1, 2, 3], process_delay = 400, min_tip = 3_000, max_tip = 12_000, min_tip_percentile = 50, max_tip_percentile = 75, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
+]
+
+fast_levels = [
+  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 1_000_000, max_tip = 2_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 1_000_000, max_tip = 2_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+]
+
+astralane_levels = [
+  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 150_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+]
+nextblock_levels = [
+  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 1_000_000, max_tip = 2_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+]
+node1_levels = [
+  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 2_000_000, max_tip = 3_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+]
+blockrazor_levels = [
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 120_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 150_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 100_000, max_tip = 180_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+]
 
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
 sending_rpc_urls = [
@@ -107,38 +130,24 @@ sending_rpc_urls = [
 cetiloan = true                                   # Enable flashloan
 merge_mints = true                                # Enable merged mint spam              
 
-# WSOl: So11111111111111111111111111111111111111112 or USDC: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
-base_mint = "So11111111111111111111111111111111111111112"
+# WSOL: So11111111111111111111111111111111111111112 or USDC: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+### For SMB, you can add both WSOL and USDC in an array below and you can use 3hop/4hop
+base_mints = [
+  "So11111111111111111111111111111111111111112",
+#  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+]
 
 # ALUTs Configuration
-aluts_per_pool = 5                                 # Number of ALUTs to include from each pool
+aluts_per_pool = 20                                 # Number of ALUTs to include from each pool
 aluts = [
 #  "4sKLJ1Qoudh8PJyqBeuKocYdsZvxTcRShUt9aKqwhgvC"  # If you create your own ALUTs, you can add them here
 ]
 
-# Jito Configuration
-# Enable Jito strategy support
-# Define which bundle groups you want to enable jito on
-# Jito strategy: Random / Linear / Exponential
-# Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds (u64)
-# "OneByOne" or "AllAtOnce"
-jito_levels = [
-  {jito = false, jito_bundle_groups = [1, 2, 3], jito_min_tip = 1_000, jito_max_tip = 2000, jito_min_tip_percentile = 25, jito_max_tip_percentile = 50, jito_count = 1, jito_strategy = "Random", block_engine_strategy = "AllAtOnce"},
-  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 3_000, jito_max_tip = 12_000, jito_min_tip_percentile = 50, jito_max_tip_percentile = 75, jito_count = 1, jito_strategy = "Random", block_engine_strategy = "AllAtOnce"},
-  {jito = true, jito_bundle_groups = [1, 2, 3], jito_min_tip = 30_000, jito_max_tip = 120_000, jito_min_tip_percentile = 75, jito_max_tip_percentile = 90, jito_count = 1, jito_strategy = "Random", block_engine_strategy = "OneByOne"},
-]
-
 dynamic_jito_tip_mode = "parsed"                  # "tipstream" or "parsed" or "none"
 jito_uuid = ""                                    # UUID for Jito instance identification
-jito_ips = [
-#  "192.168.1.0/24"                                # IP ranges for Jito nodes
-]
-jito_min_profit = 10000                           # Minimum profit threshold for Jito transactions
-jito_use_min_profit = false                        # Use minimum profit check for Jito
-jito_use_separate_tip_account = false              # Use a separate tip account for Jito transactions
+log_output = false                                # set to true to log your data
 
-# Enable no_failure_mode (SMB) or prefer_success (NotArb) for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
-no_failure_mode = true
+
 
 jito_urls = [                                     # URLs for Jito Block Engines to use
   "https://ny.mainnet.block-engine.jito.wtf/api/v1",
@@ -150,16 +159,55 @@ jito_urls = [                                     # URLs for Jito Block Engines 
   "https://singapore.mainnet.block-engine.jito.wtf/api/v1",
 ]
 
+[smb]
+output = "smb-config"
+max_retries = 0
+enable_simple_send = false
+cetiloan = true
+merge_mints = true
+
+[smb.jito_config]
+jito_ips = [
+#  "192.168.1.0/24"
+]
+min_profit = 5_000
+use_min_profit = true
+use_separate_tip_account = false
+
+[smb.fast_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+
+[smb.astralane_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+
+[smb.nextblock_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+
+[smb.node1_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+
+[smb.blockrazor_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+
 [notarb]                                            # If you use NotArb onchain then define NotArb-specific settings here
 output = "notarb-config"                            # The name of the config file for NotArb
 jvm_args=["-server", "-Xmx8192m"]                   # JVM arguments for optimization
 keypair_path="${DEFAULT_KEYPAIR_PATH}"              # Path to wallet keypair
 protect_keypair=true                                # Extra security for keypair
 threads=0                                           # 0 will use a dynamic cached thread pool, -1 will use a thread per task, anything > 0 will use a fixed thread pool
+flash_loan = true                                   # if you want to use flash loan
 max_lookup_tables=10                                # Max number of ALUTs to use for each transaction
 meteora_bin_limit=20                                # Max number of bins for Meteora swaps (recommendation: 20)
-confirmed_preflight = false
-min_profit_lamports = 0
 ips_file_path=""                                    # required for proxy senders (.txt file with 1 ip/proxy per line)
 prefunded_keypairs_path=""                          # optional - only for proxy senders (.txt file with 1 keypair per line)
 jito_targets = [
@@ -171,10 +219,10 @@ jito_targets = [
   "https://london.mainnet.block-engine.jito.wtf",
   "https://singapore.mainnet.block-engine.jito.wtf",
   ]
-max_bundle_transactions = 5                         # Max transactions to bundle together per Jito sender.
-borrow_amount = 500_000_000_000                         # Amount of SOL lamports to borrow with flashloan
+max_bundle_transactions = 1                         # Max transactions to bundle together per Jito sender.
 token_accounts_checker = { rpc_url = "", delay_seconds = 3 }
 blockhash_updater = { rpc_url = "", delay_ms = 400 }
 account_size_loader = { rpc_url = "", invalid_account_size = 200, buffer_size = 1500 }
 market_loader = ""
 lookup_table_loader = ""
+wsol_unwrapper = { enabled = true, check_minutes = 1, trigger_sol = 0.5, target_sol = 5, priority_fee_lamports=190, reader_rpc_url=""}
