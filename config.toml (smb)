@@ -149,17 +149,6 @@ jito_uuid = ""                                    # UUID for Jito instance ident
 log_output = false                                # set to true to log your data
 
 
-
-jito_urls = [                                     # URLs for Jito Block Engines to use
-  "https://ny.mainnet.block-engine.jito.wtf/api/v1",
-  "https://tokyo.mainnet.block-engine.jito.wtf/api/v1",
-  "https://slc.mainnet.block-engine.jito.wtf/api/v1",
-  "https://amsterdam.mainnet.block-engine.jito.wtf/api/v1",
-  "https://frankfurt.mainnet.block-engine.jito.wtf/api/v1",
-  "https://london.mainnet.block-engine.jito.wtf/api/v1",
-  "https://singapore.mainnet.block-engine.jito.wtf/api/v1",
-]
-
 [smb]
 output = "smb-config"
 max_retries = 0
