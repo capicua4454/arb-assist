@@ -20,6 +20,7 @@ filter_programs = true                             # If true, only include trans
 # Filter transactions for the pubkeys in arb_programs. These can be any pubkey, you don't have to use an arb program pubkey
 arb_programs = [
   "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",    # Solana MEV Bot (on-chain)
+  "NA247a7YE9S3p9CdKmMyETx8TTwbSdVbVYHHxpnHTUV",    # NotArb
 #  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",    # Solana MEV Bot (Jupiter)
 #  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd",   # NotArb
 #  "NA365bsPdvZ8sP58qJ5QFg7eXygCe8aPRRxR9oeMbR5",    # NotArb
@@ -144,57 +145,6 @@ dynamic_jito_tip_mode = "parsed"                  # "tipstream" or "parsed" or "
 jito_uuid = ""                                    # UUID for Jito instance identification
 log_output = false                                # set to true to log your data
 
-
-
-jito_urls = [                                     # URLs for Jito Block Engines to use
-  "https://ny.mainnet.block-engine.jito.wtf/api/v1",
-  "https://tokyo.mainnet.block-engine.jito.wtf/api/v1",
-  "https://slc.mainnet.block-engine.jito.wtf/api/v1",
-  "https://amsterdam.mainnet.block-engine.jito.wtf/api/v1",
-  "https://frankfurt.mainnet.block-engine.jito.wtf/api/v1",
-  "https://london.mainnet.block-engine.jito.wtf/api/v1",
-  "https://singapore.mainnet.block-engine.jito.wtf/api/v1",
-]
-
-[smb]
-output = "smb-config"
-max_retries = 0
-enable_simple_send = false
-cetiloan = true
-merge_mints = true
-
-[smb.jito_config]
-jito_ips = [
-#  "192.168.1.0/24"
-]
-min_profit = 5_000
-use_min_profit = true
-use_separate_tip_account = false
-
-[smb.fast_config]
-min_profit = 5_000
-use_min_profit = true
-auth_value = ""
-
-[smb.astralane_config]
-min_profit = 5_000
-use_min_profit = true
-auth_value = ""
-
-[smb.nextblock_config]
-min_profit = 5_000
-use_min_profit = true
-auth_value = ""
-
-[smb.node1_config]
-min_profit = 5_000
-use_min_profit = true
-auth_value = ""
-
-[smb.blockrazor_config]
-min_profit = 5_000
-use_min_profit = true
-auth_value = ""
 
 [notarb]                                            # If you use NotArb onchain then define NotArb-specific settings here
 output = "notarb-config"                            # The name of the config file for NotArb
