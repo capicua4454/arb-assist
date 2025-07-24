@@ -126,10 +126,7 @@ blockrazor_levels = [
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
 sending_rpc_urls = [
   "http://main.deez.top:80",                      # RPCs used for sending transactions
-]
-
-cetiloan = true                                   # Enable flashloan
-merge_mints = true                                # Enable merged mint spam              
+]       
 
 # WSOL: So11111111111111111111111111111111111111112 or USDC: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
 ### For SMB, you can add both WSOL and USDC in an array below and you can use 3hop/4hop
