@@ -135,7 +135,7 @@ merge_mints = true                                # Enable merged mint spam
 ### For SMB, you can add both WSOL and USDC in an array below and you can use 3hop/4hop
 base_mints = [
   "So11111111111111111111111111111111111111112",
-#  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
 ]
 
 # ALUTs Configuration
@@ -155,6 +155,7 @@ max_retries = 0
 enable_simple_send = false
 cetiloan = true
 merge_mints = true
+skip_ata_creation = false
 
 [smb.jito_config]
 ips = [
@@ -168,16 +169,22 @@ use_separate_tip_account = false
 min_profit = 5_000
 use_min_profit = true
 auth_value = ""
+request_params = { frontRunningProtection = false } # Optional parameters
+urls = [
+  "https://fast.circular.fi/transactions", # Change the urls if needed
+]
 
 [smb.astralane_config]
 min_profit = 5_000
 use_min_profit = true
 auth_value = ""
+request_params = { mevProtect = false } # Optional parameters
 
 [smb.nextblock_config]
 min_profit = 5_000
 use_min_profit = true
 auth_value = ""
+request_params = { skipPreFlight = true, snipeTransaction = true, frontRunningProtection = false, disableRetries = true, revertOnFail = false } # Optional parameters
 
 [smb.node1_config]
 min_profit = 5_000
