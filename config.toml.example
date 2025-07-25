@@ -75,6 +75,7 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # min_turnover is the minimum ratio of total_volume/liquidity
 # max_cu_limit: Maximum compute unit limit (u64)
 # top_pool_num: Number of top pools to include *Must be 2 or more (u64)
+# You can define any number of tiers that you want. Add or remove as needed.
 filter_thresholds = [
   {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 10_000_000, min_profit_per_arb = 1_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
   {max_cu_limit = 400_001, top_pool_num = 3, memo = "1", min_profit = 100_000_000, min_profit_per_arb = 10_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
@@ -85,8 +86,9 @@ filter_thresholds = [
 
 # Set different spam settings to use for each filter threshold. The number of spam settings must be the same as filter thresholds (u64)
 # Enable spam behavior
-# Define which bundle groups you want to enable spam on
+# Define which bundle groups you want to enable spam on. This is the group number from the mints_to_arb array. It is 1-indexed so [1] corresponds to the first group in mints_to_arb
 # CU price strategy: Random / Linear / Exponential
+# filter_level is the index of the item defined in filter_thresholds when you want to turn on a particular sender. It is 0-indexed so filter_level = 0 corresponds to the first tier of filter_thresholds.
 spam_levels = [
   {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 1_000, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
 ]
@@ -95,7 +97,7 @@ spam_levels = [
 # Enable Jito strategy support
 # Define which bundle groups you want to enable jito on
 # Jito strategy: Random / Linear / Exponential
-# Set different jito settings to use for each filter threshold. The number of jito settings must be the same as filter thresholds (u64)
+# Set different jito settings to use for each filter threshold.
 # "OneByOne" or "AllAtOnce"
 # Enable no_failure_mode (SMB) or prefer_success (NotArb) for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
 jito_levels = [
