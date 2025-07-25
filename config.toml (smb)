@@ -76,11 +76,10 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # max_cu_limit: Maximum compute unit limit (u64)
 # top_pool_num: Number of top pools to include *Must be 2 or more (u64)
 filter_thresholds = [
-  {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 10_000_000, min_profit_per_arb = 1_000_000, min_roi = 2, min_txns = 5, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
-  {max_cu_limit = 400_001, top_pool_num = 3, memo = "1", min_profit = 100_000_000, min_profit_per_arb = 10_000_000, min_roi = 3, min_txns = 10, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
-  {max_cu_limit = 400_002, top_pool_num = 3, memo = "2", min_profit = 1_000_000_000, min_profit_per_arb = 100_000_000, min_roi = 4, min_txns = 20, min_fails = 1000, min_net_volume = 1_000_000_000, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 0, min_turnover = 0.0, min_volatility = 0.0 },
+  {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 1_000_000, min_profit_per_arb = 0, min_roi = 2, min_txns = 5, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
+  {max_cu_limit = 400_001, top_pool_num = 3, memo = "1", min_profit = 10_000_000, min_profit_per_arb = 0, min_roi = 3, min_txns = 10, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
+  {max_cu_limit = 400_002, top_pool_num = 3, memo = "2", min_profit = 100_000_000, min_profit_per_arb = 0, min_roi = 4, min_txns = 20, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
 ]
-
 ### You can set different number of levels for spam, jito, fast, nextblock, etc. "filter_level" is the index (starts at 0) of the filter_threshold at which a particular strategy is triggered
 
 # Set different spam settings to use for each filter threshold. The number of spam settings must be the same as filter thresholds (u64)
