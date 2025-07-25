@@ -73,7 +73,7 @@ filter_thresholds = [
 # Define which bundle groups you want to enable spam on
 # CU price strategy: Random / Linear / Exponential
 spam_levels = [
-  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 25, max_cu_percentile = 50, min_cu_price = 0, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_cu_percentile = 0, max_cu_percentile = 99, min_cu_price = 0, max_cu_price = 5_000, tx_count = 1, fee_strategy = "Random"},
 ]
 
 # Jito Configuration
