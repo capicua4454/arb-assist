@@ -104,8 +104,8 @@ jito_levels = [
 ]
 
 fast_levels = [
-  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 1_000_000, max_tip = 2_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
-  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 1_000_000, max_tip = 2_000_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = false, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+  {filter_level = 1, bundle_groups = [1], process_delay = 400, min_tip = 15_000, max_tip = 20_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
+  {filter_level = 2, bundle_groups = [1], process_delay = 400, min_tip = 15_000, max_tip = 20_000, min_tip_percentile = 75, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 10_000, fee_strategy = "Random" },
 ]
 
 astralane_levels = [
@@ -164,11 +164,11 @@ use_separate_tip_account = false
 
 [smb.fast_config]
 min_profit = 5_000
-use_min_profit = true
+use_min_profit = false
 auth_value = ""
 request_params = { frontRunningProtection = false } # Optional parameters
 urls = [
-  "https://fast.circular.fi/transactions", # Change the urls if needed
+  "https://fast.circular.fi/transactions/no-failure/smb", # Change the urls if needed
 ]
 
 [smb.astralane_config]
