@@ -28,7 +28,6 @@ arb-assist supports multiple arbitrage bot implementations:
 ## How It Works
 
 ```mermaid
-%%{ init: { 'theme': 'base', 'themeVariables': { 'background': '#1e1e1e', 'primaryColor': '#374151', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#6b7280', 'lineColor': '#6b7280', 'secondaryColor': '#1f2937', 'tertiaryColor': '#111827', 'textColor': '#e5e7eb' } } }%%
 graph TD
     A[GRPC Stream] -->|Transaction Data| B[arb-assist]
     B -->|Analyze| C[Market Intelligence]

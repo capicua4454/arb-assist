@@ -213,7 +213,6 @@ done
 ### Recommended Setup
 
 ```mermaid
-%%{ init: { 'theme': 'dark', 'themeVariables': { 'background': '#1e1e1e', 'primaryColor': '#374151', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#6b7280', 'lineColor': '#6b7280', 'secondaryColor': '#1f2937', 'tertiaryColor': '#111827', 'textColor': '#e5e7eb' } } }%%
 graph TD
     A[arb-assist<br/>Main Server<br/>8 CPU cores<br/>16GB RAM<br/>GRPC connection<br/>File server:8080]
     A -->|HTTP<br/>Internal Network| B[Bot #1<br/>2 CPU<br/>4GB RAM]

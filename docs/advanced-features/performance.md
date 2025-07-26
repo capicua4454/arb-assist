@@ -385,7 +385,6 @@ Upgrade single instance:
 Distribute across multiple servers:
 
 ```mermaid
-%%{ init: { 'theme': 'dark', 'themeVariables': { 'background': '#1e1e1e', 'primaryColor': '#374151', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#6b7280', 'lineColor': '#6b7280', 'secondaryColor': '#1f2937', 'tertiaryColor': '#111827', 'textColor': '#e5e7eb' } } }%%
 graph TD
     R1[Region 1<br/>arb-assist<br/>US-East]
     R2[Region 2<br/>arb-assist<br/>Europe]
