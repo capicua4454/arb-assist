@@ -9,17 +9,14 @@ Before installing arb-assist, ensure your system meets all the requirements belo
 | Component | Minimum | Recommended |
 |-----------|---------|-------------|
 | **CPU** | 8-core dedicated Ryzen | 16-core dedicated Ryzen |
-| **RAM** | See bot documentation | See bot documentation |
-| **Storage** | See bot documentation | See bot documentation |
+| **RAM** | 16 GB | 32 GB |
+| **Storage** | 60 GB SSD | 120 GB NVMe SSD |
 | **Network** | Default/Basic | Default/Basic |
 
 {% hint style="warning" %}
 **Important**: arb-assist uses heavy GRPC streams that require significant CPU resources. Many users report CPU usage warnings above 70% on 8-core systems. Running on weaker hardware may result in missed opportunities or data processing delays.
 {% endhint %}
 
-{% hint style="info" %}
-**Note**: For specific memory and storage requirements, refer to your bot's documentation (SMB-Onchain or NotArb) as requirements may vary based on configuration.
-{% endhint %}
 
 ### Operating System
 
@@ -57,8 +54,7 @@ You must have access to one of the following GRPC services:
 - Alternative option
 
 {% hint style="info" %}
-**Note**: GRPC access typically requires a paid subscription. Budget estimates are approximate - please check with providers for actual pricing.
-<!-- ⚠️ REVIEW: Budget range of $100-500/month should be verified with current GRPC provider pricing -->
+**Note**: GRPC access typically requires a paid subscription. Please check with providers for current pricing.
 {% endhint %}
 
 ## Software Requirements

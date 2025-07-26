@@ -214,7 +214,7 @@ done
 
 ```mermaid
 graph TD
-    A[arb-assist<br/>Main Server<br/>16-core dedicated Ryzen<br/>RAM per bot docs<br/>GRPC connection<br/>File server:8080]
+    A[arb-assist<br/>Main Server<br/>16-core dedicated Ryzen<br/>32 GB RAM<br/>GRPC connection<br/>File server:8080]
     A -->|HTTP<br/>Internal Network| B[Bot #1<br/>Per bot requirements]
     A -->|HTTP<br/>Internal Network| C[Bot #2<br/>Per bot requirements]
     A -->|HTTP<br/>Internal Network| D[Bot #3<br/>Per bot requirements]

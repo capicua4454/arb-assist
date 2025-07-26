@@ -273,9 +273,9 @@ jvm_args = [
 ```
 
 JVM heap size recommendations:
-- **8GB RAM**: `-Xmx4096m`
 - **16GB RAM**: `-Xmx8192m`
 - **32GB RAM**: `-Xmx16384m`
+- **64GB RAM**: `-Xmx32768m`
 
 {% hint style="info" %}
 **Note**: These are JVM heap settings only. For total system RAM requirements, refer to NotArb's official documentation.

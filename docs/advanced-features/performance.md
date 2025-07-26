@@ -193,10 +193,6 @@ Configure for your available memory:
 
 #### Memory Configuration Examples
 
-{% hint style="info" %}
-**Note**: Actual memory requirements depend on your bot configuration. Refer to SMB-Onchain or NotArb documentation for specific requirements.
-{% endhint %}
-
 ##### Conservative Configuration
 ```toml
 mints_to_rank = 10
@@ -381,9 +377,9 @@ Upgrade single instance:
 | Component | Basic | Recommended | Optimal |
 |-----------|-------|-------------|---------|
 | CPU | 8-core dedicated Ryzen | 16-core dedicated Ryzen | 32+ core dedicated Ryzen |
-| RAM | See bot documentation | See bot documentation | See bot documentation |
+| RAM | 16 GB | 32 GB | 64+ GB |
 | Network | Default/Basic | Default/Basic | Default/Basic |
-| Storage | See bot documentation | See bot documentation | See bot documentation |
+| Storage | 60 GB SSD | 120 GB NVMe SSD | 250 GB NVMe SSD |
 
 ### Horizontal Scaling
 
