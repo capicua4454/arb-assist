@@ -178,18 +178,36 @@ echo "* soft nofile 65536" | sudo tee -a /etc/security/limits.conf
 echo "* hard nofile 65536" | sudo tee -a /etc/security/limits.conf
 ```
 
-### Network Tuning
-Optimize network settings:
+<!-- ### Network Tuning
+Optimize network settings for low-latency arbitrage:
 ```bash
 # Add to /etc/sysctl.conf
-net.core.rmem_max = 134217728
-net.core.wmem_max = 134217728
-net.ipv4.tcp_rmem = 4096 87380 134217728
-net.ipv4.tcp_wmem = 4096 65536 134217728
+
+# Buffer sizes optimized for small packets (8MB is plenty for blockchain transactions)
+net.core.rmem_max = 8388608
+net.core.wmem_max = 8388608
+net.ipv4.tcp_rmem = 4096 87380 8388608
+net.ipv4.tcp_wmem = 4096 65536 8388608
+
+# Low latency optimizations
+net.ipv4.tcp_low_latency = 1        # Prioritize latency over throughput
+net.ipv4.tcp_adv_win_scale = 1      # Better buffer efficiency
+net.core.netdev_max_backlog = 5000  # Handle burst packet rates
+net.ipv4.tcp_congestion_control = bbr # Better for small packets
+net.ipv4.tcp_fastopen = 3            # Reduce connection setup time
 
 # Apply changes
 sudo sysctl -p
 ```
+
+Disable NIC interrupt coalescing for lowest latency:
+```bash
+# Check current settings
+sudo ethtool -c eth0
+
+# Disable interrupt coalescing (adjust interface name as needed)
+sudo ethtool -C eth0 rx-usecs 0
+``` -->
 
 ## Verification Checklist
 

@@ -367,17 +367,33 @@ Dedicate CPU cores:
 taskset -cp 2,3 $(pgrep arb-assist)
 ```
 
-### 3. Kernel Tuning
+<!-- ### 3. Kernel Tuning
 
-Optimize network stack:
+Optimize network stack for low-latency arbitrage:
 ```bash
 # /etc/sysctl.conf
-net.core.rmem_max = 134217728
-net.core.wmem_max = 134217728
-net.ipv4.tcp_rmem = 4096 87380 134217728
-net.ipv4.tcp_wmem = 4096 65536 134217728
+
+# Buffer sizes optimized for small packets
+net.core.rmem_max = 8388608
+net.core.wmem_max = 8388608
+net.ipv4.tcp_rmem = 4096 87380 8388608
+net.ipv4.tcp_wmem = 4096 65536 8388608
+
+# Low latency optimizations
+net.ipv4.tcp_low_latency = 1
+net.ipv4.tcp_adv_win_scale = 1
 net.core.netdev_max_backlog = 5000
+net.ipv4.tcp_congestion_control = bbr
+net.ipv4.tcp_fastopen = 3
+
+# Apply changes
+sudo sysctl -p
 ```
+
+Disable NIC interrupt coalescing:
+```bash
+sudo ethtool -C eth0 rx-usecs 0
+``` -->
 
 ### 4. File System Optimization
 

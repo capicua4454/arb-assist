@@ -82,21 +82,28 @@ echo 10 | sudo tee /proc/sys/vm/swappiness
 sudo swapoff -a
 ```
 
-### Network Optimization
+<!-- ### Network Optimization
 
 #### TCP Tuning
 
-Optimize TCP stack for low latency:
+Optimize TCP stack for low-latency arbitrage:
 
 ```bash
 # /etc/sysctl.conf additions
-net.core.rmem_max = 134217728
-net.core.wmem_max = 134217728
-net.ipv4.tcp_rmem = 4096 87380 134217728
-net.ipv4.tcp_wmem = 4096 65536 134217728
-net.core.netdev_max_backlog = 30000
-net.ipv4.tcp_congestion_control = bbr
-net.ipv4.tcp_notsent_lowat = 16384
+
+# Buffer sizes optimized for small packets (8MB is plenty)
+net.core.rmem_max = 8388608
+net.core.wmem_max = 8388608
+net.ipv4.tcp_rmem = 4096 87380 8388608
+net.ipv4.tcp_wmem = 4096 65536 8388608
+
+# Low latency optimizations
+net.ipv4.tcp_low_latency = 1        # Prioritize latency over throughput
+net.ipv4.tcp_adv_win_scale = 1      # Better buffer efficiency
+net.core.netdev_max_backlog = 5000  # Handle burst packet rates
+net.ipv4.tcp_congestion_control = bbr # Better for small packets
+net.ipv4.tcp_fastopen = 3            # Reduce connection setup time
+net.ipv4.tcp_notsent_lowat = 16384  # Send small packets quickly
 
 # Apply changes
 sudo sysctl -p
@@ -104,18 +111,22 @@ sudo sysctl -p
 
 #### Network Interface Tuning
 
-Optimize NIC settings:
+Optimize NIC settings for low latency:
 
 ```bash
 # Increase ring buffer
 sudo ethtool -G eth0 rx 4096 tx 4096
 
-# Enable offloading
+# Enable offloading for better performance
 sudo ethtool -K eth0 gso on gro on tso on
 
-# Set interrupt coalescing
-sudo ethtool -C eth0 adaptive-rx on adaptive-tx on
-```
+# Disable interrupt coalescing for lowest latency
+sudo ethtool -C eth0 rx-usecs 0 tx-usecs 0
+sudo ethtool -C eth0 adaptive-rx off adaptive-tx off
+
+# Verify settings
+sudo ethtool -c eth0
+``` -->
 
 ### Disk I/O Optimization
 
