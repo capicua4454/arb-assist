@@ -35,11 +35,11 @@
 * [Market Intelligence](advanced-features/market-intelligence.md)
 * [Performance Optimization](advanced-features/performance.md)
 
-## API Reference
+## Config Reference
 
-* [Configuration Schema](api-reference/configuration-schema.md)
-* [Output File Formats](api-reference/output-formats.md)
-* [Supported Metrics](api-reference/metrics.md)
+* [Configuration Schema](config-reference/configuration-schema.md)
+* [Output File Formats](config-reference/output-formats.md)
+* [Supported Metrics](config-reference/metrics.md)
 
 ## Troubleshooting
 
