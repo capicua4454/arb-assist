@@ -57,7 +57,7 @@ mints_to_rank = 20
 intermint_sort_strategy = { metric = "profit", direction = "descending" }
 pool_sort_strategy = { metric = "profit", direction = "descending" }
 
-# Single Filter Threshold
+# Single Filter Threshold with new percentile settings
 filter_thresholds = [
   {
     max_cu_limit = 400_000,
@@ -74,7 +74,11 @@ filter_thresholds = [
     max_imbalance_ratio = 1.0,
     min_liquidity = 1_000_000_000,
     min_turnover = 0.0,
-    min_volatility = 0.0
+    min_volatility = 0.0,
+    min_fee_percentile = {50=1000, 80=10000},
+    max_fee_percentile = {50=10000, 80=1000000},
+    min_tip_percentile = {50=1000, 80=10000},
+    max_tip_percentile = {50=10000, 80=1000000}
   },
 ]
 
@@ -106,6 +110,50 @@ jito_levels = [
     tip_strategy = "Random",
     sending_strategy = "AllAtOnce",
     no_failure_mode = true   # prefer_success in NotArb
+  },
+]
+
+# FAST levels for NotArb (requires min_tip > 15000)
+fast_levels = [
+  {
+    filter_level = 0,
+    bundle_groups = [1],
+    process_delay = 400,
+    min_tip = 15_000,    # Minimum 15000 lamports required
+    max_tip = 20_000,
+    min_tip_percentile = 0,
+    max_tip_percentile = 99,
+    tx_count = 1,
+    tip_strategy = "Random",
+    sending_strategy = "AllAtOnce",
+    no_failure_mode = true,    # Required for FAST
+    min_cu_percentile = 0,
+    max_cu_percentile = 25,
+    min_cu_price = 1_000,
+    max_cu_price = 1_000,
+    fee_strategy = "Random"
+  },
+]
+
+# ASTRALANE levels for NotArb (requires min_tip > 10000)
+astralane_levels = [
+  {
+    filter_level = 0,
+    bundle_groups = [1],
+    process_delay = 400,
+    min_tip = 10_000,    # Minimum 10000 lamports required
+    max_tip = 20_000,
+    min_tip_percentile = 0,
+    max_tip_percentile = 99,
+    tx_count = 1,
+    tip_strategy = "Random",
+    sending_strategy = "AllAtOnce",
+    no_failure_mode = true,    # Required for ASTRALANE
+    min_cu_percentile = 0,
+    max_cu_percentile = 25,
+    min_cu_price = 1_000,
+    max_cu_price = 1_000,
+    fee_strategy = "Random"
   },
 ]
 
@@ -174,6 +222,15 @@ wsol_unwrapper = {
   priority_fee_lamports = 190, 
   reader_rpc_url = ""
 }
+
+# FAST configuration for NotArb
+[notarb.fast_config]
+auth_value = ""
+urls = ["https://fast.circular.fi/transactions/no-failure/notarb"]
+
+# ASTRALANE configuration for NotArb
+[notarb.astralane_config]
+auth_value = ""
 ```
 
 ## Key NotArb Optimizations

@@ -113,6 +113,10 @@ filter_thresholds = [
 | `min_liquidity` | integer | No | `0` | Min pool liquidity |
 | `min_turnover` | float | No | `0.0` | Min volume/liquidity ratio |
 | `min_volatility` | float | No | `0.0` | Min price volatility |
+| `min_fee_percentile` | object | No | `{}` | Min fee percentiles (e.g., `{50=1000, 80=10000}`) |
+| `max_fee_percentile` | object | No | `{}` | Max fee percentiles (e.g., `{50=10000, 80=1000000}`) |
+| `min_tip_percentile` | object | No | `{}` | Min tip percentiles (e.g., `{50=1000, 80=10000}`) |
+| `max_tip_percentile` | object | No | `{}` | Max tip percentiles (e.g., `{50=10000, 80=1000000}`) |
 | `max_cu_limit` | integer | Yes | - | Max compute units |
 | `top_pool_num` | integer | Yes | - | Pools to use (min 2) |
 | `memo` | string | No | `""` | Optional memo field |
@@ -370,6 +374,15 @@ wsol_unwrapper = {
   priority_fee_lamports = 190,
   reader_rpc_url = ""
 }
+
+# FAST configuration for NotArb
+[notarb.fast_config]
+auth_value = ""
+urls = ["https://fast.circular.fi/transactions/no-failure/notarb"]
+
+# ASTRALANE configuration for NotArb  
+[notarb.astralane_config]
+auth_value = ""
 ```
 
 ## Metric Types
