@@ -1,5 +1,9 @@
 # Supported Metrics
 
+{% hint style="info" %}
+ℹ️ **REVIEW NEEDED**: Please verify that all metrics documented here are actually implemented in arb-assist. The profit_per_arb metric in particular should be confirmed as it was mentioned in the changelog but may not exist in the actual code.
+{% endhint %}
+
 This reference documents all metrics available for sorting and filtering in arb-assist.
 
 ## Financial Metrics

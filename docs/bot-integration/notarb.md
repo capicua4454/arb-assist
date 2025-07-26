@@ -259,6 +259,7 @@ Updates based on:
 
 ### JVM Optimization
 
+<!-- ⚠️ REVIEW: JVM optimization settings below are suggestions and should be tested based on your specific hardware and workload -->
 Tune Java performance:
 ```toml
 jvm_args = [

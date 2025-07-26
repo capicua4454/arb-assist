@@ -217,6 +217,7 @@ include_token2022 = false  # Exclude Token-2022 mints
 include_token2022 = true   # Include Token-2022 mints
 ```
 
+<!-- ⚠️ REVIEW: Verify that Token2022 support is actually implemented in arb-assist and which DEXes support it -->
 Considerations:
 - Token-2022 has additional features (transfer fees, etc.)
 - May require special handling

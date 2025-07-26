@@ -6,6 +6,7 @@ Before installing arb-assist, ensure your system meets all the requirements belo
 
 ### Hardware Requirements
 
+<!-- ⚠️ REVIEW: Hardware requirements below are estimates based on README recommendation of "8 core Ryzen VPS or better". Please verify actual requirements -->
 | Component | Minimum | Recommended |
 |-----------|---------|-------------|
 | **CPU** | 8-core x86_64 | 8-core Ryzen 5000+ series |
@@ -53,7 +54,8 @@ You must have access to one of the following GRPC services:
 - Alternative option
 
 {% hint style="info" %}
-**Note**: GRPC access typically requires a paid subscription. Budget $100-500/month depending on your needs.
+**Note**: GRPC access typically requires a paid subscription. Budget estimates are approximate - please check with providers for actual pricing.
+<!-- ⚠️ REVIEW: Budget range of $100-500/month should be verified with current GRPC provider pricing -->
 {% endhint %}
 
 ## Software Requirements

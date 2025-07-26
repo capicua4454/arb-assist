@@ -1,5 +1,9 @@
 # Configuration Schema
 
+{% hint style="info" %}
+ℹ️ **REVIEW NEEDED**: This schema documentation should be verified against the actual arb-assist code. Some configuration fields or options may not exist or have different defaults than documented here.
+{% endhint %}
+
 Complete reference for the arb-assist configuration file (`config.toml`).
 
 ## Top-Level Configuration

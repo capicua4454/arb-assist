@@ -1,5 +1,11 @@
 # Changelog
 
+{% hint style="danger" %}
+⚠️ **REVIEW NEEDED**: This entire changelog is FICTIONAL and was created as an example. Please replace with actual version history, release dates, and feature changes.
+{% endhint %}
+
+<!-- ⚠️ REVIEW: Everything below is a template/example and should be replaced with real version information -->
+
 All notable changes to arb-assist will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -20,7 +26,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Race condition in config updates
 - Memory leak in long-running instances
 
-## [1.2.0] - 2024-01-26
+<!-- ⚠️ REVIEW: All version numbers, dates, and features below are FICTIONAL EXAMPLES -->
+
+## [1.2.0] - 2024-01-26 ⚠️ FICTIONAL
 
 ### Added
 - **Token2022 Support**: Full support for Token Extensions Program
@@ -50,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Expanded strategy level options
 
 - **Performance Improvements**:
-  - 20% faster GRPC processing
+  - 20% faster GRPC processing ⚠️ REVIEW: Verify actual performance gains
   - Reduced memory usage
   - Better CPU utilization
 
@@ -65,163 +73,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved input validation
 - Enhanced license verification
 
-## [1.1.5] - 2024-01-15
-
-### Added
-- **Multi-Strategy Levels**: Different strategies for different market conditions
-  - `spam_levels`, `jito_levels`, `fast_levels`
-  - Tier-based activation
-  - Dynamic strategy switching
-
-### Changed
-- Improved Jito bundle success rates
-- Better priority fee estimation
-- Optimized config generation
-
-### Fixed
-- GRPC reconnection issues
-- Config file atomicity
-- Race conditions in updates
-
-## [1.1.0] - 2023-12-20
-
-### Added
-- **Dynamic Fee Strategies**: Flexible fee configuration
-  - Random, Linear, Exponential strategies
-  - Percentile-based pricing
-  - Min/max ranges
-
-- **Advanced Jito Integration**:
-  - Dynamic tip calculation
-  - Tip floor tracking
-  - Multi-region support
-  - Bundle optimization
-
-- **Helius Integration**: Real-time priority fees
-  - API key support
-  - Percentile-based estimates
-  - Network congestion awareness
-
-### Changed
-- **Output Format Overhaul**:
-  - Structured routing configuration
-  - Pool categorization by DEX
-  - Improved ALUT management
-
-- **Configuration Structure**:
-  - Strategy-based organization
-  - Clearer parameter names
-  - Better defaults
-
-### Deprecated
-- Fixed fee values (use strategies instead)
-- Single tip amounts (use ranges)
-- Legacy output format
-
-### Fixed
-- Transaction parsing accuracy
-- Memory usage optimization
-- GRPC stream handling
-
-## [1.0.8] - 2023-11-30
-
-### Added
-- Helius API support for priority fees
-- File server authentication options
-- Performance monitoring endpoints
-
-### Changed
-- Improved error messages
-- Better config validation
-- Updated documentation
-
-### Fixed
-- File server security issues
-- Config update race conditions
-- TOML parsing edge cases
-
-## [1.0.5] - 2023-11-15
-
-### Added
-- **File Server Mode**: Serve configs over HTTP
-  - Port configuration
-  - Multi-bot support
-  - Remote management
-
-### Changed
-- Network timeout handling
-- Connection pooling
-- Resource cleanup
-
-### Fixed
-- Memory leaks in long runs
-- File descriptor exhaustion
-- Concurrent write issues
-
-## [1.0.0] - 2023-10-01
-
-### Added
-- Initial public release
-- SMB-Onchain support
-- NotArb support
-- Basic arbitrage detection
-- Configuration generation
-- GRPC streaming (Yellowstone/Thor)
-- Multi-DEX support
-- Filter thresholds
-- Sort strategies
-- Flash loan support
-- ALUTs discovery
-
-### Known Issues
-- High memory usage on large datasets
-- Limited strategy options
-- Basic fee management
+<!-- ⚠️ REVIEW: Replace all sections below with actual version history -->
 
 ## Version History Summary
 
 | Version | Release Date | Major Changes |
 |---------|--------------|---------------|
-| 1.2.0 | 2024-01-26 | Token2022, Multi-base tokens |
-| 1.1.5 | 2024-01-15 | Multi-strategy levels |
-| 1.1.0 | 2023-12-20 | Dynamic fees, Advanced Jito |
-| 1.0.8 | 2023-11-30 | Helius integration |
-| 1.0.5 | 2023-11-15 | File server mode |
-| 1.0.0 | 2023-10-01 | Initial release |
+| ?.?.? | ???? | Actual features |
+| ?.?.? | ???? | Real changes |
+| ?.?.? | ???? | True updates |
 
 ## Upgrade Notes
 
-### To 1.2.0
-- Update `base_mint` to `base_mints` array format
-- Add `include_token2022 = false` if not using Token2022
-- Review filter thresholds for new `min_profit_per_arb` option
+<!-- ⚠️ REVIEW: Add real upgrade instructions based on actual version changes -->
 
-### To 1.1.0
-- Migrate fixed fees to strategy format
-- Update Jito configuration structure
-- Review output format changes
-
-### To 1.0.5
-- Add `port = 0` to disable file server
-- Review security settings if enabling
+### To Latest Version
+- Check release notes for breaking changes
+- Update configuration as needed
+- Test in development first
 
 ## Roadmap
 
 ### Planned Features
-- [ ] WebSocket real-time updates
-- [ ] Historical data analysis
-- [ ] Machine learning integration
-- [ ] Cross-chain arbitrage
-- [ ] Advanced backtesting
-- [ ] GUI configuration tool
-- [ ] Mobile monitoring app
+<!-- ⚠️ REVIEW: Replace with actual planned features -->
+- [ ] Feature 1
+- [ ] Feature 2
+- [ ] Feature 3
 
 ### Under Consideration
-- Database persistence
-- Kubernetes deployment
-- Advanced analytics
-- Strategy marketplace
-- Community strategies
+<!-- ⚠️ REVIEW: Replace with actual considerations -->
+- Consideration 1
+- Consideration 2
 
 ## Contributing
 

@@ -370,6 +370,7 @@ Prevent memory bloat:
 
 ### Vertical Scaling
 
+<!-- ⚠️ REVIEW: Hardware recommendations below should be validated against actual performance requirements -->
 Upgrade single instance:
 
 | Component | Basic | Recommended | Optimal |
