@@ -13,6 +13,7 @@
 * [Prerequisites](getting-started/prerequisites.md)
 * [Installation](getting-started/installation.md)
 * [Quick Start Guide](getting-started/quick-start.md)
+* [Updating arb-assist](getting-started/updating.md)
 
 ## Configuration
 
@@ -53,10 +54,3 @@
 * [Sample Configurations](examples/sample-configs.md)
 * [Strategy Templates](examples/strategy-templates.md)
 * [Real-world Scenarios](examples/real-world.md)
-
-## Updates & Maintenance
-
-* [Updating arb-assist](updates/updating.md)
-* [Version Compatibility](updates/compatibility.md)
-* [Migration Guides](updates/migration.md)
-* [Changelog](updates/changelog.md)
