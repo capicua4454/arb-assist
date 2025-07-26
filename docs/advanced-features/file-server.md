@@ -212,26 +212,20 @@ done
 
 ### Recommended Setup
 
-```
-┌─────────────────────┐
-│   arb-assist        │
-│   (Main Server)     │
-│   - 8 CPU cores     │
-│   - 16GB RAM        │
-│   - GRPC connection │
-│   - File server:8080│
-└──────────┬──────────┘
-           │
-      HTTP │ (Internal Network)
-           │
-    ┌──────┴──────┬───────────┬───────────┐
-    │             │           │           │
-┌───▼────┐  ┌────▼───┐  ┌────▼───┐  ┌────▼───┐
-│ Bot #1 │  │ Bot #2 │  │ Bot #3 │  │ Bot #4 │
-│ 2 CPU  │  │ 2 CPU  │  │ 2 CPU  │  │ 2 CPU  │
-│ 4GB RAM│  │ 4GB RAM│  │ 4GB RAM│  │ 4GB RAM│
-└────────┘  └────────┘  └────────┘  └────────┘
-```
+{% mermaid %}
+graph TD
+    A[arb-assist<br/>Main Server<br/>8 CPU cores<br/>16GB RAM<br/>GRPC connection<br/>File server:8080]
+    A -->|HTTP<br/>Internal Network| B[Bot #1<br/>2 CPU<br/>4GB RAM]
+    A -->|HTTP<br/>Internal Network| C[Bot #2<br/>2 CPU<br/>4GB RAM]
+    A -->|HTTP<br/>Internal Network| D[Bot #3<br/>2 CPU<br/>4GB RAM]
+    A -->|HTTP<br/>Internal Network| E[Bot #4<br/>2 CPU<br/>4GB RAM]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+{% endmermaid %}
 
 ### Benefits
 

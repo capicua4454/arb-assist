@@ -384,19 +384,25 @@ Upgrade single instance:
 
 Distribute across multiple servers:
 
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Region 1   │     │  Region 2   │     │  Region 3   │
-│ arb-assist  │     │ arb-assist  │     │ arb-assist  │
-│   US-East   │     │   Europe    │     │   Asia      │
-└──────┬──────┘     └──────┬──────┘     └──────┬──────┘
-       │                   │                   │
-       └───────────────────┴───────────────────┘
-                           │
-                    Load Balancer
-                           │
-                      Bot Fleet
-```
+{% mermaid %}
+graph TD
+    R1[Region 1<br/>arb-assist<br/>US-East]
+    R2[Region 2<br/>arb-assist<br/>Europe]
+    R3[Region 3<br/>arb-assist<br/>Asia]
+    LB[Load Balancer]
+    BF[Bot Fleet]
+    
+    R1 --> LB
+    R2 --> LB
+    R3 --> LB
+    LB --> BF
+    
+    style R1 fill:#f9f,stroke:#333,stroke-width:2px
+    style R2 fill:#f9f,stroke:#333,stroke-width:2px
+    style R3 fill:#f9f,stroke:#333,stroke-width:2px
+    style LB fill:#bbf,stroke:#333,stroke-width:2px
+    style BF fill:#bfb,stroke:#333,stroke-width:2px
+{% endmermaid %}
 
 ### Edge Computing
 

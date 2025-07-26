@@ -27,7 +27,7 @@ arb-assist supports multiple arbitrage bot implementations:
 
 ## How It Works
 
-```mermaid
+{% mermaid %}
 graph TD
     A[GRPC Stream] -->|Transaction Data| B[arb-assist]
     B -->|Analyze| C[Market Intelligence]
@@ -37,7 +37,7 @@ graph TD
     E -->|NotArb| G[notarb-config.json]
     F --> H[SMB-Onchain Bot]
     G --> I[NotArb Bot]
-```
+{% endmermaid %}
 
 ## Key Benefits
 
