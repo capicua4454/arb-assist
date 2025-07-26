@@ -215,7 +215,19 @@ done
 ```mermaid
 ---
 config:
-  theme: 'dark'
+  theme: 'base'
+  themeVariables:
+    darkMode: true
+    background: '#00000000'
+    primaryColor: '#1f2937'
+    primaryTextColor: '#f3f4f6'
+    primaryBorderColor: '#374151'
+    lineColor: '#9ca3af'
+    secondaryColor: '#374151'
+    tertiaryColor: '#4b5563'
+    mainBkg: '#1f2937'
+    secondBkg: '#374151'
+    tertiaryBkg: '#4b5563'
 ---
 graph TD
     A[arb-assist<br/>Main Server<br/>8 CPU cores<br/>16GB RAM<br/>GRPC connection<br/>File server:8080]
