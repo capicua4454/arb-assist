@@ -385,7 +385,10 @@ Upgrade single instance:
 Distribute across multiple servers:
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+---
+config:
+  theme: 'dark'
+---
 graph TD
     R1[Region 1<br/>arb-assist<br/>US-East]
     R2[Region 2<br/>arb-assist<br/>Europe]

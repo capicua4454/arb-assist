@@ -213,7 +213,10 @@ done
 ### Recommended Setup
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+---
+config:
+  theme: 'dark'
+---
 graph TD
     A[arb-assist<br/>Main Server<br/>8 CPU cores<br/>16GB RAM<br/>GRPC connection<br/>File server:8080]
     A -->|HTTP<br/>Internal Network| B[Bot #1<br/>2 CPU<br/>4GB RAM]
