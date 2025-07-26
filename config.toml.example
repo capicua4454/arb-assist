@@ -214,3 +214,11 @@ account_size_loader = { rpc_url = "", invalid_account_size = 200, buffer_size = 
 market_loader = ""
 lookup_table_loader = ""
 wsol_unwrapper = { enabled = true, check_minutes = 1, trigger_sol = 0.5, target_sol = 5, priority_fee_lamports=190, reader_rpc_url=""}
+
+[notarb.fast_config]
+auth_value = ""
+urls = [ "https://fast.circular.fi/transactions/no-failure/notarb" ]
+
+[notarb.astralane_config]
+auth_value = ""
+
