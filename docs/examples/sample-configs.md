@@ -1,5 +1,9 @@
 # Sample Configurations
 
+{% hint style="info" %}
+ℹ️ **REVIEW NEEDED**: These sample configurations are examples based on common patterns. Please verify all parameter values, especially thresholds and performance-related settings, match your actual requirements and the current capabilities of arb-assist.
+{% endhint %}
+
 This section provides complete, production-ready configuration examples for different trading strategies and scenarios.
 
 ## Basic Configuration
