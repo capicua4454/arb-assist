@@ -72,6 +72,7 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # min_turnover is the minimum ratio of total_volume/liquidity
 # max_cu_limit: Maximum compute unit limit (u64)
 # top_pool_num: Number of top pools to include *Must be 2 or more (u64)
+# min_fee_percentile, max_fee_percentile, min_tip_percentile, max_tip_percentile: Define the minimum or maximum percentiles for fee or tip
 filter_thresholds = [
   {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 1_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
 ]
@@ -94,6 +95,14 @@ spam_levels = [
 # Enable no_failure_mode (SMB) or prefer_success (NotArb) for Jito. This will cause all your Jito txs to succeed and consume your Jito tip.
 jito_levels = [
   {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 1_000, max_tip = 2000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true },
+]
+
+fast_levels = [
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 15_000, max_tip = 20_000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 1_000, fee_strategy = "Random" },
+]
+
+astralane_levels = [
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 10_000, max_tip = 20_000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 1_000, fee_strategy = "Random" },
 ]
 
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
@@ -147,3 +156,11 @@ account_size_loader = { rpc_url = "", invalid_account_size = 200, buffer_size = 
 market_loader = ""
 lookup_table_loader = ""
 wsol_unwrapper = { enabled = true, check_minutes = 1, trigger_sol = 0.5, target_sol = 5, priority_fee_lamports=190, reader_rpc_url=""}
+
+[notarb.fast_config]
+auth_value = ""
+urls = [ "https://fast.circular.fi/transactions/no-failure/notarb" ]
+
+[notarb.astralane_config]
+auth_value = ""
+
