@@ -75,7 +75,7 @@ Strategy object structure:
 
 | Field | Type | Required | Default | Description |
 |-------|------|----------|---------|-------------|
-| `aluts_per_mint` | integer | No | `20` | ALUTs to collect per mint |
+| `aluts_per_pool` | integer | No | `20` | ALUTs to collect per pool |
 | `aluts` | array[string] | No | `[]` | Custom ALUTs to include |
 
 ### Dynamic Tips
@@ -173,14 +173,54 @@ jito_levels = [
 | `sending_strategy` | string | No | `"AllAtOnce"` | `"AllAtOnce"` or `"OneByOne"` |
 | `no_failure_mode` | boolean | No | `false` | Ensure all txs succeed |
 
-### Other Strategy Levels
+### Fast Levels
 
-Similar structure for:
-- `fast_levels`
-- `astralane_levels`
-- `nextblock_levels`
-- `node1_levels`
-- `blockrazor_levels`
+Array of fast lane configurations:
+
+```toml
+fast_levels = [
+  { fast_config_1 },
+  { fast_config_2 },
+  ...
+]
+```
+
+#### Fast Configuration Fields
+
+| Field | Type | Required | Default | Description |
+|-------|------|----------|---------|-------------|
+| `filter_level` | integer | Yes | - | Maps to filter_thresholds index |
+| `bundle_groups` | array[integer] | Yes | - | Which mint groups to use |
+| `process_delay` | integer | No | `400` | Delay between attempts (ms) |
+| `min_tip` | integer | No | `0` | Minimum tip amount |
+| `max_tip` | integer | No | `1000000` | Maximum tip amount |
+| `min_tip_percentile` | integer | No | `0` | Min tip percentile (0-100) |
+| `max_tip_percentile` | integer | No | `100` | Max tip percentile (0-100) |
+| `tx_count` | integer | No | `1` | Transactions per bundle |
+| `tip_strategy` | string | No | `"Random"` | Strategy: `"Random"`, `"Linear"`, `"Exponential"` |
+| `sending_strategy` | string | No | `"AllAtOnce"` | `"AllAtOnce"` or `"OneByOne"` |
+| `no_failure_mode` | boolean | No | `false` | Ensure all txs succeed |
+| `min_cu_percentile` | integer | No | `0` | Min fee percentile (0-100) |
+| `max_cu_percentile` | integer | No | `100` | Max fee percentile (0-100) |
+| `min_cu_price` | integer | No | `0` | Min compute unit price |
+| `max_cu_price` | integer | No | `1000000` | Max compute unit price |
+| `fee_strategy` | string | No | `"Random"` | Fee strategy |
+
+### Astralane Levels
+
+Array of Astralane configurations with same structure as fast_levels.
+
+### Nextblock Levels
+
+Array of Nextblock configurations with same structure as fast_levels.
+
+### Node1 Levels  
+
+Array of Node1 configurations with same structure as fast_levels.
+
+### Blockrazor Levels
+
+Array of Blockrazor configurations with same structure as fast_levels.
 
 ## SMB-Specific Configuration
 
@@ -191,6 +231,7 @@ max_retries = 0
 enable_simple_send = false
 cetiloan = true
 merge_mints = true
+skip_ata_creation = false
 ```
 
 ### SMB Fields
@@ -202,9 +243,11 @@ merge_mints = true
 | `enable_simple_send` | boolean | No | `false` | Use simple send mode |
 | `cetiloan` | boolean | No | `true` | Enable flash loans |
 | `merge_mints` | boolean | No | `true` | Allow mint merging |
+| `skip_ata_creation` | boolean | No | `false` | Skip ATA creation |
 
 ### SMB Sub-configurations
 
+#### Jito Configuration
 ```toml
 [smb.jito_config]
 ips = ["192.168.1.0/24"]
@@ -213,15 +256,67 @@ use_min_profit = true
 use_separate_tip_account = false
 ```
 
-Each strategy config (`jito_config`, `fast_config`, etc.) has:
+#### Fast Configuration
+```toml
+[smb.fast_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+request_params = { frontRunningProtection = false }
+urls = ["https://fast.circular.fi/transactions/no-failure/smb"]
+```
+
+#### Astralane Configuration
+```toml
+[smb.astralane_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+request_params = { mevProtect = false }
+```
+
+#### Nextblock Configuration
+```toml
+[smb.nextblock_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+request_params = { 
+  skipPreFlight = true, 
+  snipeTransaction = true, 
+  frontRunningProtection = false, 
+  disableRetries = true, 
+  revertOnFail = false 
+}
+```
+
+#### Node1 Configuration
+```toml
+[smb.node1_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+```
+
+#### Blockrazor Configuration
+```toml
+[smb.blockrazor_config]
+min_profit = 5_000
+use_min_profit = true
+auth_value = ""
+```
+
+### Strategy Configuration Fields
 
 | Field | Type | Required | Default | Description |
 |-------|------|----------|---------|-------------|
-| `ips` | array[string] | No | `[]` | Allowed IP ranges |
+| `ips` | array[string] | No | `[]` | Allowed IP ranges (jito_config only) |
 | `min_profit` | integer | No | `0` | Min profit to use strategy |
 | `use_min_profit` | boolean | No | `false` | Enforce minimum profit |
 | `auth_value` | string | No | `""` | Authentication value |
 | `use_separate_tip_account` | boolean | No | `false` | Jito-specific |
+| `request_params` | object | No | `{}` | Service-specific parameters |
+| `urls` | array[string] | No | `[]` | Service URLs (fast_config only) |
 
 ## NotArb-Specific Configuration
 

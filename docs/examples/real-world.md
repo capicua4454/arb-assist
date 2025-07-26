@@ -1,10 +1,10 @@
 # Real-World Scenarios
 
 {% hint style="danger" %}
-⚠️ **REVIEW NEEDED**: ALL scenarios, results, and performance numbers in this document are FICTIONAL examples. Please replace with actual case studies, real performance data, and verified configurations from production usage.
+⚠️ **TEMPLATE ONLY**: This is a template file with example scenarios. All performance numbers, results, and case studies shown are fictional and must be replaced with actual production data once available.
 {% endhint %}
 
-Practical examples and case studies from actual arbitrage operations. These scenarios demonstrate how to adapt arb-assist to different market conditions.
+This guide will provide practical examples and case studies from actual arbitrage operations, demonstrating how to adapt arb-assist to different market conditions.
 
 ## Scenario 1: The Morning Volatility Window
 

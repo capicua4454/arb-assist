@@ -177,7 +177,7 @@ Without Helius key:
 **Description**: UUID for Jito bundle identification
 
 ```toml
-jito_uuid = "550e8400-e29b-41d4-a716-446655440000"
+jito_uuid = "abcd-efgh-ijklm-opqrs-11223344556600"
 ```
 
 Used for:

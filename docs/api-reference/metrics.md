@@ -418,43 +418,23 @@ filter_thresholds = [{
 
 ## Performance Considerations
 
-### Computational Cost
-
-Metrics by computation expense:
-
-**Low Cost**:
-- profit
-- successful_arbs
-- fails
-- buy_count
-- sell_count
-
-**Medium Cost**:
-- roi
-- profit_per_arb
-- total_volume
-- net_volume
-
-**High Cost**:
-- volatility
-- turnover
-- imbalance
-
 ### Memory Impact
 
-Metrics requiring historical data:
-- All metrics accumulate over time
-- Controlled by `halflife` parameter
-- Shorter halflife = less memory
+All metrics accumulate historical data over time:
+- Controlled by the `halflife` parameter
+- Shorter halflife = less memory usage
+- Longer halflife = more historical context
 
 ### Update Frequency
 
-Metrics update on each interval:
+Metrics are recalculated based on the configured interval:
 ```toml
 update_interval = 10000  # Every 10 seconds
 ```
 
-More frequent updates = fresher metrics but higher CPU usage
+- More frequent updates provide fresher data
+- Less frequent updates reduce system load
+- Balance based on your performance requirements
 
 ## Best Practices
 

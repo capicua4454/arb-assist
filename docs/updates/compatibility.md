@@ -1,10 +1,10 @@
 # Version Compatibility
 
 {% hint style="danger" %}
-⚠️ **REVIEW NEEDED**: This entire compatibility matrix is FICTIONAL. Please replace with actual version compatibility information between arb-assist, SMB-Onchain, NotArb, and Solana versions.
+⚠️ **TEMPLATE ONLY**: This is a template file for documenting version compatibility. All version numbers and compatibility information shown are placeholders and must be replaced with actual data once available.
 {% endhint %}
 
-This guide details compatibility between arb-assist versions and supported bot versions, helping you maintain a stable arbitrage system.
+This guide will detail compatibility between arb-assist versions and supported bot versions, helping you maintain a stable arbitrage system.
 
 ## Compatibility Matrix
 

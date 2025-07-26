@@ -1,10 +1,10 @@
 # Migration Guides
 
 {% hint style="danger" %}
-⚠️ **REVIEW NEEDED**: This entire migration guide contains FICTIONAL version numbers and migration procedures. Please replace with actual migration steps based on real version changes.
+⚠️ **TEMPLATE ONLY**: This is a template file for documenting migration procedures. All version numbers and migration steps shown are examples and must be replaced with actual procedures once version changes occur.
 {% endhint %}
 
-Step-by-step guides for migrating between major versions of arb-assist and handling breaking changes.
+This guide will provide step-by-step instructions for migrating between major versions of arb-assist and handling breaking changes.
 
 ## Migration Overview
 

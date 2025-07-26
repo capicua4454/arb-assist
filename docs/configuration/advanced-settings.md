@@ -119,16 +119,16 @@ filter_thresholds = [
 
 ## ALUTs (Address Lookup Tables)
 
-### aluts_per_mint
+### aluts_per_pool
 
 **Type**: `integer`  
 **Default**: `20`  
-**Description**: Number of ALUTs to collect per mint
+**Description**: Number of ALUTs to collect per pool
 
 ```toml
-aluts_per_mint = 10   # Minimal
-aluts_per_mint = 20   # Standard
-aluts_per_mint = 50   # Comprehensive
+aluts_per_pool = 10   # Minimal
+aluts_per_pool = 20   # Standard
+aluts_per_pool = 50   # Comprehensive
 ```
 
 ### aluts
@@ -289,7 +289,7 @@ sudo ufw deny 8080
 Control memory usage:
 1. Reduce `mints_to_rank`
 2. Increase `halflife` (faster decay)
-3. Limit `aluts_per_mint`
+3. Limit `aluts_per_pool`
 4. Increase `update_interval`
 
 ### CPU Optimization
@@ -426,7 +426,7 @@ Symptoms:
 
 Solutions:
 - Reduce `mints_to_rank`
-- Decrease `aluts_per_mint`
+- Decrease `aluts_per_pool`
 - Increase `halflife`
 - Restart periodically
 

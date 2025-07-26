@@ -177,7 +177,7 @@ Reduce processing overhead:
 ```toml
 # Limit tracked entities
 mints_to_rank = 20        # Instead of 100
-aluts_per_mint = 10       # Instead of 50
+aluts_per_pool = 10       # Instead of 50
 
 # Filter aggressively
 filter_programs = true    # Only specific programs
@@ -198,7 +198,7 @@ Configure for your available memory:
 mints_to_rank = 10
 halflife = 60000  # Aggressive decay
 update_interval = 20000
-aluts_per_mint = 5
+aluts_per_pool = 5
 ```
 
 ##### Balanced Configuration
@@ -206,7 +206,7 @@ aluts_per_mint = 5
 mints_to_rank = 30
 halflife = 120000
 update_interval = 10000
-aluts_per_mint = 20
+aluts_per_pool = 20
 ```
 
 ##### Aggressive Configuration
@@ -214,7 +214,7 @@ aluts_per_mint = 20
 mints_to_rank = 100
 halflife = 300000
 update_interval = 5000
-aluts_per_mint = 50
+aluts_per_pool = 50
 ```
 
 ## Parallel Processing

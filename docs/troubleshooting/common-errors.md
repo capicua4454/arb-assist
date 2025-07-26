@@ -297,7 +297,7 @@ halflife = 60000  # Faster decay
 2. Limit scope:
 ```toml
 mints_to_rank = 20  # Lower number
-aluts_per_mint = 10  # Fewer ALUTs
+aluts_per_pool = 10  # Fewer ALUTs
 ```
 
 3. Restart periodically:

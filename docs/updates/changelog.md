@@ -1,10 +1,8 @@
 # Changelog
 
 {% hint style="danger" %}
-⚠️ **REVIEW NEEDED**: This entire changelog is FICTIONAL and was created as an example. Please replace with actual version history, release dates, and feature changes.
+⚠️ **TEMPLATE ONLY**: This is a template file for documenting version changes. All version numbers, dates, and features shown are examples and must be replaced with actual release information once available.
 {% endhint %}
-
-<!-- ⚠️ REVIEW: Everything below is a template/example and should be replaced with real version information -->
 
 All notable changes to arb-assist will be documented in this file.
 

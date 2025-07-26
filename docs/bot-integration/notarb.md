@@ -259,7 +259,10 @@ Updates based on:
 
 ### JVM Optimization
 
-<!-- ⚠️ REVIEW: JVM optimization settings below are suggestions and should be tested based on your specific hardware and workload -->
+{% hint style="info" %}
+**Note**: The JVM optimization settings below are general suggestions. For optimal performance based on your specific hardware and workload, please refer to NotArb's official documentation.
+{% endhint %}
+
 Tune Java performance:
 ```toml
 jvm_args = [

@@ -121,7 +121,7 @@ halflife = 60000  # 1 minute (aggressive decay)
 Reduce memory footprint:
 ```toml
 mints_to_rank = 15      # Lower limit
-aluts_per_mint = 5      # Fewer ALUTs
+aluts_per_pool = 5      # Fewer ALUTs
 dexes = [               # Only essential DEXes
   "675k...",  # Raydium
   "whir...",  # Orca
