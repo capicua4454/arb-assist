@@ -31,10 +31,27 @@ For comprehensive documentation, installation guides, and configuration details,
    - Rename `config.toml.example` to `config.toml`
    - Edit settings for your GRPC connection and preferences
 
-4. **Run**
+4. **Run arb-assist to generate configs**
    ```bash
+   # Run in background using tmux/screen/pm2
+   tmux new -s arb-assist
    ./arb-assist
+   # Detach with Ctrl+B then D
    ```
+
+5. **Run your arbitrage bot**
+   ```bash
+   # In another tmux/screen session
+   tmux new -s bot
+   
+   # For SMB-Onchain
+   ./smb-onchain
+   
+   # For NotArb
+   java -jar notarb.jar
+   ```
+
+   *Note: Use tmux, screen, or pm2 to keep both arb-assist and your bot running in the background*
 
 ## 🔑 Key Features
 

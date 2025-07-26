@@ -51,6 +51,6 @@
 
 ## Examples
 
-* [Sample Configurations](examples/sample-configs.md)
-* [Strategy Templates](examples/strategy-templates.md)
-* [Real-world Scenarios](examples/real-world.md)
+* [Basic Configuration](examples/sample-config.md)
+* [SMB-Focused Config](examples/smb-config.md)
+* [NotArb-Focused Config](examples/notarb-config.md)

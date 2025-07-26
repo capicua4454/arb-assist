@@ -5,3 +5,4 @@ structure:
   summary: SUMMARY.md
   excludes:
     - archive
+    - examples/strategy-templates.md
