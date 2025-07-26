@@ -385,6 +385,7 @@ Upgrade single instance:
 Distribute across multiple servers:
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph TD
     R1[Region 1<br/>arb-assist<br/>US-East]
     R2[Region 2<br/>arb-assist<br/>Europe]
@@ -396,12 +397,6 @@ graph TD
     R2 --> LB
     R3 --> LB
     LB --> BF
-    
-    style R1 fill:#f9f,stroke:#333,stroke-width:2px
-    style R2 fill:#f9f,stroke:#333,stroke-width:2px
-    style R3 fill:#f9f,stroke:#333,stroke-width:2px
-    style LB fill:#bbf,stroke:#333,stroke-width:2px
-    style BF fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
 ### Edge Computing
