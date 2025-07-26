@@ -6,16 +6,19 @@ Before installing arb-assist, ensure your system meets all the requirements belo
 
 ### Hardware Requirements
 
-<!-- ⚠️ REVIEW: Hardware requirements below are estimates based on README recommendation of "8 core Ryzen VPS or better". Please verify actual requirements -->
 | Component | Minimum | Recommended |
 |-----------|---------|-------------|
-| **CPU** | 8-core x86_64 | 8-core Ryzen 5000+ series |
-| **RAM** | 8 GB | 16 GB |
-| **Storage** | 20 GB SSD | 50 GB NVMe SSD |
-| **Network** | 100 Mbps | 1 Gbps |
+| **CPU** | 8-core dedicated Ryzen | 16-core dedicated Ryzen |
+| **RAM** | See bot documentation | See bot documentation |
+| **Storage** | See bot documentation | See bot documentation |
+| **Network** | Default/Basic | Default/Basic |
 
 {% hint style="warning" %}
-**Important**: arb-assist uses heavy GRPC streams that require significant CPU resources. Running on weaker hardware may result in missed opportunities or data processing delays.
+**Important**: arb-assist uses heavy GRPC streams that require significant CPU resources. Many users report CPU usage warnings above 70% on 8-core systems. Running on weaker hardware may result in missed opportunities or data processing delays.
+{% endhint %}
+
+{% hint style="info" %}
+**Note**: For specific memory and storage requirements, refer to your bot's documentation (SMB-Onchain or NotArb) as requirements may vary based on configuration.
 {% endhint %}
 
 ### Operating System

@@ -191,7 +191,13 @@ dexes = [                 # Only major DEXes
 
 Configure for your available memory:
 
-#### Low Memory (4GB)
+#### Memory Configuration Examples
+
+{% hint style="info" %}
+**Note**: Actual memory requirements depend on your bot configuration. Refer to SMB-Onchain or NotArb documentation for specific requirements.
+{% endhint %}
+
+##### Conservative Configuration
 ```toml
 mints_to_rank = 10
 halflife = 60000  # Aggressive decay
@@ -199,7 +205,7 @@ update_interval = 20000
 aluts_per_mint = 5
 ```
 
-#### Medium Memory (8GB)
+##### Balanced Configuration
 ```toml
 mints_to_rank = 30
 halflife = 120000
@@ -207,7 +213,7 @@ update_interval = 10000
 aluts_per_mint = 20
 ```
 
-#### High Memory (16GB+)
+##### Aggressive Configuration
 ```toml
 mints_to_rank = 100
 halflife = 300000
@@ -370,15 +376,14 @@ Prevent memory bloat:
 
 ### Vertical Scaling
 
-<!-- ⚠️ REVIEW: Hardware recommendations below should be validated against actual performance requirements -->
 Upgrade single instance:
 
 | Component | Basic | Recommended | Optimal |
 |-----------|-------|-------------|---------|
-| CPU | 4 cores | 8 cores | 16+ cores |
-| RAM | 4 GB | 16 GB | 32+ GB |
-| Network | 100 Mbps | 1 Gbps | 10 Gbps |
-| Storage | SATA SSD | NVMe SSD | RAM disk |
+| CPU | 8-core dedicated Ryzen | 16-core dedicated Ryzen | 32+ core dedicated Ryzen |
+| RAM | See bot documentation | See bot documentation | See bot documentation |
+| Network | Default/Basic | Default/Basic | Default/Basic |
+| Storage | See bot documentation | See bot documentation | See bot documentation |
 
 ### Horizontal Scaling
 
