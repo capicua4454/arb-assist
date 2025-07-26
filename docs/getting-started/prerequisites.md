@@ -10,7 +10,7 @@ Before installing arb-assist, ensure your system meets all the requirements belo
 |-----------|---------|-------------|
 | **CPU** | 8-core dedicated Ryzen | 16-core dedicated Ryzen |
 | **RAM** | 16 GB | 32 GB |
-| **Storage** | 60 GB SSD | 120 GB NVMe SSD |
+| **Storage** | 1 GB | 1 GB |
 | **Network** | Default/Basic | Default/Basic |
 
 {% hint style="warning" %}
@@ -20,7 +20,7 @@ Before installing arb-assist, ensure your system meets all the requirements belo
 
 ### Operating System
 
-- **Linux** (Ubuntu 20.04+ recommended)
+- **Linux** (Ubuntu 22.04+ recommended)
 - Windows via WSL2 (with performance limitations)
 - macOS (not officially supported but may work)
 
@@ -33,10 +33,8 @@ You need a reliable Solana RPC endpoint with:
 - Reasonable rate limits (10+ requests/second)
 
 **Recommended providers:**
-- Helius
-- Triton
-- QuickNode
-- Self-hosted RPC
+- Helius (cheaper option, fine for starting out)
+- NFT-gated shared nodes (better performance: Deez, Shark, Platinum, Corvus, Thor, Vision, etc.)
 
 #### GRPC Endpoint
 You must have access to one of the following GRPC services:
@@ -88,7 +86,7 @@ sudo yum groupinstall "Development Tools"
 ### For SMB-Onchain
 
 1. **SMB-Onchain Binary**
-   - Version 0.9.8 or higher
+   - Version 0.11.5 or higher
    - Valid SMB license
 
 2. **Directory Structure**
@@ -112,7 +110,7 @@ sudo yum groupinstall "Development Tools"
 {% hint style="danger" %}
 **Critical**: arb-assist requires a valid license file that is:
 - Locked to your server's IP address
-- Named with `.license` extension
+- Named `license.json`
 - Placed in the same directory as the arb-assist binary
 {% endhint %}
 
@@ -131,10 +129,10 @@ Each bot requires its own license:
 ## Account Requirements
 
 ### Solana Wallet
-- Funded wallet with SOL for:
-  - Transaction fees
-  - Token account creation
-  - Arbitrage capital (or flash loan setup)
+- Funded wallet with:
+  - At least 1 SOL for gas fees
+  - 0.01 WSOL wrapped for ATA (Associated Token Account) creation
+  - Additional arbitrage capital (or flash loan setup)
 - Private key in standard Solana format
 
 ### API Keys (Optional but Recommended)

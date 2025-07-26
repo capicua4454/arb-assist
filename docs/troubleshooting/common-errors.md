@@ -52,10 +52,10 @@ Error: Invalid license file
 # Check your IP
 curl ifconfig.me
 ```
-3. Ensure license filename format: `xxx.xxx.xxx.xxx.license`
+3. Ensure license file is named: `license.json`
 4. Check file permissions:
 ```bash
-chmod 644 *.license
+chmod 644 license.json
 ```
 
 ### Configuration Parse Error

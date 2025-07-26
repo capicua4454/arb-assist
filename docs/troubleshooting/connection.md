@@ -60,16 +60,15 @@ Error: 429 Too Many Requests
 
 **Solutions**:
 
-1. **Use premium RPC**:
+1. **Use recommended RPC**:
 ```toml
-# Helius
+# Helius (cheaper option, fine for starting out)
 rpc_url = "https://mainnet.helius-rpc.com/?api-key=YOUR_KEY"
 
-# Triton
-rpc_url = "https://YOUR_INSTANCE.triton.one/YOUR_TOKEN"
-
-# QuickNode
-rpc_url = "https://YOUR_ENDPOINT.quiknode.pro/YOUR_KEY/"
+# NFT-gated shared nodes (better performance)
+rpc_url = "http://deez.top:80"
+rpc_url = "http://shark.top:80"
+rpc_url = "http://platinum.top:80"
 ```
 
 2. **Implement request distribution**:

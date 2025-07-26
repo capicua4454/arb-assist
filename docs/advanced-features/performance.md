@@ -379,7 +379,7 @@ Upgrade single instance:
 | CPU | 8-core dedicated Ryzen | 16-core dedicated Ryzen | 32+ core dedicated Ryzen |
 | RAM | 16 GB | 32 GB | 64+ GB |
 | Network | Default/Basic | Default/Basic | Default/Basic |
-| Storage | 60 GB SSD | 120 GB NVMe SSD | 250 GB NVMe SSD |
+| Storage | 1 GB | 1 GB | 1 GB |
 
 ### Horizontal Scaling
 

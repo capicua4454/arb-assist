@@ -331,8 +331,7 @@ http://server:8080/markets.json
 ## Version Compatibility
 
 ### SMB Compatibility
-- Version 0.9.8+: Full support
-- Version 0.9.0-0.9.7: Limited support
+- Version 0.11.5+: Full support
 - Older versions: Not supported
 
 ### NotArb Compatibility

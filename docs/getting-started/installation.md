@@ -79,8 +79,8 @@ cd ~/smb
 ### Download SMB-Onchain
 ```bash
 # Download latest version
-wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.9.8.zip
-unzip smb-onchain-0.9.8.zip
+wget https://sourceforge.net/projects/solanamevbotonchain/files/smb-onchain-0.11.5.zip
+unzip smb-onchain-0.11.5.zip
 
 # Make executable
 chmod +x smb-onchain upgrade.sh
@@ -143,11 +143,10 @@ chmod +x arb-assist
 ### Set Up License File
 ```bash
 # Copy your license file to the directory
-# The license file should be named something like: xxx.xxx.xxx.xxx.license
-# where xxx.xxx.xxx.xxx is your server IP
+# The license file must be named: license.json
 
 # Example:
-cp ~/downloads/192.168.1.100.license .
+cp ~/downloads/license.json .
 ```
 
 ### Create Configuration
@@ -170,7 +169,7 @@ Your directory should look like:
 ├── arb-assist
 ├── config.toml
 ├── config.toml.example
-└── xxx.xxx.xxx.xxx.license
+└── license.json
 ```
 
 ### For NotArb
@@ -181,7 +180,7 @@ Your directory should look like:
 ├── arb-assist
 ├── config.toml
 ├── config.toml.example
-└── xxx.xxx.xxx.xxx.license
+└── license.json
 ```
 
 ## Step 7: Initial Configuration

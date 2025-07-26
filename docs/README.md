@@ -19,7 +19,7 @@
 * 📊 **Smart Filtering**: Filter opportunities by ROI, volume, success rate, and more
 * ⚙️ **Adaptive Fee Scaling**: Set priority fees dynamically using multiple strategies
 * 🍆 **Dynamic Jito Tips**: Automatically adjust Jito tips based on market conditions
-* ⚡ **Multi-token Support**: Works with WSOL, USDC, and custom base tokens
+* ⚡ **Multi-token Support**: Works with WSOL and USDC
 * 🔍 **ALUTs Management**: Automatically retrieves and manages lookup tables
 
 ## Quick Links

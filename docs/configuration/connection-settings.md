@@ -22,21 +22,18 @@ rpc_url = "https://api.mainnet-beta.solana.com"
 rpc_url = "https://solana-api.projectserum.com"
 ```
 
-**Premium RPCs** (Recommended):
+**Recommended RPCs**:
 ```toml
-# Helius
+# Helius (cheaper option, fine for starting out)
 rpc_url = "https://mainnet.helius-rpc.com/?api-key=YOUR_KEY"
 
-# Triton
-rpc_url = "https://YOUR_ENDPOINT.triton.one"
-
-# QuickNode
-rpc_url = "https://YOUR_ENDPOINT.quiknode.pro/YOUR_KEY/"
-```
-
-**Self-hosted RPC**:
-```toml
-rpc_url = "http://localhost:8899"
+# NFT-gated shared nodes (better performance)
+rpc_url = "http://deez.top:80"
+rpc_url = "http://shark.top:80"
+rpc_url = "http://platinum.top:80"
+rpc_url = "http://corvus.top:80"
+rpc_url = "http://thor.top:80"
+rpc_url = "http://vision.top:80"
 ```
 
 ### config_rpc_url

@@ -31,16 +31,15 @@ wget -qO- https://api.ipify.org
 
 2. **Check license filename**:
 ```bash
-# License should be named: YOUR_IP.license
-# Example: 192.168.1.100.license
-ls -la *.license
+# License must be named: license.json
+ls -la license.json
 ```
 
 3. **Verify license location**:
 ```bash
 # Must be in same directory as arb-assist
 pwd
-ls -la arb-assist *.license
+ls -la arb-assist license.json
 ```
 
 ### License File Not Found
@@ -54,8 +53,8 @@ Error: Cannot find license file
 
 1. **Check file exists**:
 ```bash
-# List all license files
-find . -name "*.license" -type f
+# Check for license file
+find . -name "license.json" -type f
 
 # Check current directory
 ls -la | grep license
@@ -64,10 +63,10 @@ ls -la | grep license
 2. **Verify permissions**:
 ```bash
 # License needs to be readable
-chmod 644 *.license
+chmod 644 license.json
 
 # Check ownership
-ls -la *.license
+ls -la license.json
 ```
 
 3. **Correct placement**:
@@ -75,7 +74,7 @@ ls -la *.license
 # Ensure in same directory
 cd /path/to/arb-assist
 ls -la
-# Should see both arb-assist and xxx.xxx.xxx.xxx.license
+# Should see both arb-assist and license.json
 ```
 
 ### IP Address Mismatch
@@ -214,7 +213,7 @@ ausearch -k license_access
 ### How License Validation Works
 
 1. **arb-assist startup**:
-   - Looks for *.license file
+   - Looks for license.json file
    - Extracts IP from filename
    - Compares with server IP
    - Validates license content
@@ -236,15 +235,15 @@ Enable verbose logging:
 
 # Look for license-related messages
 [INFO] Looking for license file...
-[INFO] Found license: 192.168.1.100.license
+[INFO] Found license: license.json
 [INFO] Validating license...
-[INFO] License valid for IP: 192.168.1.100
+[INFO] License valid
 ```
 
 2. **Common error patterns**:
 ```
 [ERROR] No license file found in current directory
-[ERROR] License IP (192.168.1.100) does not match server IP (192.168.1.101)
+[ERROR] License does not match server IP
 [ERROR] License validation failed: Invalid signature
 [ERROR] License expired on 2024-01-01
 ```
@@ -262,7 +261,7 @@ echo "Current IP: $(curl -s ifconfig.me)"
 
 2. **Backup current setup**:
 ```bash
-tar -czf arb-assist-backup.tar.gz arb-assist config.toml *.license
+tar -czf arb-assist-backup.tar.gz arb-assist config.toml license.json
 ```
 
 3. **Request new license**:
@@ -343,7 +342,7 @@ When experiencing license issues:
 
 - [ ] Verify server's external IP
 - [ ] Check license file exists
-- [ ] Confirm filename matches IP
+- [ ] Confirm file is named license.json
 - [ ] Verify file permissions (readable)
 - [ ] Ensure in correct directory
 - [ ] Check for error messages in logs
@@ -358,7 +357,7 @@ When contacting support:
 
 1. **Provide information**:
    - Current server IP
-   - License filename
+   - License file exists (license.json)
    - Error messages
    - Server provider
    - Migration details (if applicable)
@@ -369,8 +368,8 @@ When contacting support:
 echo "=== Diagnostic Report ===" > diagnostic.txt
 echo "Date: $(date)" >> diagnostic.txt
 echo "IP: $(curl -s ifconfig.me)" >> diagnostic.txt
-echo "License files:" >> diagnostic.txt
-ls -la *.license >> diagnostic.txt
+echo "License file:" >> diagnostic.txt
+ls -la license.json >> diagnostic.txt
 echo "Directory contents:" >> diagnostic.txt
 ls -la >> diagnostic.txt
 echo "Error output:" >> diagnostic.txt
