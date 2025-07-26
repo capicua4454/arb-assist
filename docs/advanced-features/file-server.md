@@ -213,18 +213,13 @@ done
 ### Recommended Setup
 
 ```mermaid
+%%{ init: { 'theme': 'dark', 'themeVariables': { 'background': '#1e1e1e', 'primaryColor': '#374151', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#6b7280', 'lineColor': '#6b7280', 'secondaryColor': '#1f2937', 'tertiaryColor': '#111827', 'textColor': '#e5e7eb' } } }%%
 graph TD
     A[arb-assist<br/>Main Server<br/>8 CPU cores<br/>16GB RAM<br/>GRPC connection<br/>File server:8080]
     A -->|HTTP<br/>Internal Network| B[Bot #1<br/>2 CPU<br/>4GB RAM]
     A -->|HTTP<br/>Internal Network| C[Bot #2<br/>2 CPU<br/>4GB RAM]
     A -->|HTTP<br/>Internal Network| D[Bot #3<br/>2 CPU<br/>4GB RAM]
     A -->|HTTP<br/>Internal Network| E[Bot #4<br/>2 CPU<br/>4GB RAM]
-    
-    classDef server fill:#dbeafe,stroke:#2563eb,stroke-width:3px,color:#1e3a8a
-    classDef bot fill:#e5e7eb,stroke:#374151,stroke-width:2px,color:#111827
-    
-    class A server
-    class B,C,D,E bot
 ```
 
 ### Benefits

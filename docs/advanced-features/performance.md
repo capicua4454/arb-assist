@@ -385,6 +385,7 @@ Upgrade single instance:
 Distribute across multiple servers:
 
 ```mermaid
+%%{ init: { 'theme': 'dark', 'themeVariables': { 'background': '#1e1e1e', 'primaryColor': '#374151', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#6b7280', 'lineColor': '#6b7280', 'secondaryColor': '#1f2937', 'tertiaryColor': '#111827', 'textColor': '#e5e7eb' } } }%%
 graph TD
     R1[Region 1<br/>arb-assist<br/>US-East]
     R2[Region 2<br/>arb-assist<br/>Europe]
@@ -396,14 +397,6 @@ graph TD
     R2 --> LB
     R3 --> LB
     LB --> BF
-    
-    classDef region fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#4c1d95
-    classDef infra fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    classDef fleet fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
-    
-    class R1,R2,R3 region
-    class LB infra
-    class BF fleet
 ```
 
 ### Edge Computing

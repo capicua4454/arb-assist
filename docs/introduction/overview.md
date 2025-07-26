@@ -28,6 +28,7 @@ arb-assist supports multiple arbitrage bot implementations:
 ## How It Works
 
 ```mermaid
+%%{ init: { 'theme': 'dark', 'themeVariables': { 'background': '#1e1e1e', 'primaryColor': '#374151', 'primaryTextColor': '#e5e7eb', 'primaryBorderColor': '#6b7280', 'lineColor': '#6b7280', 'secondaryColor': '#1f2937', 'tertiaryColor': '#111827', 'textColor': '#e5e7eb' } } }%%
 graph TD
     A[GRPC Stream] -->|Transaction Data| B[arb-assist]
     B -->|Analyze| C[Market Intelligence]
@@ -37,13 +38,6 @@ graph TD
     E -->|NotArb| G[notarb-config.json]
     F --> H[SMB-Onchain Bot]
     G --> I[NotArb Bot]
-    
-    classDef default fill:#e5e7eb,stroke:#374151,stroke-width:2px,color:#111827
-    classDef highlight fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    classDef output fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#4c1d95
-    
-    class B highlight
-    class F,G output
 ```
 
 ## Key Benefits
