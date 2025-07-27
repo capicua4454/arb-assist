@@ -21,7 +21,8 @@ chmod +x arb-assist
 
 ## Important Notes
 
-- Your config.toml and license.json files are never overwritten
+- Your config.toml and license files (license_*.json) are never overwritten
+- **NEVER modify or rename your license file** - keep it exactly as provided by the arb-assist team
 - The download URL always points to the latest stable version
 - Check [Discord](https://discord.gg/ADtnjdy5m5) for update announcements
 
@@ -46,7 +47,7 @@ If the update fails to start:
 chmod +x arb-assist
 
 # Check license file exists
-ls -la license.json
+ls -la license_*.json
 
 # Test manually to see error messages
 ./arb-assist -c config.toml

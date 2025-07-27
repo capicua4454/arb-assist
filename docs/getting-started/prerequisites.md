@@ -110,15 +110,17 @@ sudo yum groupinstall "Development Tools"
 {% hint style="danger" %}
 **Critical**: arb-assist requires a valid license file that is:
 - Locked to your server's IP address
-- Named `license.json`
+- Named in format: `license_username_serverIP_expiration.json`
 - Placed in the same directory as the arb-assist binary
+- **MUST NOT be renamed or modified** - keep it exactly as provided by the arb-assist team
 {% endhint %}
 
 To obtain a license:
 1. Contact the arb-assist team
 2. Provide your server's IP address
 3. Receive your personalized license file
-4. Do not share or modify the license file
+4. Do not share the license file
+5. **Do not rename or modify the license file** - use it exactly as provided
 
 ### Bot Licenses
 

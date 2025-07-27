@@ -52,11 +52,13 @@ Error: Invalid license file
 # Check your IP
 curl ifconfig.me
 ```
-3. Ensure license file is named: `license.json`
-4. Check file permissions:
+3. Ensure license file follows format: `license_username_serverIP_expiration.json`
+4. **Do NOT rename or modify the license file** - use it exactly as provided by the arb-assist team
+5. Check file permissions:
 ```bash
-chmod 644 license.json
+chmod 644 license_*.json
 ```
+6. If you modified the license file in any way, request a new one from the arb-assist team
 
 ### Configuration Parse Error
 
@@ -414,7 +416,7 @@ curl -I https://api.mainnet-beta.solana.com
 4. **File Permissions**:
 ```bash
 ls -la arb-assist
-ls -la *.license
+ls -la license_*.json
 ls -la config.toml
 ```
 

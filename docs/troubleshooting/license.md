@@ -2,6 +2,8 @@
 
 This guide covers common license-related problems and their solutions.
 
+> ⚠️ **IMPORTANT**: The license file must be kept EXACTLY as provided by the arb-assist team. Do NOT rename or modify the license file in any way. The filename format is: `license_username_serverIP_expiration.json`
+
 ## License Validation Errors
 
 ### Invalid License File
@@ -31,15 +33,18 @@ wget -qO- https://api.ipify.org
 
 2. **Check license filename**:
 ```bash
-# License must be named: license.json
-ls -la license.json
+# License filename format: license_username_serverIP_expiration.json
+# Example: license_myusername_192.168.1.100_1234567890.json
+# DO NOT rename the file - keep it exactly as provided
+ls -la license_*.json
 ```
 
 3. **Verify license location**:
 ```bash
 # Must be in same directory as arb-assist
+# Keep the license file in the same folder without moving it
 pwd
-ls -la arb-assist license.json
+ls -la arb-assist license_*.json
 ```
 
 ### License File Not Found
@@ -54,7 +59,7 @@ Error: Cannot find license file
 1. **Check file exists**:
 ```bash
 # Check for license file
-find . -name "license.json" -type f
+find . -name "license_*.json" -type f
 
 # Check current directory
 ls -la | grep license
@@ -63,10 +68,10 @@ ls -la | grep license
 2. **Verify permissions**:
 ```bash
 # License needs to be readable
-chmod 644 license.json
+chmod 644 license_*.json
 
 # Check ownership
-ls -la license.json
+ls -la license_*.json
 ```
 
 3. **Correct placement**:
@@ -74,7 +79,7 @@ ls -la license.json
 # Ensure in same directory
 cd /path/to/arb-assist
 ls -la
-# Should see both arb-assist and license.json
+# Should see both arb-assist and license_*.json
 ```
 
 ### IP Address Mismatch
@@ -110,10 +115,10 @@ ifconfig
 
 2. **Check for IP changes**:
 ```bash
-# Compare with license filename
-ls *.license
-# If 192.168.1.100.license exists but your IP is 192.168.1.101
-# You need a new license
+# Check your license filename
+ls license_*.json
+# The IP in the filename should match your current server IP
+# Example: license_myusername_192.168.1.100_1234567890.json
 ```
 
 3. **Request new license**:
@@ -123,6 +128,8 @@ ls *.license
 
 ## License File Management
 
+> ⚠️ **WARNING**: Never modify the license file content. Always keep the original file exactly as provided by the arb-assist team.
+
 ### Backup Procedures
 
 Always backup your license:
@@ -131,16 +138,16 @@ Always backup your license:
 ```bash
 # Create backup directory
 mkdir -p ~/licenses/backup
-cp *.license ~/licenses/backup/
+cp license_*.json ~/licenses/backup/
 
 # With timestamp
-cp *.license ~/licenses/backup/license-$(date +%Y%m%d).bak
+cp license_*.json ~/licenses/backup/license-$(date +%Y%m%d).bak
 ```
 
 2. **Secure storage**:
 ```bash
 # Encrypt before storing
-tar -czf - *.license | gpg -c > license-backup.tar.gz.gpg
+tar -czf - license_*.json | gpg -c > license-backup.tar.gz.gpg
 
 # Decrypt when needed
 gpg -d license-backup.tar.gz.gpg | tar -xzf -
@@ -154,11 +161,11 @@ Managing licenses for multiple servers:
 ```bash
 licenses/
 ├── production/
-│   └── 192.168.1.100.license
+│   └── license_produser_192.168.1.100_1234567890.json
 ├── staging/
-│   └── 192.168.1.101.license
+│   └── license_staginguser_192.168.1.101_1234567891.json
 └── development/
-    └── 192.168.1.102.license
+    └── license_devuser_192.168.1.102_1234567892.json
 ```
 
 2. **Deployment script**:
@@ -166,7 +173,8 @@ licenses/
 #!/bin/bash
 # deploy-license.sh
 SERVER_IP=$(curl -s ifconfig.me)
-LICENSE_FILE="licenses/production/${SERVER_IP}.license"
+# Find the license file for this IP
+LICENSE_FILE=$(find licenses/production -name "license_*_${SERVER_IP}_*.json" | head -1)
 
 if [ -f "$LICENSE_FILE" ]; then
     cp "$LICENSE_FILE" .
@@ -184,10 +192,10 @@ Protect your license files:
 1. **File permissions**:
 ```bash
 # Readable by user only
-chmod 600 *.license
+chmod 600 license_*.json
 
 # Or readable by user and group
-chmod 640 *.license
+chmod 640 license_*.json
 ```
 
 2. **Access control**:
@@ -196,7 +204,7 @@ chmod 640 *.license
 sudo useradd -r -s /bin/false arb-assist
 
 # Set ownership
-sudo chown arb-assist:arb-assist *.license
+sudo chown arb-assist:arb-assist license_*.json
 ```
 
 3. **Audit access**:
@@ -213,7 +221,7 @@ ausearch -k license_access
 ### How License Validation Works
 
 1. **arb-assist startup**:
-   - Looks for license.json file
+   - Looks for license file matching pattern: license_*.json
    - Extracts IP from filename
    - Compares with server IP
    - Validates license content
@@ -235,7 +243,7 @@ Enable verbose logging:
 
 # Look for license-related messages
 [INFO] Looking for license file...
-[INFO] Found license: license.json
+[INFO] Found license: license_username_serverIP_expiration.json
 [INFO] Validating license...
 [INFO] License valid
 ```
@@ -261,7 +269,7 @@ echo "Current IP: $(curl -s ifconfig.me)"
 
 2. **Backup current setup**:
 ```bash
-tar -czf arb-assist-backup.tar.gz arb-assist config.toml license.json
+tar -czf arb-assist-backup.tar.gz arb-assist config.toml license_*.json
 ```
 
 3. **Request new license**:
@@ -342,7 +350,7 @@ When experiencing license issues:
 
 - [ ] Verify server's external IP
 - [ ] Check license file exists
-- [ ] Confirm file is named license.json
+- [ ] Confirm file follows naming format: license_username_serverIP_expiration.json
 - [ ] Verify file permissions (readable)
 - [ ] Ensure in correct directory
 - [ ] Check for error messages in logs
@@ -357,7 +365,7 @@ When contacting support:
 
 1. **Provide information**:
    - Current server IP
-   - License file exists (license.json)
+   - License file exists (license_username_serverIP_expiration.json)
    - Error messages
    - Server provider
    - Migration details (if applicable)
@@ -369,7 +377,7 @@ echo "=== Diagnostic Report ===" > diagnostic.txt
 echo "Date: $(date)" >> diagnostic.txt
 echo "IP: $(curl -s ifconfig.me)" >> diagnostic.txt
 echo "License file:" >> diagnostic.txt
-ls -la license.json >> diagnostic.txt
+ls -la license_*.json >> diagnostic.txt
 echo "Directory contents:" >> diagnostic.txt
 ls -la >> diagnostic.txt
 echo "Error output:" >> diagnostic.txt
@@ -383,9 +391,10 @@ echo "Error output:" >> diagnostic.txt
 
 ## Best Practices
 
-1. **Always backup licenses**: Before any changes
-2. **Document IP addresses**: Keep record of licensed IPs
-3. **Plan migrations**: Request new licenses in advance
-4. **Monitor expiration**: If licenses have expiry dates
-5. **Secure storage**: Protect license files
-6. **Test thoroughly**: Before production deployment
+1. **Never modify license files**: Keep them exactly as provided by arb-assist team
+2. **Always backup licenses**: Before any changes
+3. **Document IP addresses**: Keep record of licensed IPs
+4. **Plan migrations**: Request new licenses in advance
+5. **Monitor expiration**: If licenses have expiry dates
+6. **Secure storage**: Protect license files
+7. **Test thoroughly**: Before production deployment

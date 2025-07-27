@@ -141,12 +141,20 @@ chmod +x arb-assist
 ```
 
 ### Set Up License File
+
+{% hint style="danger" %}
+**IMPORTANT**: Do NOT rename or modify the license file in any way. Keep it exactly as provided by the arb-assist team. The filename format is: `license_username_serverIP_expiration.json`
+{% endhint %}
+
 ```bash
 # Copy your license file to the directory
-# The license file must be named: license.json
+# License filename format: license_username_serverIP_expiration.json
+# Example: license_myusername_192.168.1.100_1234567890.json
+# ⚠️ IMPORTANT: Do NOT rename or modify the license file
+# Keep it exactly as provided by the arb-assist team
 
 # Example:
-cp ~/downloads/license.json .
+cp ~/downloads/license_*.json .
 ```
 
 ### Create Configuration
@@ -169,7 +177,7 @@ Your directory should look like:
 ├── arb-assist
 ├── config.toml
 ├── config.toml.example
-└── license.json
+└── license_username_serverIP_expiration.json
 ```
 
 ### For NotArb
@@ -180,7 +188,7 @@ Your directory should look like:
 ├── arb-assist
 ├── config.toml
 ├── config.toml.example
-└── license.json
+└── license_username_serverIP_expiration.json
 ```
 
 ## Step 7: Initial Configuration
