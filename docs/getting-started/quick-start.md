@@ -135,7 +135,7 @@ pm2 logs smb-onchain
 ```bash
 # Start NotArb with PM2
 pm2 start ./notarb.sh --interpreter bash --name notarb-onchain \
-  --watch onchain-bot/bot-config.json -- onchain-bot/bot-config.json
+  --watch onchain-bot/notarb-config.toml -- onchain-bot/notarb-config.toml
 
 # Monitor logs
 pm2 logs notarb-onchain

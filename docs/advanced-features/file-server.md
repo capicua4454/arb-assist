@@ -29,7 +29,7 @@ Once enabled, the following files are served:
 | Endpoint | Description | Mode Required |
 |----------|-------------|---------------|
 | `http://server:8080/smb-config.toml` | SMB configuration | `smb` or `both` |
-| `http://server:8080/notarb-config.json` | NotArb configuration | `na` or `both` |
+| `http://server:8080/notarb-config.toml` | NotArb configuration | `na` or `both` |
 | `http://server:8080/markets.json` | NotArb markets | `na` or `both` |
 | `http://server:8080/lookup-tables.json` | NotArb ALUTs | `na` or `both` |
 | `http://server:8080/notarb-attributes.json` | NotArb attributes | `na` or `both` |
@@ -182,7 +182,7 @@ CONFIG_SERVER="http://192.168.1.50:8080"
 
 # Files to fetch
 FILES=(
-    "notarb-config.json"
+    "notarb-config.toml"
     "markets.json"
     "lookup-tables.json"
     "notarb-attributes.json"

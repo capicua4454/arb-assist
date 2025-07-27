@@ -57,14 +57,14 @@ NotArb is a Java-based arbitrage bot with advanced features for high-frequency t
 
 ### Configuration Output
 When `mode = "na"` or `mode = "both"`, arb-assist generates:
-- `notarb-config.json`: Main configuration file
+- `notarb-config.toml`: Main configuration file
 - `markets.json`: 2D array of market addresses
 - `lookup-tables.json`: Array of lookup table addresses
 - `notarb-attributes.json`: Dynamic fees and settings
 
 ### Example Output Files
 
-**notarb-config.json:**
+**notarb-config.toml:**
 ```json
 {
   "jvm_args": ["-server", "-Xmx8192m"],

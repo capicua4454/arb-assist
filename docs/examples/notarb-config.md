@@ -280,7 +280,7 @@ prefunded_keypairs_path = "/path/to/keypairs.txt"
 
 When running with `mode = "na"`, arb-assist generates:
 
-1. **notarb-config.json** - Main configuration
+1. **notarb-config.toml** - Main configuration
 2. **markets.json** - Trading pairs grouped for execution
 3. **lookup-tables.json** - Address lookup tables
 4. **notarb-attributes.json** - Dynamic parameters like fees and tips

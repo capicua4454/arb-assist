@@ -94,7 +94,7 @@ enabled = true
 
 ## NotArb Output Files
 
-### notarb-config.json
+### notarb-config.toml
 
 Main configuration file for NotArb onchain-bot.
 
@@ -263,7 +263,7 @@ Generated files have permissions:
 Files are created in the current working directory:
 ```
 ./smb-config.toml         # SMB mode
-./notarb-config.json      # NotArb mode
+./notarb-config.toml      # NotArb mode
 ./markets.json            # NotArb mode
 ./lookup-tables.json      # NotArb mode
 ./notarb-attributes.json  # NotArb mode
@@ -317,7 +317,7 @@ When file server is enabled (`port > 0`), files are available via HTTP:
 | Mode | URL Path | Content-Type |
 |------|----------|--------------|
 | SMB | `/smb-config.toml` | `text/plain` |
-| NotArb | `/notarb-config.json` | `application/json` |
+| NotArb | `/notarb-config.toml` | `text/plain` |
 | NotArb | `/markets.json` | `application/json` |
 | NotArb | `/lookup-tables.json` | `application/json` |
 | NotArb | `/notarb-attributes.json` | `application/json` |

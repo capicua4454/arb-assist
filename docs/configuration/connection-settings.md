@@ -199,7 +199,7 @@ port = 0     # Disable file server
 
 File server endpoints:
 - `http://server:8080/smb-config.toml`
-- `http://server:8080/notarb-config.json`
+- `http://server:8080/notarb-config.toml`
 - `http://server:8080/markets.json`
 - `http://server:8080/lookup-tables.json`
 

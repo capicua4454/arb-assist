@@ -34,7 +34,7 @@ graph TD
     C -->|Filter & Rank| D[Profitable Opportunities]
     D -->|Generate| E[Bot Configuration]
     E -->|SMB| F[smb-config.toml]
-    E -->|NotArb| G[notarb-config.json]
+    E -->|NotArb| G[notarb-config.toml]
     F --> H[SMB-Onchain Bot]
     G --> I[NotArb Bot]
 ```

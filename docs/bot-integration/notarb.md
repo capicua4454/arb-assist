@@ -79,7 +79,7 @@ mints_to_arb = [2, 2, 3]
 mints_to_rank = 30
 
 # Output file name
-output = "notarb-config"  # Creates notarb-config.json
+output = "notarb-config"  # Creates notarb-config.toml
 
 # NotArb-specific settings
 [notarb]
@@ -151,8 +151,8 @@ cd ~/notarb/Release
 pm2 start ./notarb.sh \
   --interpreter bash \
   --name notarb-onchain \
-  --watch onchain-bot/notarb-config.json \
-  -- onchain-bot/notarb-config.json
+  --watch onchain-bot/notarb-config.toml \
+  -- onchain-bot/notarb-config.toml
 ```
 
 ### Step 3: Monitor Operation
@@ -171,7 +171,7 @@ pm2 monit
 
 ## Generated Files
 
-### notarb-config.json
+### notarb-config.toml
 
 Main configuration file:
 ```json
@@ -415,7 +415,7 @@ Benefits:
 
 **Configuration Reload**:
 ```
-[INFO] Configuration reloaded from notarb-config.json
+[INFO] Configuration reloaded from notarb-config.toml
 ```
 
 ### Common Issues
@@ -459,7 +459,7 @@ Monitor in NotArb logs:
 
 2. **Backup Configurations**
    ```bash
-   cp notarb-config.json notarb-config.json.backup
+   cp notarb-config.toml notarb-config.toml.backup
    cp markets.json markets.json.backup
    ```
 
