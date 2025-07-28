@@ -36,7 +36,7 @@ arb_programs = [
 ]
 exclude_mints = [                                 # Intermedium mints to exclude
   "So11111111111111111111111111111111111111112",
-  "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  #"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
 ]
 
 update_interval = 10000                           # Interval in milliseconds to update the data
