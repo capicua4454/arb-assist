@@ -21,18 +21,6 @@ filter_programs = true                             # If true, only include trans
 arb_programs = [
   "MEViEnscUm6tsQRoGd9h6nLQaQspKj7DB2M5FwM3Xvz",    # Solana MEV Bot (on-chain)
   "NA247a7YE9S3p9CdKmMyETx8TTwbSdVbVYHHxpnHTUV",    # NotArb
-#  "MEVbwoHUDJNcxZHFFg4XsyuQmBUeXEHFLNqXH635Sgi",    # Solana MEV Bot (Jupiter)
-#  "FAMBuBHJ1U8DUeY3HNGuW9XsCM4bPZKYk9NXSyR2W2zd",   # NotArb
-#  "NA365bsPdvZ8sP58qJ5QFg7eXygCe8aPRRxR9oeMbR5",    # NotArb
-#  "3HXfeBuc1aPwAvBsdReNXKa7j1jSP3khbHbWCVkU8hUu",   # RM4 (Example)
-#  "King7ki4SKMBPb3iupnQwTyjsq294jaXsgLmJo8cb7T",    # 7dGr (Example)
-#  "A6PDFLzh3VbkFn6aJmHe2LSd5kaYe8bmsQc6yPjinpC2",   # CKWX (Example)
-#  "E6kDzoUtNHuk7kyNzK9XUzqi5H3NfvhcXhKv4ToDDW1L",   # CG8n (Example)
-#  "6MWVTis8rmmk6Vt9zmAJJbmb3VuLpzoQ1aHH4N6wQEGh",   # CzYQ (Example)
-#  "MEDALksSEYQQUBsyjSjmhE1ib6Cn7bRV48MYGQ5oQGY",    # E8bT (Example)
-#  "Crf6uiMVHpuqkQzE2FkWWces3xiYaTbTsFYPDSeNWksM",   # EVyb (Example)
-#  "9XFCiGhW1Pkx7rGgNcMH3S9bqDjKwgjqqM2cb2YdzpJ3",   # HxkT (Example)
-#  "Dd5uZwHr4bZYnkSzHwRaaq5BEvS5NHsJZErKJu7YSjhg",   # 3pjW (Example)
 ]
 exclude_mints = [                                 # Intermedium mints to exclude
   "So11111111111111111111111111111111111111112",
@@ -71,10 +59,11 @@ pool_sort_strategy = { metric = "profit", direction = "descending" }
 # min_liquidity is the minimum total liquidity of all pools for that mint
 # min_turnover is the minimum ratio of total_volume/liquidity
 # max_cu_limit: Maximum compute unit limit (u64)
-# top_pool_num: Number of top pools to include *Must be 2 or more (u64)
+# pools_per_mint: Number of top pools to include *Must be 2 or more (u64)
+# max_pools: Maximum pools to use for each transaction
 # min_fee_percentile, max_fee_percentile, min_tip_percentile, max_tip_percentile: Define the minimum or maximum percentiles for fee or tip
 filter_thresholds = [
-  {max_cu_limit = 400_000, top_pool_num = 3, memo = "0", min_profit = 1_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 1_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
+  {max_cu_limit = 360_000, pools_per_mint = 3, max_pools = 5, memo = "0", min_profit = 50_000_000, min_profit_per_arb = 0, min_roi = 1, min_txns = 1, min_fails = 0, min_net_volume = 0, min_total_volume = 10_000_000_000, min_imbalance_ratio = 0.0, max_imbalance_ratio = 1.0, min_liquidity = 1_000_000_000, min_turnover = 0.0, min_volatility = 0.0 },
 ]
 ### You can set different number of levels for spam, jito, fast, nextblock, etc. "filter_level" is the index (starts at 0) of the filter_threshold at which a particular strategy is triggered
 
@@ -163,4 +152,5 @@ urls = [ "https://fast.circular.fi/transactions/no-failure/notarb" ]
 
 [notarb.astralane_config]
 auth_value = ""
+
 
