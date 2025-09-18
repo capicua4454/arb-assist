@@ -121,7 +121,7 @@ log_output = false                                # set to true to log your data
 [notarb]                                            # If you use NotArb onchain then define NotArb-specific settings here
 output = "notarb-config"                            # The name of the config file for NotArb
 jvm_args=["-server", "-Xmx8192m"]                   # JVM arguments for optimization
-keypair_path="${DEFAULT_KEYPAIR_PATH}"              # Path to wallet keypair
+keypair_path=["${DEFAULT_KEYPAIR_PATH}"]            # Path to wallet keypair
 protect_keypair=true                                # Extra security for keypair
 threads=0                                           # 0 will use a dynamic cached thread pool, -1 will use a thread per task, anything > 0 will use a fixed thread pool
 flash_loan = true                                   # if you want to use flash loan
@@ -152,5 +152,6 @@ urls = [ "https://fast.circular.fi/transactions/no-failure/notarb" ]
 
 [notarb.astralane_config]
 auth_value = ""
+
 
 
