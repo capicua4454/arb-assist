@@ -163,9 +163,20 @@ auth_value = ""
 
 [notarb.helius_config]
 auth_value = ""
+# If using SWQOS only, add the following:
+urls = [ 
+  "http://slc-sender.helius-rpc.com/fast?swqos_only=true      # Salt Lake City
+  "http://ewr-sender.helius-rpc.com/fast?swqos_only=true      # Newark
+  "http://lon-sender.helius-rpc.com/fast?swqos_only=true      # London  
+  "http://fra-sender.helius-rpc.com/fast?swqos_only=true      # Frankfurt
+  "http://ams-sender.helius-rpc.com/fast?swqos_only=true      # Amsterdam
+  "http://sg-sender.helius-rpc.com/fast?swqos_only=true       # Singapore
+  "http://tyo-sender.helius-rpc.com/fast?swqos_only=true      # Tokyo
+]
 
 [notarb.stellium_config]
 auth_value = ""
+
 
 
 
