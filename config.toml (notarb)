@@ -94,6 +94,14 @@ astralane_levels = [
   {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 10_000, max_tip = 20_000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 1_000, fee_strategy = "Random" },
 ]
 
+helius_levels = [
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 10_000, max_tip = 20_000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 1_000, fee_strategy = "Random" },
+]
+
+stellium_levels = [
+  {filter_level = 0, bundle_groups = [1], process_delay = 400, min_tip = 10_000, max_tip = 20_000, min_tip_percentile = 0, max_tip_percentile = 99, tx_count = 1, tip_strategy = "Random", sending_strategy = "AllAtOnce", no_failure_mode = true, min_cu_percentile = 0, max_cu_percentile = 25, min_cu_price = 1_000, max_cu_price = 1_000, fee_strategy = "Random" },
+]
+
 config_rpc_url = "http://utah.deez.top:80"        # RPC for smb-onchain to use with generated config
 sending_rpc_urls = [
   "http://main.deez.top:80",                      # RPCs used for sending transactions
@@ -152,6 +160,13 @@ urls = [ "https://fast.circular.fi/transactions/no-failure/notarb" ]
 
 [notarb.astralane_config]
 auth_value = ""
+
+[notarb.helius_config]
+auth_value = ""
+
+[notarb.stellium_config]
+auth_value = ""
+
 
 
 
