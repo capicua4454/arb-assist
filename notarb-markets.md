@@ -24,8 +24,6 @@ These settings control the local behavior of your client, including safety caps 
 | `max_txs_per_strategy` | `int` | Max transaction bundles generated per cycle. |
 | `max_tokens_per_tx` | `int` | Max distinct tokens to target in one transaction. |
 | `max_markets_per_token` | `int` | Max pools to check for a single token. |
-| `max_priority_fee` | `int` | **Hard Cap (Lamports)** for Compute Unit (CU) fees. |
-| `max_jito_tip` | `int` | **Hard Cap (Lamports)** for Jito tips. |
 
 ## Arb Assist Settings `[arb_assist]`
 
@@ -51,8 +49,6 @@ dry_run = true                  # Set to false to execute real trades
 max_txs_per_strategy = 1
 max_tokens_per_tx = 1
 max_markets_per_token = 5
-max_priority_fee = 100_000_000  # 0.1 SOL Cap
-max_jito_tip = 100_000_000      # 0.1 SOL Cap
 
 [arb_assist]
 # ----------------------------------------------------------------
